@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Repaso Prueba 2</title>
+<style>
+  :root {
+    --bg: #f6f3ee; --card: #ffffff; --ink: #2b2b2b; --muted: #6b6b6b;
+    --accent: #b5452b; --accent-soft: #fbe9e3; --blue: #24527a; --blue-soft: #e6eef6;
+    --ok: #2e7d4f; --ok-soft: #e4f3ea; --warn: #a86b00; --warn-soft: #fff3d6;
+    --bad: #b3261e; --bad-soft: #fbe4e2; --line: #e3ddd3;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink);
+    font: 17px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  .wrap { max-width: 860px; margin: 0 auto; padding: 24px 16px 80px; }
+  header { text-align: center; margin-bottom: 20px; }
+  header h1 { margin: 0; font-size: 2rem; color: var(--accent); }
+  header p { margin: 4px 0 0; color: var(--muted); }
+  .score { position: sticky; top: 0; z-index: 5; background: var(--blue); color: #fff;
+    border-radius: 10px; padding: 10px 16px; display: flex; justify-content: space-between;
+    align-items: center; gap: 12px; margin-bottom: 18px; font-weight: 600; flex-wrap: wrap; }
+  .bar { flex: 1; min-width: 120px; height: 10px; background: rgba(255,255,255,.3); border-radius: 6px; overflow: hidden; }
+  .bar span { display: block; height: 100%; width: 0; background: #ffd27a; transition: width .3s; }
+  section.card { background: var(--card); border: 1px solid var(--line); border-radius: 12px;
+    padding: 20px; margin-bottom: 18px; }
+  h2 { margin: 0 0 6px; font-size: 1.3rem; color: var(--blue); }
+  h2 .tag { display: inline-block; background: var(--accent); color: #fff; border-radius: 6px;
+    padding: 0 8px; margin-right: 8px; font-size: .95rem; }
+  .dir { color: var(--muted); margin: 0 0 14px; font-size: .95rem; }
+  .note { background: var(--warn-soft); border-left: 4px solid var(--warn); padding: 10px 14px; border-radius: 6px; margin: 10px 0; }
+    label.check { display: flex; gap: 10px; align-items: center; font-weight: 600; cursor: pointer; margin-top: 8px; }
+  label.check input { width: 20px; height: 20px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+  table { border-collapse: collapse; width: 100%; font-size: .95rem; }
+  th, td { border: 1px solid var(--line); padding: 5px 8px; text-align: left; }
+  th { background: var(--blue-soft); color: var(--blue); }
+  td b { color: var(--accent); }
+  details { border: 1px solid var(--line); border-radius: 8px; padding: 8px 12px; margin-bottom: 10px; background: #fcfbf9; }
+  summary { cursor: pointer; font-weight: 700; color: var(--blue); }
+  .item { padding: 12px 0; border-top: 1px dashed var(--line); }
+  .item:first-of-type { border-top: none; }
+  .q { margin-bottom: 6px; }
+  .q .num { font-weight: 700; color: var(--accent); margin-right: 4px; }
+  .row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+  input[type=text], textarea { font: inherit; padding: 7px 10px; border: 2px solid var(--line);
+    border-radius: 8px; flex: 1; min-width: 180px; background: #fff; }
+  input[type=text]:focus, textarea:focus { outline: none; border-color: var(--blue); }
+  textarea { width: 100%; min-height: 120px; }
+  button { font: inherit; font-weight: 600; border: none; border-radius: 8px; padding: 7px 14px; cursor: pointer;
+    background: var(--blue); color: #fff; }
+  button.ghost { background: transparent; color: var(--blue); border: 2px solid var(--blue); }
+  button:hover { filter: brightness(1.1); }
+  .fb { margin-top: 6px; padding: 6px 10px; border-radius: 6px; font-size: .95rem; display: none; }
+  .fb.ok { display: block; background: var(--ok-soft); color: var(--ok); }
+  .fb.warn { display: block; background: var(--warn-soft); color: var(--warn); }
+  .fb.bad { display: block; background: var(--bad-soft); color: var(--bad); }
+  .fb.show { display: block; background: var(--blue-soft); color: var(--blue); }
+  .reading { background: var(--blue-soft); padding: 14px 16px; border-radius: 8px; margin-bottom: 10px; }
+  .opts { display: flex; flex-direction: column; gap: 6px; }
+  .opts label { display: flex; gap: 8px; align-items: center; padding: 6px 10px; border: 1px solid var(--line);
+    border-radius: 8px; cursor: pointer; }
+  .opts label:hover { background: #faf7f2; }
+  .profile { display: flex; gap: 18px; flex-wrap: wrap; background: var(--accent-soft); padding: 10px 14px; border-radius: 8px; margin-bottom: 10px; }
+  ul.checks { list-style: none; padding: 0; margin: 8px 0 0; }
+  ul.checks li { padding: 2px 0; }
+  .done { text-align: center; }
+  @media (max-width: 520px) { header h1 { font-size: 1.6rem; } section.card { padding: 16px; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1>Repaso: Prueba 2</h1>
+  <p>Unidad 1 · Soy de los Estados Unidos</p>
+</header>
+
+<div class="score">
+  <span>Puntos de práctica: <span id="pts">0</span> / <span id="tot">0</span></span>
+  <div class="bar"><span id="barfill"></span></div>
+</div>
+
+<!-- PASO 2: INFO -->
+<section class="card">
+  <h2><span class="tag">Paso 1</span>Antes de empezar</h2>
+  <p class="dir">Read this first.</p>
+  <div class="note">
+    <strong>⌨️ Tip para los acentos:</strong> Press and <em>hold</em> the letter key (a, e, i, o, u, n) and choose the accent from the menu.
+    Example: hold <b>n</b> to get <b>ñ</b>, hold <b>e</b> to get <b>é</b>. For <b>¿</b> and <b>¡</b>, hold the <b>?</b> or <b>!</b> key.
+  </div>
+  <p><strong>About the real quiz:</strong> 25 minutes, no notes, 35 points + 3 extra credit points. It has the same 5 sections you'll practice below (A–E) plus extra credit. Work through each section, check your answers, and review the notes when you miss one.</p>
+</section>
+
+<!-- PASO 3: NOTAS -->
+<section class="card">
+  <h2><span class="tag">Paso 2</span>Notas de repaso</h2>
+  <p class="dir">Open each box and review. Come back here anytime you get stuck.</p>
+
+  <details open>
+    <summary>Ser, tener y llamarse</summary>
+    <div class="grid" style="margin-top:10px">
+      <table><tr><th colspan="2">ser (to be)</th></tr>
+        <tr><td>yo</td><td><b>soy</b></td></tr><tr><td>tú</td><td><b>eres</b></td></tr>
+        <tr><td>él / ella / usted</td><td><b>es</b></td></tr><tr><td>nosotros/as</td><td><b>somos</b></td></tr>
+        <tr><td>ellos / ellas / ustedes</td><td><b>son</b></td></tr></table>
+      <table><tr><th colspan="2">tener (to have)</th></tr>
+        <tr><td>yo</td><td><b>tengo</b></td></tr><tr><td>tú</td><td><b>tienes</b></td></tr>
+        <tr><td>él / ella / usted</td><td><b>tiene</b></td></tr><tr><td>nosotros/as</td><td><b>tenemos</b></td></tr>
+        <tr><td>ellos / ellas / ustedes</td><td><b>tienen</b></td></tr></table>
+      <table><tr><th colspan="2">llamarse (to be named)</th></tr>
+        <tr><td>yo</td><td><b>me llamo</b></td></tr><tr><td>tú</td><td><b>te llamas</b></td></tr>
+        <tr><td>él / ella / usted</td><td><b>se llama</b></td></tr><tr><td>nosotros/as</td><td><b>nos llamamos</b></td></tr>
+        <tr><td>ellos / ellas / ustedes</td><td><b>se llaman</b></td></tr></table>
+    </div>
+    <p style="margin:10px 0 0"><strong>Remember:</strong> llamarse always needs the little word in front (<b>me, te, se, nos</b>).
+    “Andrés y yo” = <b>nosotros</b>. “Mis amigas” = <b>ellas</b>. Age uses <b>tener</b>: <em>Tengo trece años.</em></p>
+  </details>
+
+  <details open>
+    <summary>Expresiones con tener</summary>
+    <p style="margin:10px 0 8px">In English we say “I <em>am</em> hungry.” In Spanish we say “I <em>have</em> hunger” → <b>Tengo hambre.</b>
+    That's why these expressions use <b>tener</b>, never ser or estar.</p>
+    <table>
+      <tr><th>Español</th><th>English</th><th>Ejemplo</th></tr>
+      <tr><td>🍕 <b>tener hambre</b></td><td>to be hungry</td><td>Tengo hambre. Quiero una pizza.</td></tr>
+      <tr><td>🥤 <b>tener sed</b></td><td>to be thirsty</td><td>Ella tiene sed después de correr.</td></tr>
+      <tr><td>😴 <b>tener sueño</b></td><td>to be sleepy</td><td>Tenemos sueño a las once de la noche.</td></tr>
+      <tr><td>🥶 <b>tener frío</b></td><td>to be cold</td><td>¿Tienes frío? Hay nieve.</td></tr>
+      <tr><td>🥵 <b>tener calor</b></td><td>to be hot</td><td>En Luisiana en julio, tengo calor.</td></tr>
+      <tr><td>😱 <b>tener miedo (de)</b></td><td>to be afraid (of)</td><td>Mi hermana tiene miedo de las arañas.</td></tr>
+      <tr><td>🏃‍♀️ <b>tener prisa</b></td><td>to be in a hurry</td><td>Tengo prisa. ¡La clase empieza ya!</td></tr>
+      <tr><td>✅ <b>tener razón</b></td><td>to be right</td><td>La profesora tiene razón.</td></tr>
+      <tr><td>❌ <b>no tener razón</b></td><td>to be wrong</td><td>Tú no tienes razón: 2 + 2 = 4.</td></tr>
+      <tr><td>🍀 <b>tener suerte</b></td><td>to be lucky</td><td>¡Ustedes tienen suerte!</td></tr>
+      <tr><td>⚠️ <b>tener cuidado</b></td><td>to be careful</td><td>Tengan cuidado con la calle.</td></tr>
+      <tr><td>🎂 <b>tener ___ años</b></td><td>to be ___ years old</td><td>Valeria tiene catorce años.</td></tr>
+    </table>
+    <p style="margin:12px 0 6px"><strong>Watch out!</strong></p>
+    <ul style="margin:0 0 8px; padding-left:20px">
+      <li>Change <b>tener</b> to match the person: yo <b>tengo</b> frío, ellas <b>tienen</b> frío.</li>
+      <li>Do NOT use ser: ❌ <s>Yo soy hambre.</s> ✅ Yo <b>tengo</b> hambre.</li>
+      <li>To say <em>very</em>, use <b>mucho</b> or <b>mucha</b> (not <s>muy</s>). These words are nouns, so match the noun:
+        <br><b>mucha</b> → hambre, sed, prisa, suerte &nbsp;|&nbsp; <b>mucho</b> → frío, calor, sueño, miedo, cuidado
+        <br><em>Tengo <b>mucha</b> sed. Ella tiene <b>mucho</b> frío.</em> (❌ <s>Tengo muy sed.</s>)</li>
+    </ul>
+  </details>
+
+  <details open>
+    <summary>Tener que + infinitivo (to have to…)</summary>
+    <p style="margin:10px 0 8px">Use <b>tener que</b> to talk about obligations, things you <em>have to</em> do.</p>
+    <div class="note" style="background:var(--blue-soft); border-color:var(--blue); text-align:center; font-size:1.05rem">
+      <b>subject</b> + <b>tener</b> (conjugated) + <b>que</b> + <b>infinitive</b> (-ar / -er / -ir, NOT changed)
+    </div>
+    <table style="margin:10px 0">
+      <tr><th>Subject</th><th>tener que</th><th>+ infinitive</th><th>English</th></tr>
+      <tr><td>yo</td><td><b>tengo que</b></td><td>estudiar</td><td>I have to study</td></tr>
+      <tr><td>tú</td><td><b>tienes que</b></td><td>leer</td><td>you have to read</td></tr>
+      <tr><td>él / ella / usted</td><td><b>tiene que</b></td><td>escribir</td><td>he / she has to write</td></tr>
+      <tr><td>nosotros/as</td><td><b>tenemos que</b></td><td>practicar</td><td>we have to practice</td></tr>
+      <tr><td>ellos / ellas / ustedes</td><td><b>tienen que</b></td><td>trabajar</td><td>they have to work</td></tr>
+    </table>
+    <p style="margin:12px 0 6px"><strong>Only ONE verb changes.</strong> Tener changes; the second verb stays in the infinitive.</p>
+    <ul style="margin:0 0 8px; padding-left:20px">
+      <li>❌ <s>Tengo que estudio.</s> → ✅ Tengo que <b>estudiar</b>.</li>
+      <li>❌ <s>Tengo estudiar.</s> (missing <b>que</b>) → ✅ Tengo <b>que</b> estudiar.</li>
+      <li>❌ <s>Nosotros tenemos que escribimos.</s> → ✅ Nosotros tenemos que <b>escribir</b>.</li>
+    </ul>
+  </details>
+
+  <details open>
+    <summary>No tener que (don't have to…) y la negación</summary>
+    <p style="margin:10px 0 8px">To make any sentence negative, put <b>no</b> right <b>before the conjugated verb</b> (tener).</p>
+    <div class="note" style="background:var(--blue-soft); border-color:var(--blue); text-align:center; font-size:1.05rem">
+      <b>subject</b> + <b>no</b> + <b>tener</b> + <b>que</b> + <b>infinitive</b>
+    </div>
+    <table style="margin:10px 0">
+      <tr><th>✅ Afirmativo</th><th>❌ Negativo</th></tr>
+      <tr><td>Yo tengo que leer.</td><td>Yo <b>no</b> tengo que leer. <em>(I don't have to read.)</em></td></tr>
+      <tr><td>Ella tiene que escribir.</td><td>Ella <b>no</b> tiene que escribir.</td></tr>
+      <tr><td>Nosotros tenemos que estudiar.</td><td>Nosotros <b>no</b> tenemos que estudiar.</td></tr>
+      <tr><td>Ella tiene sed.</td><td>Ella <b>no</b> tiene sed. <em>(She is not thirsty.)</em></td></tr>
+    </table>
+    <ul style="margin:0 0 8px; padding-left:20px">
+      <li>❌ <s>Ella tiene no que leer.</s> ❌ <s>No ella tiene que leer.</s> → ✅ Ella <b>no tiene</b> que leer.</li>
+      <li><b>No tener que</b> means you <em>don't need to</em> do it. It does NOT mean “you must not.”</li>
+      <li>Answering “no” to a question uses <b>two</b> no's: ¿Tienes que trabajar? → <b>No, no</b> tengo que trabajar.
+        <br>The first <b>No,</b> answers the question; the second <b>no</b> makes the sentence negative.</li>
+      <li>Listen to the question: ¿Tienes…? → answer with <b>tengo</b>. ¿Ustedes tienen…? → answer with <b>tenemos</b>.</li>
+    </ul>
+  </details>
+
+  <details>
+    <summary>Juntos: tener + expresión → tener que</summary>
+    <p style="margin:10px 0 6px">A feeling (tener + expression) often leads to an obligation (tener que):</p>
+    <p style="margin:0 0 4px">Tengo <b>sed</b>. → Tengo <b>que beber</b> agua.</p>
+    <p style="margin:0 0 4px">Ella tiene <b>sueño</b>. → Ella tiene <b>que dormir</b>.</p>
+    <p style="margin:0">Tenemos <b>un examen</b>. → Tenemos <b>que estudiar</b>.</p>
+  </details>
+
+  <details>
+    <summary>Verbos regulares: -ar, -er, -ir (extra credit)</summary>
+    <table style="margin-top:10px">
+      <tr><th></th><th>practicar</th><th>leer</th><th>escribir</th></tr>
+      <tr><td>yo</td><td>practic<b>o</b></td><td>le<b>o</b></td><td>escrib<b>o</b></td></tr>
+      <tr><td>tú</td><td>practic<b>as</b></td><td>le<b>es</b></td><td>escrib<b>es</b></td></tr>
+      <tr><td>él / ella / usted</td><td>practic<b>a</b></td><td>le<b>e</b></td><td>escrib<b>e</b></td></tr>
+      <tr><td>nosotros/as</td><td>practic<b>amos</b></td><td>le<b>emos</b></td><td>escrib<b>imos</b></td></tr>
+      <tr><td>ellos / ellas / ustedes</td><td>practic<b>an</b></td><td>le<b>en</b></td><td>escrib<b>en</b></td></tr>
+    </table>
+    <p style="margin:10px 0 0">Drop the -ar / -er / -ir and add the ending.</p>
+  </details>
+</section>
+
+<!-- P1 -->
+<section class="card" id="secP1">
+  <h2><span class="tag">Paso 3</span>Práctica: expresiones con tener</h2>
+  <p class="dir"><b>Part 1:</b> Read each situation and choose the best expression.</p>
+  <div id="p1match"></div>
+  <p class="dir" style="margin-top:18px"><b>Part 2:</b> ¿mucho o mucha? Choose the word that matches the expression.</p>
+  <div id="p1mucho"></div>
+</section>
+
+<!-- P2 -->
+<section class="card" id="secP2">
+  <h2><span class="tag">Paso 4</span>Práctica: tener que y no tener que</h2>
+  <p class="dir"><b>Part 1:</b> Type the correct form of <b>tener que</b>.</p>
+  <div id="p2a"></div>
+  <p class="dir" style="margin-top:18px"><b>Part 2:</b> ¿Cuál es correcta? Choose the correct sentence.</p>
+  <div id="p2b"></div>
+  <p class="dir" style="margin-top:18px"><b>Part 3:</b> Problem → solution. Type <b>tener que + a verb</b> from the bank.
+    <br>Banco: <b>beber · comer · dormir · estudiar · llevar</b> (to wear)</p>
+  <div id="p2c"></div>
+  <p class="dir" style="margin-top:18px"><b>Part 4:</b> Answer each question with a complete <b>negative</b> sentence. Start with <b>No, no…</b></p>
+  <div id="p2d"></div>
+</section>
+
+<section class="card" style="background:var(--blue-soft)">
+  <h2>Ahora: práctica tipo prueba</h2>
+  <p style="margin:0">Sections A–E below look like the real quiz. Try them without looking at the notes first!</p>
+</section>
+
+<!-- A -->
+<section class="card" id="secA">
+  <h2><span class="tag">A</span>Información personal</h2>
+  <p class="dir">Type the correct form of the verb in parentheses. For <b>llamarse</b>, include me / te / se / nos.</p>
+</section>
+
+<!-- B -->
+<section class="card" id="secB">
+  <h2><span class="tag">B</span>¿Qué les pasa?</h2>
+  <p class="dir">Write ONE complete sentence with <b>tener + expression</b>. Start with the subject given.</p>
+</section>
+
+<!-- C -->
+<section class="card" id="secC">
+  <h2><span class="tag">C</span>Obligaciones y negación</h2>
+  <p class="dir">Write each sentence in Spanish.</p>
+</section>
+
+<!-- D -->
+<section class="card" id="secD">
+  <h2><span class="tag">D</span>Un perfil</h2>
+  <p class="dir">Read the profile and choose the best answer. (On the quiz you will write short answers in English or Spanish.)</p>
+  <div class="reading">
+    Me llamo Sofía. Tengo trece años y soy de Lima. Soy estudiante. Mi amigo se llama Mateo.
+    Él tiene catorce años y es de Chicago. Hoy tengo sed, pero Mateo tiene frío.
+    Esta noche tengo que escribir. Mateo tiene que practicar el piano.
+  </div>
+</section>
+
+<!-- E -->
+<section class="card" id="secE">
+  <h2><span class="tag">E</span>Una presentación</h2>
+  <p class="dir">Introduce this person in THREE complete Spanish sentences: her <b>name</b>, where she is <b>from</b>, and what she <b>has to do</b> tonight. Use <b>ella</b>, her name, or no subject.</p>
+  <div class="profile">
+    <span><strong>Nombre:</strong> Gabriela</span>
+    <span><strong>Origen:</strong> Houston</span>
+    <span><strong>Esta noche:</strong> leer un libro</span>
+  </div>
+  <textarea id="essay" placeholder="Escribe tres oraciones aquí..."></textarea>
+  <div class="row" style="margin-top:8px">
+    <button id="essayBtn">Revisar</button>
+    <button class="ghost" id="essayModel">Ver ejemplo</button>
+  </div>
+  <ul class="checks" id="essayChecks"></ul>
+  <div class="fb" id="essayFb"></div>
+</section>
+
+<!-- F: PERFIL -->
+<section class="card" id="secF">
+  <h2><span class="tag">F</span>Escribe un perfil</h2>
+  <p class="dir">Write a short paragraph (at least <b>6 sentences</b>) introducing someone: a friend, a family member, a saint, a celebrity, or a made-up person. Write about them using <b>él / ella</b> or their name.</p>
+  <div class="profile" style="flex-direction:column; gap:4px">
+    <strong>Your paragraph must include:</strong>
+    <span>1. Name → <em>Se llama…</em></span>
+    <span>2. Age → <em>Tiene … años.</em></span>
+    <span>3. Origin → <em>Es de…</em></span>
+    <span>4. How they feel today → <em>Hoy tiene hambre / sed / sueño / miedo / prisa…</em></span>
+    <span>5. Something they have to do → <em>Tiene que…</em></span>
+    <span>6. Something they do NOT have to do → <em>No tiene que…</em></span>
+  </div>
+  <textarea id="perfil" style="min-height:170px" placeholder="Mi amiga se llama..."></textarea>
+  <div class="row" style="margin-top:8px">
+    <button id="perfilBtn">Revisar</button>
+    <button class="ghost" id="perfilModel">Ver ejemplo</button>
+  </div>
+  <ul class="checks" id="perfilChecks"></ul>
+  <div class="fb" id="perfilFb"></div>
+</section>
+
+<!-- EC -->
+<section class="card" id="secEC">
+  <h2><span class="tag">⭐</span>Extra credit</h2>
+  <p class="dir">Type the correct present-tense form. (Check the -ar / -er / -ir notes in Paso 2!)</p>
+</section>
+
+<section class="card done">
+  <h2>¡Buen trabajo! 🎉</h2>
+  <p>Look at the sections where you missed points and review those notes one more time. ¡Buena suerte en la prueba!</p>
+</section>
+
+</div>
+
+<script>
+const data = {
+  p1match: {
+    opts: ["tener hambre", "tener sed", "tener sueño", "tener frío", "tener calor", "tener miedo", "tener prisa", "tener razón", "tener suerte", "tener cuidado"],
+    items: [
+      { q: "Hay una araña enorme en tu cuarto. <em>(There's a huge spider in your room.)</em>", c: "tener miedo" },
+      { q: "Son las 7:58 y la clase empieza a las 8:00. <em>(Class starts in 2 minutes.)</em>", c: "tener prisa" },
+      { q: "Es medianoche y estudias mucho. <em>(It's midnight.)</em>", c: "tener sueño" },
+      { q: "Estás en la playa en julio. <em>(At the beach in July.)</em>", c: "tener calor" },
+      { q: "No comes el almuerzo. <em>(You skip lunch.)</em>", c: "tener hambre" },
+      { q: "Ganas la lotería. <em>(You win the lottery.)</em>", c: "tener suerte" },
+      { q: "Dices: “2 + 2 = 4.” <em>(Your answer is correct.)</em>", c: "tener razón" },
+      { q: "Hay nieve y no tienes chaqueta. <em>(Snow, no jacket.)</em>", c: "tener frío" },
+      { q: "Corres cinco kilómetros. <em>(You run 5 km.)</em>", c: "tener sed" },
+      { q: "Cruzas una calle con mucho tráfico. <em>(Crossing a busy street.)</em>", c: "tener cuidado" }
+    ]
+  },
+  p1mucho: {
+    opts: ["mucho", "mucha"],
+    items: [
+      { q: "Tengo ______ hambre.", c: "mucha" },
+      { q: "Ella tiene ______ frío.", c: "mucho" },
+      { q: "Tenemos ______ prisa.", c: "mucha" },
+      { q: "¿Tienes ______ miedo?", c: "mucho" },
+      { q: "Ellos tienen ______ sed.", c: "mucha" },
+      { q: "Yo tengo ______ sueño.", c: "mucho" }
+    ]
+  },
+  p2a: [
+    { q: "Yo ________ estudiar.", a: ["tengo que"] },
+    { q: "Mis amigas ________ trabajar.", a: ["tienen que"] },
+    { q: "¿Tú ________ leer el libro?", a: ["tienes que"] },
+    { q: "Nosotras no ________ escribir.", a: ["tenemos que"] },
+    { q: "Usted ________ hablar español.", a: ["tiene que"] },
+    { q: "Ana y yo ________ practicar.", a: ["tenemos que"] }
+  ],
+  p2b: [
+    { q: "I have to study.", o: ["Tengo estudiar.", "Tengo que estudio.", "Tengo que estudiar.", "Soy que estudiar."], c: 2,
+      why: "Tener + que + infinitive. Only tener changes." },
+    { q: "She doesn't have to read.", o: ["Ella tiene no que leer.", "Ella no tiene que leer.", "No ella tiene que leer.", "Ella no tiene que lee."], c: 1,
+      why: "No goes right before tener, and leer stays in the infinitive." },
+    { q: "We have to write.", o: ["Nosotros tenemos que escribimos.", "Nosotros tienen que escribir.", "Nosotros tenemos que escribir.", "Nosotros tenemos escribir."], c: 2,
+      why: "Nosotros → tenemos, + que, + escribir (infinitive)." },
+    { q: "They are not hungry.", o: ["Ellos no son hambre.", "Ellos no tienen hambre.", "Ellos tienen no hambre.", "Ellos no tienen que hambre."], c: 1,
+      why: "Hunger uses tener (no que!), and no goes before tienen." },
+    { q: "You (one friend) don't have to work.", o: ["Tú no tienes que trabajar.", "Tú no tiene que trabajar.", "Tú tienes que no trabajar.", "Tú no tienes trabajar."], c: 0,
+      why: "Tú → tienes. No + tienes + que + trabajar." }
+  ],
+  p2c: [
+    { q: "Tengo sed. → Yo ________ agua.", a: ["tengo que beber"] },
+    { q: "Ella tiene hambre. → Ella ________ una pizza.", a: ["tiene que comer"] },
+    { q: "Nosotros tenemos sueño. → Nosotros ________.", a: ["tenemos que dormir"] },
+    { q: "Tienes un examen mañana. → Tú ________.", a: ["tienes que estudiar"] },
+    { q: "Ellos tienen frío. → Ellos ________ una chaqueta.", a: ["tienen que llevar"] }
+  ],
+  p2d: [
+    { q: "¿Tienes que trabajar hoy?", a: ["no no tengo que trabajar", "no no tengo que trabajar hoy", "no yo no tengo que trabajar", "no yo no tengo que trabajar hoy"] },
+    { q: "¿Ustedes tienen que estudiar esta noche?", a: ["no no tenemos que estudiar", "no no tenemos que estudiar esta noche", "no nosotros no tenemos que estudiar", "no nosotras no tenemos que estudiar", "no nosotros no tenemos que estudiar esta noche", "no nosotras no tenemos que estudiar esta noche"] },
+    { q: "¿Tu amiga tiene que escribir?", a: ["no no tiene que escribir", "no ella no tiene que escribir", "no mi amiga no tiene que escribir"] },
+    { q: "¿Tienes sueño?", a: ["no no tengo sueño", "no yo no tengo sueño"] }
+  ],
+  secA: [
+    { q: "Tú ________ de Luisiana. (ser)", a: ["eres"] },
+    { q: "¿Cómo ________ ella? (llamarse)", a: ["se llama"] },
+    { q: "Yo ________ trece años. (tener)", a: ["tengo"] },
+    { q: "Mi hermana y yo ________ de Nueva Orleans. (ser)", a: ["somos"] },
+    { q: "Mis profesores ________ el señor Ruiz y la señora Díaz. (llamarse)", a: ["se llaman"] },
+    { q: "Nosotras ________ tres libros. (tener)", a: ["tenemos"] },
+    { q: "Ustedes ________ estudiantes. (ser)", a: ["son"] },
+    { q: "Yo ________ Camila. (llamarse)", a: ["me llamo"] },
+    { q: "Mis amigos ________ quince años. (tener)", a: ["tienen"] }
+  ],
+  secB: [
+    { q: "It's 100 degrees outside. Begin with <b>Yo</b>.", a: ["yo tengo calor", "yo tengo mucho calor"] },
+    { q: "Marcos wants a sandwich. Begin with <b>Marcos</b>.", a: ["marcos tiene hambre", "marcos tiene mucha hambre"] },
+    { q: "You and your sister want to go to bed. Begin with <b>Nosotros</b>.", a: ["nosotros tenemos sueño", "nosotros tenemos mucho sueño"] },
+    { q: "Your friends just ran a mile and need a drink. Begin with <b>Mis amigos</b>.", a: ["mis amigos tienen sed", "mis amigos tienen mucha sed"] },
+    { q: "Lucía is in Alaska in January. Begin with <b>Lucía</b>.", a: ["lucía tiene frío", "lucía tiene mucho frío"] },
+    { q: "Ana sees a huge spider. Begin with <b>Ana</b>.", a: ["ana tiene miedo", "ana tiene mucho miedo"] },
+    { q: "Your friend is late for the bus. Begin with <b>Tú</b>.", a: ["tú tienes prisa", "tú tienes mucha prisa"] }
+  ],
+  secC: [
+    { q: "They have to read.", a: ["ellos tienen que leer", "ellas tienen que leer", "tienen que leer"] },
+    { q: "I have to practice.", a: ["yo tengo que practicar", "tengo que practicar"] },
+    { q: "You (one friend) have to study.", a: ["tú tienes que estudiar", "tienes que estudiar"] },
+    { q: "We do not have to write.", a: ["nosotros no tenemos que escribir", "nosotras no tenemos que escribir", "no tenemos que escribir"] },
+    { q: "He is not hungry.", a: ["él no tiene hambre", "no tiene hambre"] },
+    { q: "I am not cold.", a: ["yo no tengo frío", "no tengo frío"] }
+  ],
+  secD: [
+    { q: "¿Cuántos años tiene Sofía?", o: ["13", "14", "15", "16"], c: 0 },
+    { q: "¿De dónde es Mateo?", o: ["Lima", "Chicago", "Madrid", "Houston"], c: 1 },
+    { q: "¿Qué tiene que hacer Mateo esta noche?", o: ["Escribir", "Estudiar español", "Practicar el piano", "Leer un libro"], c: 2 },
+    { q: "¿Qué le pasa a Sofía hoy? (What's going on with Sofía?)", o: ["She is cold", "She is thirsty", "She is sleepy", "She is hungry"], c: 1 }
+  ],
+  secEC: [
+    { q: "Tú ________ música. (escuchar)", a: ["escuchas"] },
+    { q: "Nosotros ________ en Luisiana. (vivir)", a: ["vivimos"] },
+    { q: "Ellas ________ agua. (beber)", a: ["beben"] },
+    { q: "Yo ________ una carta. (escribir)", a: ["escribo"] },
+    { q: "Él ________ un libro. (leer)", a: ["lee"] }
+  ]
+};
+
+const hints = {
+  secA: "Check the ser / tener / llamarse charts in Paso 2.",
+  secB: "Use tener (not ser) + hambre, sed, sueño, frío, calor, miedo or prisa.",
+  p2a: "tengo / tienes / tiene / tenemos / tienen + que.",
+  p2c: "tener que + infinitive (the verb from the bank does not change).",
+  p2d: "No, no + tener que + infinitive. Answer about yourself or your group.",
+  secC: "tener que + infinitive. For negative, put no before the verb.",
+  secEC: "Drop -ar/-er/-ir and add the ending."
+};
+
+const earned = new Set();
+let total = 0;
+function updateScore() {
+  document.getElementById("pts").textContent = earned.size;
+  document.getElementById("tot").textContent = total;
+  document.getElementById("barfill").style.width = (total ? earned.size / total * 100 : 0) + "%";
+}
+const strip = s => s.normalize("NFD").replace(/[̀-ͯ]/g, "");
+const clean = s => s.toLowerCase().replace(/[¿?¡!.,;:]/g, " ").replace(/\s+/g, " ").trim();
+
+let n = 0;
+function typedSection(id, prefix, sentence) {
+  const sec = document.getElementById(id);
+  data[id].forEach((it, i) => {
+    const key = id + i; total++; if (!prefix) n++;
+    const div = document.createElement("div");
+    div.className = "item";
+    div.innerHTML = `<div class="q"><span class="num">${prefix ? prefix + (i + 1) : n}.</span>${it.q}</div>
+      <div class="row"><input type="text" autocomplete="off" spellcheck="false">
+      <button>Revisar</button><button class="ghost">Ver respuesta</button></div><div class="fb"></div>`;
+    const [inp] = div.getElementsByTagName("input");
+    const [chk, show] = div.getElementsByTagName("button");
+    const fb = div.querySelector(".fb");
+    const check = () => {
+      const raw = clean(inp.value);
+      if (!raw) return;
+      const plain = strip(raw);
+      if (it.a.includes(raw)) {
+        fb.className = "fb ok"; fb.textContent = "¡Correcto! ✔"; earned.add(key);
+      } else if (it.a.some(a => strip(a) === plain)) {
+        fb.className = "fb warn"; fb.textContent = "¡Casi! Revisa los acentos (á, é, í, ó, ú, ñ).";
+      } else {
+        fb.className = "fb bad"; fb.textContent = "Inténtalo otra vez. Tip: " + hints[id];
+      }
+      updateScore();
+    };
+    chk.onclick = check;
+    inp.addEventListener("keydown", e => { if (e.key === "Enter") check(); });
+    show.onclick = () => {
+      const ans = it.a[0];
+      fb.className = "fb show";
+      let out = ans;
+      if (sentence) { out = ans.charAt(0).toUpperCase() + ans.slice(1) + "."; out = out.replace(/^No no /, "No, no ").replace(/^No (yo|ella|nosotros|nosotras|mi amiga) /, "No, $1 "); }
+      fb.textContent = "Respuesta: " + out;
+    };
+    sec.appendChild(div);
+  });
+}
+
+// select-based matching
+function selectSection(id) {
+  const box = document.getElementById(id);
+  const d = data[id];
+  d.items.forEach((it, i) => {
+    const key = id + i; total++;
+    const div = document.createElement("div");
+    div.className = "item";
+    div.innerHTML = `<div class="q"><span class="num">${i + 1}.</span>${it.q}</div>
+      <div class="row"><select style="font:inherit;padding:6px 8px;border:2px solid var(--line);border-radius:8px;min-width:200px">
+      <option value="">— elige —</option>${d.opts.map(o => `<option>${o}</option>`).join("")}</select></div><div class="fb"></div>`;
+    const sel = div.querySelector("select"), fb = div.querySelector(".fb");
+    sel.onchange = () => {
+      if (!sel.value) return;
+      if (sel.value === it.c) { fb.className = "fb ok"; fb.textContent = "¡Correcto! ✔"; earned.add(key); }
+      else { fb.className = "fb bad"; fb.textContent = "Inténtalo otra vez. Check the chart in Paso 2."; }
+      updateScore();
+    };
+    box.appendChild(div);
+  });
+}
+
+// multiple choice with explanation
+function mcSection(id) {
+  const box = document.getElementById(id);
+  data[id].forEach((it, i) => {
+    const key = id + i; total++;
+    const div = document.createElement("div");
+    div.className = "item";
+    div.innerHTML = `<div class="q"><span class="num">${i + 1}.</span>${it.q}</div><div class="opts">${
+      it.o.map((o, j) => `<label><input type="radio" name="${id}${i}" value="${j}"> ${o}</label>`).join("")
+    }</div><div class="fb"></div>`;
+    const fb = div.querySelector(".fb");
+    div.querySelectorAll("input").forEach(r => r.onchange = () => {
+      if (+r.value === it.c) { fb.className = "fb ok"; fb.textContent = "¡Correcto! ✔ " + it.why; earned.add(key); }
+      else { fb.className = "fb bad"; fb.textContent = "Not quite. Tip: " + it.why; }
+      updateScore();
+    });
+    box.appendChild(div);
+  });
+}
+
+selectSection("p1match");
+selectSection("p1mucho");
+typedSection("p2a", " ");
+mcSection("p2b");
+typedSection("p2c", " ");
+typedSection("p2d", " ", true);
+
+typedSection("secA");
+typedSection("secB", "", true);
+typedSection("secC", "", true);
+
+// D: multiple choice
+(function () {
+  const sec = document.getElementById("secD");
+  data.secD.forEach((it, i) => {
+    const key = "secD" + i; total++; n++;
+    const div = document.createElement("div");
+    div.className = "item";
+    div.innerHTML = `<div class="q"><span class="num">${n}.</span>${it.q}</div><div class="opts">${
+      it.o.map((o, j) => `<label><input type="radio" name="d${i}" value="${j}"> ${o}</label>`).join("")
+    }</div><div class="fb"></div>`;
+    const fb = div.querySelector(".fb");
+    div.querySelectorAll("input").forEach(r => r.onchange = () => {
+      if (+r.value === it.c) { fb.className = "fb ok"; fb.textContent = "¡Correcto! ✔"; earned.add(key); }
+      else { fb.className = "fb bad"; fb.textContent = "No. Read the profile again and look for the key words."; }
+      updateScore();
+    });
+    sec.appendChild(div);
+  });
+})();
+
+// E: writing self-check
+(function () {
+  const key = "secE"; total++;
+  const btn = document.getElementById("essayBtn");
+  const list = document.getElementById("essayChecks");
+  const fb = document.getElementById("essayFb");
+  btn.onclick = () => {
+    const raw = document.getElementById("essay").value;
+    const t = strip(clean(raw));
+    const sentences = raw.split(/[.!?]+/).filter(s => s.trim().split(/\s+/).length >= 2).length;
+    const checks = [
+      ["Name with llamarse (se llama Gabriela)", /se llama gabriela/.test(t)],
+      ["Origin with ser (es de Houston)", /es de houston/.test(t)],
+      ["Obligation with tener que (tiene que leer un libro)", /tiene que leer/.test(t)],
+      ["Three sentences, each ending with a period", sentences >= 3]
+    ];
+    list.innerHTML = checks.map(([label, ok]) => `<li>${ok ? "✅" : "⬜"} ${label}</li>`).join("");
+    if (checks.every(c => c[1])) { fb.className = "fb ok"; fb.textContent = "¡Excelente! All three parts are there."; earned.add(key); }
+    else { fb.className = "fb warn"; fb.textContent = "Almost! Fix the parts that are not checked yet."; }
+    updateScore();
+  };
+  document.getElementById("essayModel").onclick = () => {
+    fb.className = "fb show";
+    fb.textContent = "Ejemplo: Ella se llama Gabriela. Es de Houston. Esta noche tiene que leer un libro.";
+  };
+})();
+
+// F: profile paragraph self-check
+(function () {
+  const key = "secF"; total++;
+  const fb = document.getElementById("perfilFb");
+  document.getElementById("perfilBtn").onclick = () => {
+    const raw = document.getElementById("perfil").value;
+    const t = strip(clean(raw));
+    const sentences = raw.split(/[.!?]+/).filter(x => x.trim().split(/\s+/).length >= 2).length;
+    const checks = [
+      ["Name: se llama …", /\bse llama\b/.test(t)],
+      ["Age: tiene … años", /\btiene\b.*\banos\b/.test(t)],
+      ["Origin: es de …", /\bes de\b/.test(t)],
+      ["Feeling: tiene + hambre / sed / sueño / frío / calor / miedo / prisa / razón / suerte / cuidado",
+        /\btiene (mucho |mucha )?(hambre|sed|sueno|frio|calor|miedo|prisa|razon|suerte|cuidado)\b/.test(t)],
+      ["Obligation: tiene que + infinitive", /\btiene que [a-z]+(ar|er|ir)\b/.test(t)],
+      ["Negative: no tiene que + infinitive", /\bno tiene que [a-z]+(ar|er|ir)\b/.test(t)],
+      ["At least 6 sentences, each ending with a period", sentences >= 6]
+    ];
+    document.getElementById("perfilChecks").innerHTML =
+      checks.map(([label, ok]) => `<li>${ok ? "✅" : "⬜"} ${label}</li>`).join("");
+    if (/\bes (hambre|sed|sueno|frio|calor|miedo|prisa)\b/.test(t)) {
+      fb.className = "fb bad"; fb.textContent = "Careful: use tiene (not es) with hambre, sed, sueño, frío, calor, miedo, prisa.";
+    } else if (checks.every(c => c[1])) {
+      fb.className = "fb ok"; fb.textContent = "¡Excelente perfil! Read it out loud once to practice."; earned.add(key);
+    } else {
+      fb.className = "fb warn"; fb.textContent = "Almost! Add the parts that are not checked yet.";
+    }
+    updateScore();
+  };
+  document.getElementById("perfilModel").onclick = () => {
+    fb.className = "fb show";
+    fb.textContent = "Ejemplo: Mi prima se llama Lucía. Tiene quince años. Es de Baton Rouge. Es estudiante. Hoy tiene mucho sueño porque estudia mucho. Esta noche tiene que leer un libro, pero no tiene que escribir. ¡Tiene que dormir!";
+  };
+})();
+
+typedSection("secEC", "EC");
+updateScore();
+</script>
+</body>
+</html>
