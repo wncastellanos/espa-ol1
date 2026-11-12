@@ -1,0 +1,1345 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Repaso Unidad 0 · Español I</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&display=swap">
+<style>
+:root{
+  --bg:#eef2f8; --surface:#ffffff; --sunk:#f5f7fb; --ink:#152036; --muted:#566179; --line:#d6ddea;
+  --accent:#1d4ea0; --accent-ink:#ffffff; --accent-soft:#e3ebfa;
+  --sun:#f3a712; --sun-soft:#fff3d6; --sun-ink:#7a4a00;
+  --ok:#17744a; --ok-bg:#e2f5ea; --bad:#b3261e; --bad-bg:#fde8e6; --rev:#8a5a00; --rev-bg:#fff1d0;
+  --c1:#1d4ea0; --c2:#b3261e; --c3:#17744a; --c4:#7a4a00;
+  --display:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;
+  --body:"Atkinson Hyperlegible","Segoe UI",system-ui,sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0e1320; --surface:#172034; --sunk:#121a2b; --ink:#e7ecf5; --muted:#9ca7bd; --line:#2a3550;
+  --accent:#86a9ff; --accent-ink:#0e1320; --accent-soft:#1e2b4a;
+  --sun:#f6b93b; --sun-soft:#3a2c0e; --sun-ink:#ffd88a;
+  --ok:#62d29b; --ok-bg:#12301f; --bad:#ff8d84; --bad-bg:#3b1815; --rev:#ffcf70; --rev-bg:#382a0c;
+  --c1:#86a9ff; --c2:#ff8d84; --c3:#62d29b; --c4:#ffcf70; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0e1320; --surface:#172034; --sunk:#121a2b; --ink:#e7ecf5; --muted:#9ca7bd; --line:#2a3550;
+  --accent:#86a9ff; --accent-ink:#0e1320; --accent-soft:#1e2b4a;
+  --sun:#f6b93b; --sun-soft:#3a2c0e; --sun-ink:#ffd88a;
+  --ok:#62d29b; --ok-bg:#12301f; --bad:#ff8d84; --bad-bg:#3b1815; --rev:#ffcf70; --rev-bg:#382a0c;
+  --c1:#86a9ff; --c2:#ff8d84; --c3:#62d29b; --c4:#ffcf70; color-scheme:dark}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.55}
+.gut{padding-left:16px;padding-right:16px}
+a{color:var(--accent)}
+header.top{position:sticky;top:0;z-index:5;background:var(--surface);border-bottom:1px solid var(--line)}
+.top-in{max-width:900px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px;padding-top:10px;padding-bottom:4px}
+.brand{display:flex;align-items:baseline;gap:10px;min-width:0;flex-wrap:wrap}
+.brand-k{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:700}
+.brand-t{font-family:var(--display);font-weight:800;font-size:22px;letter-spacing:-.01em}
+.pill{font:inherit;font-size:13px;border:1px solid var(--line);background:var(--sunk);color:var(--ink);border-radius:999px;padding:4px 12px;cursor:pointer;white-space:nowrap}
+nav.tabs{max-width:900px;margin:0 auto;display:flex;gap:4px;overflow-x:auto}
+nav.tabs a{text-decoration:none;color:var(--muted);font-weight:700;padding:8px 12px;border-bottom:3px solid transparent;white-space:nowrap}
+nav.tabs a.on{color:var(--accent);border-bottom-color:var(--accent)}
+main{padding-top:22px;padding-bottom:80px}
+.page{max-width:900px;margin:0 auto;display:flex;flex-direction:column;gap:18px}
+.eyebrow{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);font-weight:700}
+h1,h2{font-family:var(--display);font-weight:800;letter-spacing:-.015em;line-height:1.15;margin:0;text-wrap:balance}
+h1{font-size:clamp(28px,5vw,40px)}
+h2{font-size:clamp(24px,4vw,32px)}
+h3{font-family:var(--display);font-weight:600;font-size:20px;margin:0}
+p{margin:0}
+.lead{font-size:18px;color:var(--muted);max-width:65ch}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.note{background:var(--sun-soft);color:var(--sun-ink);border-radius:12px;padding:12px 16px}
+.rule{background:var(--accent-soft);border-radius:12px;padding:14px 18px;display:flex;flex-direction:column;gap:8px}
+.rule strong{color:var(--accent)}
+.warn{background:var(--bad-bg);border-radius:12px;padding:14px 18px;display:flex;flex-direction:column;gap:6px}
+.warn strong{color:var(--bad)}
+.es{font-style:italic}
+.sub{font-size:14px;color:var(--muted)}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
+ul.clean,ol.clean{margin:0;padding-left:1.2em;display:flex;flex-direction:column;gap:6px}
+.btn{font:inherit;font-weight:700;text-decoration:none;display:inline-block;border-radius:10px;border:2px solid var(--accent);background:var(--accent);color:var(--accent-ink);padding:8px 18px;cursor:pointer}
+.btn.ghost{background:transparent;color:var(--accent)}
+.btn[disabled]{opacity:.45;cursor:not-allowed}
+button:focus-visible,input:focus,textarea:focus,select:focus,a:focus-visible{outline:3px solid var(--sun);outline-offset:1px}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.subtabs{display:flex;gap:6px;flex-wrap:wrap}
+.subtabs a,.chip{font:inherit;font-size:15px;text-decoration:none;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:6px 14px;cursor:pointer;white-space:nowrap}
+.subtabs a.on,.chip.on{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.big{display:flex;flex-direction:column;gap:6px;text-decoration:none;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px 20px;transition:border-color .15s}
+.big:hover{border-color:var(--accent)}
+.big .k{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:700}
+.big p{color:var(--muted);font-size:15px}
+.big .pts{font-size:13px;color:var(--muted);font-weight:700}
+.tbl-wrap{overflow-x:auto;max-width:100%}
+table{border-collapse:collapse}
+th,td{border:1px solid var(--line);padding:6px 10px;text-align:left;vertical-align:middle}
+th{background:var(--sunk);font-size:13px;letter-spacing:.06em;text-transform:uppercase}
+td.subj{font-weight:700;white-space:nowrap}
+tr.extra td{color:var(--muted)}
+.end{background:var(--sun-soft);color:var(--sun-ink);font-weight:700;border-radius:4px;padding:0 2px}
+.say{flex:none;width:32px;height:32px;border-radius:50%;border:1px solid var(--line);background:var(--surface);color:var(--accent);cursor:pointer;display:inline-grid;place-items:center;vertical-align:middle;padding:0}
+.say svg{width:17px;height:17px}
+.no-tts .say,.no-tts .playbig{display:none}
+.cell{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.vocab{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:8px}
+.voc{display:flex;align-items:center;justify-content:space-between;gap:8px;background:var(--sunk);border-radius:10px;padding:8px 12px;min-width:0}
+.voc .w{font-weight:700}
+.voc .en{font-size:14px;color:var(--muted)}
+.formula{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-weight:700}
+.blk{border-radius:10px;padding:8px 14px;border:2px solid;display:flex;flex-direction:column;align-items:center;line-height:1.25}
+.blk small{font-weight:400;font-size:12px;opacity:.85}
+.blk.b1{border-color:var(--c1);color:var(--c1)}
+.blk.b2{border-color:var(--c2);color:var(--c2);background:var(--bad-bg)}
+.blk.b3{border-color:var(--c4);color:var(--c4)}
+.blk.b4{border-color:var(--c3);color:var(--c3)}
+.plus{color:var(--muted);font-weight:700}
+.toc{display:flex;gap:6px;flex-wrap:wrap}
+.usos{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px}
+.steps4{counter-reset:s;list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
+.steps4 li{counter-increment:s;background:var(--sunk);border-radius:10px;padding:12px;display:flex;flex-direction:column;gap:4px}
+.steps4 li::before{content:"Paso " counter(s);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);font-weight:700}
+.machine{display:flex;flex-wrap:wrap;gap:12px;align-items:end}
+.machine label{display:flex;flex-direction:column;gap:4px;font-size:14px;color:var(--muted)}
+select.in{font:inherit;color:var(--ink);background:var(--sunk);border:2px solid var(--line);border-radius:8px;padding:6px 8px}
+.mout{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:8px}
+.mout div{border:1px dashed var(--line);border-radius:10px;padding:10px}
+.mout .k{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.mout .v{font-family:var(--display);font-weight:600;font-size:20px}
+.mout .final{border-style:solid;border-color:var(--sun);background:var(--sun-soft)}
+.mout .final .v{color:var(--sun-ink);font-size:24px}
+
+/* flashcards */
+.fc{perspective:1200px;cursor:pointer;outline:none;height:260px}
+.fc-in{position:relative;width:100%;height:100%;transition:transform .45s;transform-style:preserve-3d}
+.fc.flip .fc-in{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:16px;border:2px solid var(--line);background:var(--surface);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:20px;text-align:center}
+.face.back{transform:rotateY(180deg);background:var(--accent-soft);border-color:var(--accent)}
+.face .tag{position:absolute;top:12px;left:16px;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:700}
+.face .txt{font-family:var(--display);font-weight:800;font-size:clamp(26px,5vw,40px);line-height:1.15}
+.face .txt.long{font-size:clamp(20px,3.4vw,26px);font-weight:600}
+.fc:focus-visible .face{outline:3px solid var(--sun)}
+.fc-bar{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.prog{height:8px;border-radius:99px;background:var(--sunk);overflow:hidden;border:1px solid var(--line)}
+.prog i{display:block;height:100%;background:var(--accent);width:0;transition:width .3s}
+.fc-actions{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+.btn.no{border-color:var(--bad);background:transparent;color:var(--bad)}
+.btn.yes{border-color:var(--ok);background:var(--ok);color:var(--surface)}
+
+/* matching */
+.match{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.match .col{display:flex;flex-direction:column;gap:8px}
+.mt{font:inherit;text-align:left;background:var(--sunk);color:var(--ink);border:2px solid var(--line);border-radius:10px;padding:10px 12px;cursor:pointer;min-height:50px}
+.mt.sel{border-color:var(--accent);background:var(--accent-soft)}
+.mt.done{border-color:var(--ok);background:var(--ok-bg);color:var(--ok);cursor:default}
+.mt.nope{border-color:var(--bad);background:var(--bad-bg);animation:shake .3s}
+@keyframes shake{25%{transform:translateX(-4px)}75%{transform:translateX(4px)}}
+
+/* practice items */
+.rstats{display:flex;gap:16px;flex-wrap:wrap;font-size:14px;color:var(--muted)}
+.rstats b{color:var(--ink);font-variant-numeric:tabular-nums}
+.ritem{display:flex;flex-direction:column;gap:12px}
+.ilabel{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);font-weight:700}
+.iq{font-size:20px;line-height:2.1}
+.iq .paren{font-size:16px;color:var(--muted)}
+.iq .small{font-size:16px;line-height:1.5}
+.iq p{line-height:1.5}
+input.blank{font:inherit;color:var(--ink);background:var(--sunk);border:2px solid var(--line);border-radius:8px;padding:2px 8px;max-width:100%;min-width:6ch}
+input.blank.wide{width:100%;display:block;margin-top:6px;font-size:18px;padding:6px 10px}
+input.blank.ok{border-color:var(--ok);background:var(--ok-bg);color:var(--ok)}
+input.blank.bad{border-color:var(--bad);background:var(--bad-bg)}
+input.blank.rev{border-color:var(--rev);background:var(--rev-bg);color:var(--rev)}
+.opts{display:flex;flex-direction:column;gap:8px;align-items:stretch}
+.opt{font:inherit;background:var(--sunk);color:var(--ink);border:2px solid var(--line);border-radius:10px;padding:8px 14px;cursor:pointer;text-align:left}
+.opt:hover:not([disabled]){border-color:var(--accent)}
+.opt.ok{border-color:var(--ok);background:var(--ok-bg);color:var(--ok);font-weight:700}
+.opt.bad{border-color:var(--bad);background:var(--bad-bg);color:var(--bad);text-decoration:line-through}
+.opt[disabled]{cursor:default}
+.line{min-height:56px;border:2px dashed var(--line);border-radius:12px;padding:8px;display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.line.ok{border-style:solid;border-color:var(--ok);background:var(--ok-bg)}
+.line .ph{color:var(--muted);font-size:15px;padding-left:4px}
+.tray{display:flex;flex-wrap:wrap;gap:6px}
+.tile{font:inherit;font-size:18px;background:var(--surface);color:var(--ink);border:2px solid var(--accent);border-bottom-width:4px;border-radius:10px;padding:4px 12px;cursor:pointer}
+.line .tile{background:var(--accent-soft)}
+.fb{font-size:16px}
+.fb.good{color:var(--ok);font-weight:700}
+.fb.try{color:var(--bad)}
+.fb ul{margin:4px 0 0;padding-left:1.2em;font-weight:400;color:var(--ink)}
+.fb .acc{color:var(--rev);font-weight:400}
+.iexp{background:var(--sunk);border-radius:10px;padding:12px 16px;display:flex;flex-direction:column;gap:8px;font-size:16px}
+.exrow{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.playbig{font:inherit;font-weight:700;display:inline-flex;align-items:center;gap:8px;border-radius:999px;border:2px solid var(--accent);background:var(--accent-soft);color:var(--accent);padding:8px 18px;cursor:pointer;line-height:1.3}
+.playbig svg{width:20px;height:20px}
+.secgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px}
+.back{align-self:flex-start}
+.tog{display:flex;align-items:center;gap:8px;font-size:15px;cursor:pointer}
+.tog input{width:18px;height:18px;accent-color:var(--accent)}
+
+/* reading */
+.passage{background:var(--sunk);border-radius:12px;padding:16px 18px;font-size:18px;line-height:1.8}
+.passage .s{cursor:pointer;border-radius:4px;padding:1px 2px;transition:background .2s}
+.passage .s:hover{background:var(--accent-soft)}
+.passage .s.now{background:var(--accent-soft);outline:2px solid var(--accent)}
+.passage .s.ev{background:var(--sun-soft);color:var(--sun-ink);box-shadow:inset 0 -2px 0 var(--sun)}
+.qcard{border-top:1px solid var(--line);padding-top:14px;display:flex;flex-direction:column;gap:10px}
+.qcard:first-child{border-top:0;padding-top:0}
+.qcard .iq{font-size:17px;line-height:1.5;font-weight:700}
+
+/* writing */
+.facts{display:grid;grid-template-columns:auto 1fr;gap:4px 16px;background:var(--sunk);border-radius:10px;padding:12px 16px}
+.facts dt{color:var(--muted);font-size:13px;text-transform:uppercase;letter-spacing:.06em;align-self:center}
+.facts dd{margin:0;font-weight:700}
+textarea{font:inherit;color:var(--ink);background:var(--sunk);border:2px solid var(--line);border-radius:8px;padding:10px;width:100%;min-height:170px;resize:vertical;line-height:1.6}
+.checks{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:6px}
+.checks li{display:flex;gap:8px;align-items:center;font-size:15px;color:var(--muted)}
+.checks .box{width:20px;height:20px;border-radius:6px;border:2px solid var(--line);flex:none;display:grid;place-items:center;font-size:13px;font-weight:700}
+.checks li.yes{color:var(--ok)}
+.checks li.yes .box{background:var(--ok);border-color:var(--ok);color:var(--surface)}
+.model{background:var(--ok-bg);color:var(--ink);border-radius:10px;padding:12px 16px}
+
+/* exam */
+.ebar{display:flex;align-items:center;gap:12px}
+.ebar .prog{flex:1}
+.score{font-family:var(--display);font-weight:800;font-size:56px;line-height:1;color:var(--accent)}
+.miss{display:flex;flex-direction:column;gap:10px;margin:0;padding:0;list-style:none}
+.miss li{background:var(--sunk);border-radius:10px;padding:10px 14px;font-size:15px}
+.miss .ans{color:var(--ok);font-weight:700}
+.fcast{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px}
+.fday{background:var(--sunk);border:1px solid var(--line);border-radius:10px;padding:8px 4px;text-align:center;display:flex;flex-direction:column;gap:2px;font-size:15px;line-height:1.3;min-width:0}
+.fday .ic{font-size:30px;line-height:1.2}
+.fday .sub{font-size:12px}
+.abc{display:grid;grid-template-columns:repeat(auto-fill,minmax(90px,1fr));gap:6px}
+.abcl{font:inherit;background:var(--sunk);color:var(--ink);border:1px solid var(--line);border-radius:10px;padding:6px;cursor:pointer;display:flex;flex-direction:column;align-items:center}
+.abcl b{font-family:var(--display);font-size:22px}
+.abcl span{font-size:14px;color:var(--muted)}
+.abcl:hover{border-color:var(--accent)}
+.unithead{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}
+kbd{font-family:inherit;font-size:14px;border:1px solid var(--line);border-bottom-width:2px;border-radius:5px;padding:0 6px;background:var(--sunk)}
+@media (max-width:560px){.fcast{gap:3px}.fday{font-size:11px;padding:6px 2px}.fday .ic{font-size:22px}.fday b{overflow-wrap:anywhere}.card{padding:16px}body{font-size:16px}.iq{font-size:18px}.match{gap:6px}.mt{font-size:15px;padding:8px}}
+@media (prefers-reduced-motion:reduce){.fc-in{transition:none}.mt.nope{animation:none}}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="top-in gut">
+    <div class="brand"><span class="brand-k">Español I</span><span class="brand-t">Repaso · Unidad 0</span></div>
+    <button id="speed" class="pill" type="button" aria-label="Velocidad del audio">Audio: normal</button>
+  </div>
+  <nav class="tabs gut" id="tabs" aria-label="Secciones">
+    <a href="#inicio" data-r="inicio">Inicio</a>
+    <a href="#repasar" data-r="repasar">Repasar</a>
+    <a href="#practicar" data-r="practicar">Practicar</a>
+    <a href="#examen" data-r="examen">Examen de práctica</a>
+  </nav>
+</header>
+<main class="gut" id="main"></main>
+
+<script>
+(function(){
+"use strict";
+/* ================= utilities ================= */
+const $=(s,r)=>(r||document).querySelector(s);
+const $$=(s,r)=>[].slice.call((r||document).querySelectorAll(s));
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const rnd=a=>a[Math.floor(Math.random()*a.length)];
+function shuffle(a){a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+const stripAcc=s=>String(s).normalize("NFD").replace(/[̀-ͯ]/g,"");
+const norm=s=>String(s||"").toLowerCase().replace(/[¿?¡!.,;:"“”«»'’()]/g," ").replace(/\s+/g," ").trim();
+const cap=s=>s.charAt(0).toUpperCase()+s.slice(1);
+const uniq=a=>a.filter((x,i)=>x&&a.indexOf(x)===i);
+const plain=h=>String(h).replace(/\{_+\}/g,"____").replace(/<br>|<\/p>/g," ").replace(/<[^>]+>/g,"").replace(/\s+/g," ").trim();
+function pickW(pairs){let t=0;pairs.forEach(p=>t+=p[0]);let r=Math.random()*t;for(const p of pairs){if((r-=p[0])<0)return p[1];}return pairs[pairs.length-1][1];}
+
+/* ================= audio ================= */
+const SET={vos:false,rate:0.9};
+const hasTTS=("speechSynthesis" in window)&&("SpeechSynthesisUtterance" in window);
+if(!hasTTS)document.documentElement.classList.add("no-tts");
+let voice=null;
+function pickVoice(){try{const vs=speechSynthesis.getVoices()||[];voice=vs.find(x=>/^es[-_](MX|US)/i.test(x.lang))||vs.find(x=>/^es/i.test(x.lang))||null;}catch(e){}}
+if(hasTTS){pickVoice();try{speechSynthesis.onvoiceschanged=pickVoice;}catch(e){}}
+function speak(t,onend){
+  if(!hasTTS){if(onend)onend();return;}
+  try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang="es-MX";u.rate=SET.rate;if(voice)u.voice=voice;if(onend)u.onend=onend;speechSynthesis.speak(u);}catch(e){}
+}
+function hush(){if(hasTTS){try{speechSynthesis.cancel();}catch(e){}}}
+const SPK='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H2v6h4l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M19 5a10 10 0 0 1 0 14"/></svg>';
+const say=t=>`<button class="say" type="button" data-say="${esc(t)}" aria-label="Escuchar: ${esc(t)}">${SPK}</button>`;
+const playBig=(t,label)=>`<button class="playbig" type="button" data-say="${esc(t)}">${SPK}${label||"Escuchar"}</button>`;
+document.addEventListener("click",e=>{const b=e.target.closest("[data-say]");if(b){e.stopPropagation();speak(b.dataset.say);}},true);
+$("#speed").addEventListener("click",function(){SET.rate=SET.rate>0.8?0.65:0.9;this.textContent="Audio: "+(SET.rate>0.8?"normal":"lento");});
+
+/* ================= grammar data ================= */
+const PRONAME=["yo","tú","él / ella / usted","nosotros / nosotras","vosotros / vosotras","ellos / ellas / ustedes"];
+const ORDER=[0,1,2,3,5];
+const FORMS={
+  ser:["soy","eres","es","somos","sois","son"],
+  tener:["tengo","tienes","tiene","tenemos","tenéis","tienen"],
+  llamarse:["me llamo","te llamas","se llama","nos llamamos","os llamáis","se llaman"]
+};
+const ENDS={ar:["o","as","a","amos","áis","an"],er:["o","es","e","emos","éis","en"],ir:["o","es","e","imos","ís","en"]};
+function conj(inf,i){if(FORMS[inf])return FORMS[inf][i];return inf.slice(0,-2)+ENDS[inf.slice(-2)][i];}
+const VERBS=[["hablar","to speak","español en clase"],["practicar","to practice","español"],["estudiar","to study","en casa"],["bailar","to dance","en la fiesta"],["cantar","to sing","en la iglesia"],["escuchar","to listen to","música"],["trabajar","to work","mucho"],["comer","to eat","en la cafetería"],["leer","to read","libros"],["beber","to drink","agua"],["correr","to run","en el parque"],["comprender","to understand","la lección"],["vivir","to live","en los Estados Unidos"],["escribir","to write","mensajes"],["abrir","to open","la puerta"]];
+const SP=[["Yo",0,"x"],["Tú",1,"x"],["Él",2,"m"],["Ella",2,"f"],["Usted",2,"x"],["Mi hermano",2,"m"],["Mi amiga",2,"f"],["La profesora",2,"f"],["Mi padre",2,"m"],
+  ["Nosotros",3,"m"],["Nosotras",3,"f"],["Mi amiga y yo",3,"f"],["Mi primo y yo",3,"m"],["Mi hermana y yo",3,"f"],
+  ["Ellos",5,"m"],["Ellas",5,"f"],["Ustedes",5,"x"],["Sara y Julia",5,"f"],["Mis amigos",5,"m"],["Mis hermanas",5,"f"]];
+const VOS=[["Vosotros",4,"m"],["Vosotras",4,"f"]];
+const isPron=t=>/^(yo|tú|él|ella|usted|nosotros|nosotras|vosotros|vosotras|ellos|ellas|ustedes)$/i.test(t);
+function pronOf(s){const g=s[2];return ["yo","tú",g==="m"?"él":"ella",g==="f"?"nosotras":"nosotros",g==="f"?"vosotras":"vosotros",g==="f"?"ellas":"ellos"][s[1]];}
+function pickSubj(onlyPron){
+  let pool=SP.filter(s=>!onlyPron||isPron(s[0]));
+  if(SET.vos&&Math.random()<0.25)return rnd(VOS);
+  return rnd(pool);
+}
+const whoTxt=s=>isPron(s[0])?`<b>${s[0]}</b>`:`<b>${s[0]}</b> = ${pronOf(s)}`;
+const USE={ser:"<b>Ser</b> → where someone is from and who they are.",tener:"<b>Tener</b> → age, possession, feelings, and <i>tener que</i>.",llamarse:"<b>Llamarse</b> → name. Always include the pronoun: me, te, se, nos, se."};
+function explainConj(inf,s){
+  const i=s[1],f=conj(inf,i);
+  if(FORMS[inf]){const list=ORDER.map(k=>FORMS[inf][k]).join(", ");
+    return `${whoTxt(s)}. ${inf.toUpperCase()}: ${list}${i===4?" (vosotros: "+FORMS[inf][4]+")":""} → <b>${f}</b>.<br>${USE[inf]}`;}
+  const e=inf.slice(-2),st=inf.slice(0,-2);
+  return `${whoTxt(s)}. <i>${inf}</i> is an <b>-${e}</b> verb: ${st}- + <span class="end">-${ENDS[e][i]}</span> = <b>${f}</b>`;
+}
+function diagConj(inf,s){
+  return function(n,na){
+    const i=s[1];
+    if(na===stripAcc(inf))return `You wrote the infinitive (the dictionary form). Conjugate it for ${whoTxt(s)}.`;
+    if(inf==="llamarse"){const p=FORMS.llamarse[i].split(" ");if(na===stripAcc(p[1]))return `Almost! Llamarse needs its pronoun in front: <b>${p[0]}</b> ${p[1]}.`;}
+    for(let k=0;k<6;k++){if(k!==i&&stripAcc(norm(conj(inf,k)))===na)return `<b>${conj(inf,k)}</b> is the <b>${PRONAME[k]}</b> form. Who is the subject here?`;}
+    if(inf==="tener"&&FORMS.ser.some(x=>stripAcc(x)===na))return "That's a form of <b>ser</b>. Age, possession and feelings use <b>tener</b>.";
+    if(inf==="ser"&&FORMS.tener.some(x=>stripAcc(x)===na))return "That's a form of <b>tener</b>. Where someone is from and who they are use <b>ser</b>.";
+    if(!FORMS[inf]){const e=inf.slice(-2),st=inf.slice(0,-2);
+      for(const c of ["ar","er","ir"])if(c!==e&&stripAcc(st+ENDS[c][i])===na)return `Careful: <i>${inf}</i> is an <b>-${e}</b> verb, not an -${c} verb. Use the -${e} endings.`;
+      return "Remember the 4 steps: find the subject, find the ending (-ar, -er, -ir), drop it, add the new ending.";}
+    return "";
+  };
+}
+const TQ_RULE='Formula: <b>pronoun + TENER + que + infinitive</b>. Only <b>tener</b> changes. The verb after <i>que</i> stays in the infinitive (it ends in <b>-r</b>).';
+
+const AGES=["trece","catorce","quince","dieciséis","diecisiete"];
+const AGES_EN=[["trece","thirteen"],["catorce","fourteen"],["quince","fifteen"],["dieciséis","sixteen"],["diecisiete","seventeen"]];
+const PLACES=["Texas","Luisiana","California","Perú","México","Chicago","Ecuador","Colombia","Miami"];
+const NAMES={m:["Hugo","Luis","Carlos","Pablo","Diego","Andrés"],f:["Lucía","Paula","Marisol","Sofía","Elena","Camila","Valeria"]};
+const NAMES2={m:["Luis y Carlos","Pablo y Diego","Hugo y Andrés"],f:["Ana y Elena","Julia y Rosa","Sofía y Camila","Paula y Lucía"]};
+const THINGS_EN=[["un libro","a book"],["un cuaderno","a notebook"],["una mochila","a backpack"],["dos libros","two books"],["tres cuadernos","three notebooks"],["un perro","a dog"],["un gato","a cat"]];
+const EXPR=[["hambre","hungry"],["sed","thirsty"],["frío","cold"],["calor","hot"],["sueño","sleepy"],["miedo","afraid"],["prisa","in a hurry"],["razón","right"]];
+const USES=["Edad (age)","Posesión (possession)","Expresión (feeling)","Obligación (have to)"];
+const USE_WHY=["Age: tener + number + años.","Possession: tener + a thing.","Expression: tener + hambre, sed, frío, calor, sueño, miedo…","Obligation: tener + que + infinitive."];
+
+/* ================= item renderer ================= */
+/* kinds: text (blanks), mc, tiles, open. done(score) score: 1 first try, .5 second, 0 missed */
+function renderItem(box,it,maxTries,done){
+  let tries=0,over=false;
+  box.innerHTML=`${it.label?`<div class="ilabel">${it.label}</div>`:""}<div class="iq"></div><div class="ictl"></div><div class="fb" aria-live="polite"></div><div class="iexp" hidden></div>`;
+  const q=$(".iq",box),ctl=$(".ictl",box),fb=$(".fb",box),ex=$(".iexp",box);
+  function finish(score){
+    over=true;
+    let h=it.explain?`<div>${it.explain}</div>`:"";
+    if(it.audio)h+=`<div class="exrow">${say(it.audio)}<span class="es">${esc(it.audio)}</span></div>`;
+    if(h){ex.innerHTML=h;ex.hidden=false;}
+    done(score);
+  }
+  const listMsgs=m=>m.length?`<ul>${uniq(m).map(x=>"<li>"+x+"</li>").join("")}</ul>`:"";
+
+  if(it.kind==="text"){
+    let b=0;
+    q.innerHTML=it.html.replace(/\{(_+)\}/g,(m,t)=>{const ans=it.blanks[b];const w=Math.max.apply(null,ans.map(a=>a.length))+3;const wide=t.length>1;
+      return `<input class="blank${wide?" wide":""}" data-b="${b++}" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="respuesta"${wide?"":` style="width:${Math.max(7,w)}ch"`}>`;});
+    ctl.innerHTML=`<button class="btn" type="button">Revisar</button>`;
+    const inputs=$$("input.blank",q),btn=$("button",ctl);
+    inputs.forEach(inp=>{inp.addEventListener("keydown",e=>{if(e.key==="Enter"){e.preventDefault();check();}});inp.addEventListener("input",()=>inp.classList.remove("bad"));});
+    function grade(bi,v){
+      let n=norm(v);const ans=it.blanks[bi];
+      const cands=[n,n.replace(/^(yo|tú|tu|él|el|ella|usted|nosotros|nosotras|vosotros|vosotras|ellos|ellas|ustedes) /,"")];
+      if(it.match&&it.match[bi]){if(cands.some(c=>it.match[bi](stripAcc(c))))return {ok:true};}
+      for(const c of cands)for(const a of ans)if(norm(a)===c)return {ok:true};
+      for(const c of cands)for(const a of ans)if(stripAcc(norm(a))===stripAcc(c))return {ok:true,accent:a};
+      const d=it.diag?(Array.isArray(it.diag)?it.diag[bi]:it.diag):null;
+      return {ok:false,msg:d?d(n,stripAcc(cands[1])):""};
+    }
+    function check(){
+      if(over)return;
+      const pend=inputs.filter(i=>!i.classList.contains("ok"));
+      if(pend.some(i=>!i.value.trim())){fb.className="fb try";fb.textContent="Type an answer first. (Escribe una respuesta.)";return;}
+      tries++;const msgs=[],notes=[],tips=[];
+      pend.forEach(inp=>{const r=grade(+inp.dataset.b,inp.value);
+        if(r.ok){inp.classList.add("ok");inp.readOnly=true;if(r.accent)notes.push(r.accent);if(it.okNote){const t=it.okNote(inp.value);if(t)tips.push(t);}}else{inp.classList.add("bad");if(r.msg)msgs.push(r.msg);}});
+      const left=inputs.filter(i=>!i.classList.contains("ok"));
+      if(!left.length){fb.className="fb good";fb.innerHTML=(tries===1?"¡Correcto! ":"¡Ahora sí! ")+(notes.length?`<span class="acc">Watch the accent: <b>${notes.map(esc).join(", ")}</b> (accents count!)</span>`:"")+(tips.length?` <span class="acc">${uniq(tips).join(" ")}</span>`:"");btn.disabled=true;finish(tries===1?1:0.5);return;}
+      if(tries>=maxTries){left.forEach(inp=>{inp.value=it.blanks[+inp.dataset.b][0];inp.classList.remove("bad");inp.classList.add("rev");});inputs.forEach(i=>i.readOnly=true);
+        fb.className="fb try";fb.innerHTML="Not quite. The correct answer is in yellow."+listMsgs(msgs);btn.disabled=true;finish(0);return;}
+      fb.className="fb try";fb.innerHTML="Todavía no. Try again."+(msgs.length?listMsgs(msgs):(it.hint?listMsgs(["Pista: "+it.hint]):""));
+      left[0].focus();left[0].select();
+    }
+    btn.onclick=check;
+    if(it.autofocus!==false)setTimeout(()=>{try{inputs[0].focus({preventScroll:true});}catch(e){}},40);
+  }
+
+  else if(it.kind==="mc"){
+    q.innerHTML=it.html;
+    ctl.innerHTML=`<div class="opts">${it.options.map((o,i)=>`<button class="opt" type="button" data-i="${i}">${esc(o)}</button>`).join("")}</div>`;
+    const btns=$$(".opt",ctl);const lim=Math.min(maxTries,it.options.length-1);
+    const lock=()=>btns.forEach(x=>x.disabled=true);
+    btns.forEach(b=>b.onclick=()=>{
+      if(over)return;const i=+b.dataset.i;tries++;
+      if(i===it.correct){b.classList.add("ok");fb.className="fb good";fb.textContent=tries===1?"¡Correcto!":"¡Ahora sí!";lock();finish(tries===1?1:0.5);}
+      else{b.classList.add("bad");b.disabled=true;const m=it.why&&it.why[i]?it.why[i]:"";
+        if(tries>=lim){btns[it.correct].classList.add("ok");fb.className="fb try";fb.innerHTML="Not quite. "+m;lock();finish(0);}
+        else{fb.className="fb try";fb.innerHTML="Todavía no. "+(m||"Try another answer.");}}
+    });
+  }
+
+  else if(it.kind==="tiles"){
+    q.innerHTML=it.html;
+    ctl.innerHTML=`<div class="line" aria-label="Tu oración"><span class="ph">Tap the words in order…</span></div><div class="tray"></div><div class="row"><button class="btn ghost clr" type="button">Borrar</button><button class="btn chk" type="button">Revisar</button></div>`;
+    const line=$(".line",ctl),tray=$(".tray",ctl),ph=$(".ph",line);
+    const upd=()=>{ph.hidden=!!$(".tile",line);};
+    shuffle(it.tiles).forEach(t=>{const b=document.createElement("button");b.type="button";b.className="tile";b.textContent=t;
+      b.onclick=()=>{if(over)return;(b.parentNode===tray?line:tray).appendChild(b);upd();fb.textContent="";};tray.appendChild(b);});
+    $(".clr",ctl).onclick=()=>{if(over)return;$$(".tile",line).forEach(t=>tray.appendChild(t));upd();};
+    $(".chk",ctl).onclick=()=>{
+      if(over)return;const words=$$(".tile",line).map(t=>t.textContent);
+      if(!words.length){fb.className="fb try";fb.textContent="Tap the words first.";return;}
+      tries++;const s=words.join(" ");
+      if(it.answers.some(a=>a.join(" ")===s)){line.classList.add("ok");fb.className="fb good";fb.textContent=tries===1?"¡Correcto!":"¡Ahora sí!";$$(".tile,.btn",ctl).forEach(x=>x.disabled=true);finish(tries===1?1:0.5);return;}
+      const d=it.diag?it.diag(words):"";
+      if(tries>=maxTries){fb.className="fb try";fb.innerHTML=`Not quite. Correct: <b class="es">${esc(it.answers[0].join(" "))}</b>`+listMsgs([d]);$$(".tile,.btn",ctl).forEach(x=>x.disabled=true);finish(0);return;}
+      fb.className="fb try";fb.innerHTML="Todavía no."+listMsgs([d||("Pista: "+(it.hint||"check the verb form and the word order."))]);
+    };
+  }
+
+  else if(it.kind==="open"){
+    q.innerHTML=it.html;
+    ctl.innerHTML=`<input class="blank wide" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Tu respuesta" placeholder="Escribe una oración completa…"><div class="row" style="margin-top:8px"><button class="btn" type="button">Revisar</button></div>`;
+    const inp=$("input",ctl),btn=$("button",ctl);
+    inp.addEventListener("keydown",e=>{if(e.key==="Enter"){e.preventDefault();check();}});
+    function check(){
+      if(over)return;const v=stripAcc(norm(inp.value));
+      if(!v){fb.className="fb try";fb.textContent="Type an answer first.";return;}
+      tries++;
+      if(typeof it.test==="function"?it.test(v):it.test.test(v)){inp.classList.add("ok");inp.readOnly=true;btn.disabled=true;fb.className="fb good";fb.textContent="¡Muy bien! Complete answer.";finish(tries===1?1:0.5);return;}
+      let m=it.hint;
+      if(/\b(eres|tienes|vives|lees|escribes|hablas|te llamas)\b/.test(v))m="You used a <b>tú</b> form. Answer about yourself with the <b>yo</b> form.";
+      if(tries>=maxTries){inp.classList.add("bad");inp.readOnly=true;btn.disabled=true;fb.className="fb try";fb.innerHTML=`Not quite. ${m}<br>Example: <b class="es">${esc(it.model)}</b>`;finish(0);return;}
+      inp.classList.add("bad");fb.className="fb try";fb.innerHTML="Todavía no. "+m;
+    }
+    inp.addEventListener("input",()=>inp.classList.remove("bad"));
+    btn.onclick=check;
+    setTimeout(()=>{try{inp.focus({preventScroll:true});}catch(e){}},40);
+  }
+  if(it.onShow)setTimeout(it.onShow,250);
+}
+function mixMC(opts,c){const o=shuffle(opts.map((t,i)=>[t,i===c]));return {options:o.map(a=>a[0]),correct:o.findIndex(a=>a[1])};}
+function mcMake(right,wrongs){
+  const seen=new Set([right]);wrongs=wrongs.filter(w=>!seen.has(w[0])&&seen.add(w[0]));
+  const all=shuffle([[right,"",true]].concat(wrongs.map(w=>[w[0],w[1]||"",false])));
+  return {options:all.map(a=>a[0]),correct:all.findIndex(a=>a[2]),why:all.map(a=>a[1])};
+}
+
+/* ================= generators ================= */
+function genA(){
+  const t=pickW([[2,"ser"],[2,"tener"],[3,"llamarse"]]);
+  const s=pickSubj(),i=s[1],plural=i>=3;let comp;
+  if(t==="ser")comp=Math.random()<.7?"de "+rnd(PLACES):(plural?"estudiantes":"estudiante");
+  else if(t==="tener")comp=Math.random()<.55?rnd(AGES)+" años":rnd(THINGS_EN.slice(0,5))[0];
+  else{const g=s[2]==="x"?"f":s[2];comp=plural?rnd(NAMES2[g]):rnd(NAMES[g]);}
+  let html,audio;
+  if(t==="llamarse"&&i===1&&Math.random()<.5){html=`¿Cómo {_} tú? <span class="paren">(llamarse)</span>`;audio="¿Cómo te llamas tú?";}
+  else{html=`${s[0]} {_} ${comp}. <span class="paren">(${t})</span>`;audio=`${s[0]} ${conj(t,i)} ${comp}.`;}
+  return {kind:"text",label:"Información personal"+(i===4?" · Extra: vosotros":""),html,blanks:[[conj(t,i)]],diag:diagConj(t,s),explain:explainConj(t,s),audio,sec:"A"};
+}
+function genB(){
+  const v=rnd(VERBS),ctx=Math.random()<.55,s=pickSubj(!ctx),i=s[1],f=conj(v[0],i);
+  const html=ctx?`${s[0]} {_} ${v[2]}. <span class="paren">(${v[0]})</span>`:`<b>${s[0].toLowerCase()}</b> / ${v[0]} <span class="paren">(${v[1]})</span> → {_}`;
+  return {kind:"text",label:"Verbos regulares"+(i===4?" · Extra: vosotros":""),html,blanks:[[f]],key:ctx?null:f,diag:diagConj(v[0],s),explain:explainConj(v[0],s),audio:`${s[0]} ${f} ${v[2]}.`,sec:"B"};
+}
+const CSUBJ=[["Yo","I",0,"x"],["Tú","You",1,"x"],["Mi hermana","My sister",2,"f"],["Mi amigo","My friend",2,"m"],["Elena","Elena",2,"f"],["Nosotros","We",3,"m"],["Mis amigos","My friends",5,"m"],["Ellas","They",5,"f"]];
+function tenerSentence(use,c,neg){
+  const i=c[2],tf=FORMS.tener[i],be=["am","are","is","are","are","are"][i],have=i===2?"has":"have",doo=i===2?"does":"do";
+  if(use===0){const a=rnd(AGES_EN);return {es:[c[0],tf,a[0],"años"],en:`${c[1]} ${be} ${a[1]} years old.`};}
+  if(use===1){const t=rnd(THINGS_EN);return {es:[c[0],tf].concat(t[0].split(" ")),en:`${c[1]} ${have} ${t[1]}.`};}
+  if(use===2){const x=rnd(EXPR);return {es:[c[0],tf,x[0]],en:`${c[1]} ${be} ${x[1]}.`};}
+  const v=rnd(VERBS),ve=v[1].replace(/^to /,"");
+  if(neg)return {es:[c[0],"no",tf,"que",v[0],"hoy"],en:`${c[1]} ${doo} not have to ${ve} today.`,v};
+  return {es:[c[0],tf,"que",v[0]],en:`${c[1]} ${have} to ${ve}.`,v};
+}
+const sentence=toks=>cap(toks.join(" "))+".";
+function genC(){
+  const kind=pickW([[2,"classify"],[3,"build"],[3,"tq"],[1,"fix"],[2,"meaning"]]);
+  const lab="Los usos de tener";
+  if(kind==="classify"){
+    const use=Math.floor(Math.random()*4),c=rnd(CSUBJ),r=tenerSentence(use,c,false);
+    return {kind:"mc",label:lab,html:`Which use of <b>tener</b> is this?<br><span class="es">${esc(sentence(r.es))}</span>`,options:USES,correct:use,why:USES.map((u,k)=>k===use?"":"Look again: "+USE_WHY[k].split(":")[0].toLowerCase()+" is something else."),explain:USE_WHY[use],audio:sentence(r.es),sec:"C"};
+  }
+  if(kind==="build"){
+    const use=Math.floor(Math.random()*4),c=rnd(CSUBJ),neg=use===3&&Math.random()<.4,r=tenerSentence(use,c,neg),i=c[2];
+    const other=FORMS.tener[rnd(ORDER.filter(k=>k!==i))];
+    const dis=[other];
+    if(use===3)dis.push(conj(r.v[0],i));else dis.push(FORMS.ser[i]);
+    const answers=[r.es];if(isPron(c[0]))answers.push(r.es.slice(1));
+    return {kind:"tiles",label:lab,html:`<p>Build the sentence in Spanish:</p><p><b>${esc(r.en)}</b></p>`,tiles:r.es.concat(dis),answers,sec:"C",
+      diag:w=>{if(use===3&&w.includes(conj(r.v[0],i)))return TQ_RULE;if(w.includes(FORMS.ser[i]))return "Use <b>tener</b>, not ser. In Spanish you <i>have</i> years, hunger, cold…";if(w.includes(other))return `Check the form of tener for ${esc(c[0])}.`;return "";},
+      explain:`<b>${USES[use]}</b>. ${USE_WHY[use]}`,audio:sentence(r.es)};
+  }
+  if(kind==="tq"){
+    const s=pickSubj(),i=s[1],v=rnd(VERBS),tf=FORMS.tener[i];
+    return {kind:"text",label:lab+" · tener que",html:`${s[0]} {_} que {_} ${v[2]}. <span class="paren">(tener / ${v[0]})</span>`,blanks:[[tf],[v[0]]],sec:"C",
+      diag:[diagConj("tener",s),(n,na)=>{for(let k=0;k<6;k++)if(stripAcc(conj(v[0],k))===na)return "Don't conjugate the second verb! "+TQ_RULE;return "After <i>que</i>, use the infinitive: the form that ends in -ar, -er or -ir.";}],
+      explain:`${whoTxt(s)} → <b>${tf}</b>. ${TQ_RULE}<br><i>Que</i> means “to” here (have <b>to</b>). That's the only time it means “to”!`,audio:`${s[0]} ${tf} que ${v[0]} ${v[2]}.`};
+  }
+  if(kind==="fix"){
+    const s=pickSubj(),i=s[1],v=rnd(VERBS),tf=FORMS.tener[i];
+    const m=mcMake(`${s[0]} ${tf} que ${v[0]}.`,[[`${s[0]} ${tf} que ${conj(v[0],i)}.`,"The verb after que must stay in the infinitive (-r)."],[`${s[0]} tener que ${v[0]}.`,"Tener must be conjugated for the subject."],[`${s[0]} ${tf} ${v[0]}.`,"You need <i>que</i> between tener and the infinitive."]]);
+    return Object.assign({kind:"mc",label:lab+" · ¿Cuál es correcta?",html:"Which sentence is correct?",sec:"C",explain:TQ_RULE,audio:`${s[0]} ${tf} que ${v[0]}.`},m);
+  }
+  const x=rnd(EXPR),c=rnd([["Tengo","I'm"],["Tiene","She's"],["Tenemos","We're"]]);
+  const m=mcMake(`${c[1]} ${x[1]}.`,shuffle(EXPR.filter(e=>e!==x)).slice(0,2).map(e=>[`${c[1]} ${e[1]}.`,""]));
+  return Object.assign({kind:"mc",label:lab+" · Expresiones",html:`What does <span class="es">${c[0]} ${x[0]}</span> mean?`,sec:"C",explain:`tener ${x[0]} = to be ${x[1]}`,audio:`${c[0]} ${x[0]}.`},m);
+}
+const QA=[
+  ["¿Cómo te llamas?","Me llamo Sofía.",[["Te llamas Sofía.","Te llamas means “you are called.” Answer about yourself: me llamo."],["Se llama Sofía.","Se llama is for him or her."]]],
+  ["¿De dónde eres?","Soy de Luisiana.",[["Eres de Luisiana.","Eres means “you are.” Answer with soy."],["Es de Luisiana.","Es is for him or her."]]],
+  ["¿Cuántos años tienes?","Tengo catorce años.",[["Soy catorce años.","Age uses tener, not ser."],["Tienes catorce años.","Tienes means “you have.” Answer with tengo."]]],
+  ["¿Dónde vives?","Vivo en Baton Rouge.",[["Vives en Baton Rouge.","Vives means “you live.” Answer with vivo."],["Vive en Baton Rouge.","Vive is for him or her."]]],
+  ["¿Qué tienes que hacer hoy?","Tengo que estudiar.",[["Tengo que estudio.","After tengo que, the verb stays in the infinitive: estudiar."],["Tienes que estudiar.","Tienes means “you have.” Answer with tengo."]]]
+];
+const QT=[
+  ["Me llamo Sofía.",["¿Cómo","te","llamas?"],["se","me","llamo"]],
+  ["Tengo catorce años.",["¿Cuántos","años","tienes?"],["tengo","tiene","¿Cómo"]],
+  ["Soy de Ecuador.",["¿De","dónde","eres?"],["es","soy","¿Cómo"]],
+  ["Tengo tres libros.",["¿Cuántos","libros","tienes?"],["tengo","tiene","años"]],
+  ["Vivo en Houston.",["¿Dónde","vives?"],["vivo","vive","¿De"]],
+  ["Leo libros en casa.",["¿Qué","lees","en","casa?"],["leo","lee","¿Dónde"]],
+  ["Escribo mensajes en clase.",["¿Qué","escribes","en","clase?"],["escribo","escribe","¿Cómo"]],
+  ["Sí, tengo hambre.",["¿Tienes","hambre?"],["¿Tengo","¿Tiene"]],
+  ["Tengo que estudiar.",["¿Qué","tienes","que","hacer?"],["tengo","tiene","estudiar"]]
+];
+const OPEN=[
+  ["¿De dónde eres?","Where are you from?",/\bsoy de [a-z]/,"Soy de Luisiana.","Start with <b>Soy de…</b>"],
+  ["¿Cómo te llamas?","What's your name?",/\bme llamo [a-z]/,"Me llamo Sofía.","Start with <b>Me llamo…</b>"],
+  ["¿Cuántos años tienes?","How old are you?",/\btengo [a-z0-9 ]+ anos\b/,"Tengo catorce años.","Use <b>Tengo + number + años</b>."],
+  ["¿Qué lees en casa?","What do you read at home?",/\bleo [a-z]/,"Leo libros en casa.","Use <b>leo</b> (yo form of leer) + what you read."],
+  ["¿Qué escribes en clase?","What do you write in class?",/\bescribo [a-z]/,"Escribo mensajes en clase.","Use <b>escribo</b> + what you write."],
+  ["¿Dónde vives?","Where do you live?",/\bvivo en [a-z]/,"Vivo en Luisiana.","Start with <b>Vivo en…</b>"],
+  ["¿Qué tienes que hacer hoy?","What do you have to do today?",/\btengo que [a-z]+(ar|er|ir)\b/,"Hoy tengo que estudiar.","Use <b>Tengo que + infinitive</b> (ends in -ar, -er, -ir)."],
+  ["¿Hablas español en casa?","Do you speak Spanish at home?",/^(si|no)\b.*\bhablo\b/,"Sí, hablo español en casa.","Start with <b>Sí, hablo…</b> or <b>No, no hablo…</b>"]
+];
+function genD(){
+  const kind=pickW([[3,"answer"],[2,"report"],[3,"ask"],[2,"open"]]);const lab="Preguntas y respuestas";
+  if(kind==="answer"){
+    let q,right,wrongs;
+    if(Math.random()<.45){const x=rnd(QA);q=x[0];right=x[1];wrongs=x[2];}
+    else{const v=rnd(VERBS.filter(v=>v[0]!=="abrir"));q=`¿${cap(conj(v[0],1))} ${v[2]}?`;right=`Sí, ${conj(v[0],0)} ${v[2]}.`;
+      wrongs=[[`Sí, ${conj(v[0],1)} ${v[2]}.`,`${conj(v[0],1)} is the tú form. Answer about yourself with yo.`],[`Sí, ${conj(v[0],2)} ${v[2]}.`,`${conj(v[0],2)} is the él/ella form.`]];}
+    return Object.assign({kind:"mc",label:lab+" · Contesta",html:`Your friend asks you: <span class="es">${esc(q)}</span> ${say(q)}<br>What's the best answer?`,sec:"D",explain:"A question to <b>tú</b> → answer with <b>yo</b>.",audio:right},mcMake(right,wrongs));
+  }
+  if(kind==="report"){
+    const N=rnd(["Ana","Leo","Marta","Camila","Diego"]),v=rnd(VERBS.filter(v=>!["trabajar","abrir"].includes(v[0])));
+    const where=/^en /.test(v[2]);const q=`¿${where?"Dónde":"Qué"} ${conj(v[0],2)} ${N}?`;
+    const right=`${N} ${conj(v[0],2)} ${v[2]}.`;
+    return Object.assign({kind:"mc",label:lab+" · Reporta",html:`${N} dice: <span class="es">«Yo ${conj(v[0],0)} ${v[2]}».</span><br><span class="es">${q}</span>`,sec:"D",
+      explain:`When you report about another person, use the <b>él / ella</b> form: ${conj(v[0],0)} → <b>${conj(v[0],2)}</b>.`,audio:right},
+      mcMake(right,[[`${N} ${conj(v[0],0)} ${v[2]}.`,`${conj(v[0],0)} is the yo form. ${N} is él/ella.`],[`${N} ${v[0]} ${v[2]}.`,"That's the infinitive. Conjugate it."]]));
+  }
+  if(kind==="ask"){
+    const x=rnd(QT);const ans=x[1].join(" ");
+    return {kind:"tiles",label:lab+" · Haz la pregunta",html:`<p>Your friend answered: <span class="es">«${esc(x[0])}»</span></p><p>Build the question you asked her (use <b>tú</b>).</p>`,tiles:x[1].concat(x[2]),answers:[x[1]],sec:"D",
+      diag:w=>w.some(t=>/^(¿?)(tengo|leo|escribo|vivo|soy|llamo)$/.test(t))?"That's the yo form. A question to a friend uses the <b>tú</b> form.":(w.some(t=>/^(tiene|lee|escribe|vive|es|se)$/.test(t))?"That's the él/ella form. Ask your friend with <b>tú</b>.":""),
+      explain:"Answer with <b>yo</b> → the question uses <b>tú</b>.",audio:ans};
+  }
+  const o=rnd(OPEN);
+  return {kind:"open",label:lab+" · Sobre ti",html:`<p>Answer about yourself in a complete sentence:</p><p><span class="es">${o[0]}</span> ${say(o[0])} <span class="sub">${o[1]}</span></p>`,test:o[2],model:o[3],hint:o[4],sec:"D",explain:"Example answer:",audio:o[3]};
+}
+function genG(){
+  const kind=pickW([[4,"quien"],[3,"dict"],[3,"mean"]]);const lab="Escuchar";
+  if(kind==="quien"){
+    const idx=SET.vos?[0,1,2,3,4,5]:ORDER;const pool=VERBS.map(v=>v[0]).concat(["ser","tener"]);const inf=rnd(pool),i=rnd(idx),f=conj(inf,i);
+    return {kind:"mc",label:lab+" · ¿Quién?",html:`<p>${playBig(f)}</p><p class="small">Listen to the verb. Who is doing the action?</p>`,options:idx.map(k=>PRONAME[k]),correct:idx.indexOf(i),sec:"G",
+      explain:`<b>${f}</b> (${inf}) → ${PRONAME[i]}`,audio:f,onShow:()=>speak(f)};
+  }
+  if(kind==="dict"){
+    const s=pickSubj(),v=rnd(VERBS),sent=`${s[0]} ${conj(v[0],s[1])} ${v[2]}.`;
+    return {kind:"text",label:lab+" · Dictado",html:`<p>${playBig(sent)}</p><p class="small">Listen and type the sentence you hear. Play it as many times as you need.</p>{__}`,blanks:[[sent]],sec:"G",
+      diag:()=>"Listen again. Check the subject and the verb ending.",explain:"",audio:sent,onShow:()=>speak(sent)};
+  }
+  const pool=EXPR.map(x=>[`Tengo ${x[0]}.`,`I'm ${x[1]}.`]).concat([["¿Cómo te llamas?","What's your name?"],["¿De dónde eres?","Where are you from?"],["¿Cuántos años tienes?","How old are you?"],["¿Dónde vives?","Where do you live?"],["Tengo que estudiar.","I have to study."],["¿Qué escribes en clase?","What do you write in class?"]]);
+  const x=rnd(pool);const m=mcMake(x[1],shuffle(pool.filter(p=>p!==x)).slice(0,2).map(p=>[p[1],""]));
+  return Object.assign({kind:"mc",label:lab+" · ¿Qué significa?",html:`<p>${playBig(x[0])}</p><p class="small">What does it mean?</p>`,sec:"G",explain:`<span class="es">${esc(x[0])}</span> = ${esc(x[1])}`,audio:x[0],onShow:()=>speak(x[0])},m);
+}
+
+/* ================= readings ================= */
+const READ=[
+ {title:"Marisol y Tomás",vocab:"ahora = now · después de clase = after class · hoy = today",
+  s:["Me llamo Marisol y soy de Puerto Rico.","Ahora vivo en Nueva Orleans.","Tengo catorce años.","Mi amigo Tomás tiene quince años y es de Texas.","Tomás y yo somos estudiantes.","En clase leemos libros y escribimos en el cuaderno.","Yo tengo una mochila y Tomás tiene dos libros.","Hoy tengo sueño y Tomás tiene calor.","Después de clase, yo tengo que practicar español.","Tomás tiene que comer en casa."],
+  q:[["Where is Marisol from, and where does she live now?",["From Puerto Rico; she lives in New Orleans now.","From New Orleans; she lives in Puerto Rico now.","From Texas; she lives in New Orleans now."],0,[0,1],"<i>Soy de</i> = origin. <i>Vivo en</i> = where she lives now."],
+     ["How old is Tomás?",["14","15","16"],1,[3],"<i>quince</i> = 15. (Catorce, 14, is Marisol's age.)"],
+     ["What TWO activities do they do in class?",["They read books and write in the notebook.","They speak Spanish and eat.","They read messages and practice Spanish."],0,[5],"<i>leemos</i> = we read; <i>escribimos</i> = we write."],
+     ["How does each feel today?",["Marisol is sleepy; Tomás is hot.","Marisol is hungry; Tomás is cold.","Marisol is hot; Tomás is sleepy."],0,[7],"<i>tener sueño</i> = to be sleepy; <i>tener calor</i> = to be hot."],
+     ["What does Marisol have to do after class?",["Eat at home","Practice Spanish","Read a book"],1,[8],"<i>tengo que practicar</i> = I have to practice. Eating at home is Tomás."],
+     ["What does Tomás have?",["A backpack","Two books","Two notebooks"],1,[6],"<i>Tomás tiene dos libros.</i> The backpack is Marisol's."]]},
+ {title:"Valentina y Camila",vocab:"pero = but · esta noche = tonight · también = also",
+  s:["¡Hola! Me llamo Valentina.","Soy de Colombia, pero ahora vivo en Baton Rouge.","Tengo trece años.","Mi hermana se llama Camila.","Ella tiene diecisiete años y es estudiante también.","Camila y yo hablamos español en casa.","Yo leo libros y Camila escribe mensajes.","Esta noche Camila tiene que estudiar.","Yo no tengo que estudiar, ¡pero tengo hambre!"],
+  q:[["Where is Valentina from, and where does she live now?",["From Colombia; she lives in Baton Rouge.","From Baton Rouge; she lives in Colombia.","From Colombia; she lives in New Orleans."],0,[1],"<i>Soy de Colombia</i> = origin; <i>ahora vivo en Baton Rouge</i> = where she lives now."],
+     ["What is her sister's name, and how old is she?",["Camila, 17","Camila, 13","Valentina, 17"],0,[3,4],"<i>se llama Camila</i>; <i>tiene diecisiete años</i> = 17."],
+     ["What do the sisters do at home?",["They speak Spanish.","They eat.","They write messages together."],0,[5],"<i>hablamos</i> = we speak."],
+     ["What does Camila do?",["She reads books.","She writes messages.","She studies at school."],1,[6],"<i>Camila escribe mensajes.</i> Valentina is the one who reads."],
+     ["What does Camila have to do tonight?",["Study","Read","Eat"],0,[7],"<i>tiene que estudiar</i> = she has to study."],
+     ["How does Valentina feel?",["Hungry","Thirsty","Sleepy"],0,[8],"<i>tengo hambre</i> = I'm hungry. Notice: <i>no tengo que estudiar</i> = I don't have to study."]]},
+ {title:"Mateo, estudiante de intercambio",vocab:"con = with · conmigo = with me · la escuela = school · mañana = tomorrow",
+  s:["Hola, clase. Me llamo Mateo y soy de México.","Tengo dieciséis años.","Ahora vivo en Lafayette con una familia americana.","En la escuela practico inglés y como en la cafetería.","Mis amigos Ana y Luis hablan español conmigo.","Tengo un cuaderno y tres libros.","Hoy tengo frío.","Mañana tengo que escribir un mensaje a mi familia."],
+  q:[["Where is Mateo from, and where does he live now?",["From Mexico; he lives in Lafayette.","From Lafayette; he lives in Mexico.","From Mexico; he lives in Houston."],0,[0,2],"<i>soy de México</i>; <i>ahora vivo en Lafayette</i>."],
+     ["How old is Mateo?",["6","16","26"],1,[1],"<i>dieciséis</i> = 16."],
+     ["What TWO things does he do at school?",["He practices English and eats in the cafeteria.","He speaks Spanish and reads books.","He writes messages and eats at home."],0,[3],"<i>practico</i> = I practice; <i>como</i> = I eat."],
+     ["Who speaks Spanish with him?",["His family","Ana and Luis","His teacher"],1,[4],"<i>Mis amigos Ana y Luis hablan español conmigo.</i>"],
+     ["How does he feel today?",["Hot","Cold","Afraid"],1,[6],"<i>tengo frío</i> = I'm cold."],
+     ["What does he have to do tomorrow?",["Write a message to his family","Read three books","Practice English"],0,[7],"<i>tengo que escribir un mensaje</i> = I have to write a message."]]}
+];
+function passageHTML(r){return r.s.map((t,k)=>`<span class="s" data-k="${k}">${esc(t)}</span>`).join(" ");}
+function genE(r,qi){
+  const x=r.q[qi],m=mixMC(x[1],x[2]);
+  return {kind:"mc",label:"Comprensión de lectura",qtext:x[0],html:`<div class="passage small">${passageHTML(r)}</div><p class="small sub">Vocabulario: ${r.vocab}</p><p style="font-weight:700">${esc(x[0])}</p>`,options:m.options,correct:m.correct,explain:x[4],sec:"E"};
+}
+
+/* ================= flashcard decks ================= */
+const NUMS=["cero","uno","dos","tres","cuatro","cinco","seis","siete","ocho","nueve","diez","once","doce","trece","catorce","quince","dieciséis","diecisiete","dieciocho","diecinueve","veinte"];
+const DECKS1={
+  pron:{name:"Pronombres",front:"Español",back:"English",cards:[["yo","I"],["tú","you (a friend)"],["él","he"],["ella","she"],["usted","you (formal: teacher, adult)"],["nosotros","we (boys or mixed group)"],["nosotras","we (all girls)"],["ellos","they (boys or mixed group)"],["ellas","they (all girls)"],["ustedes","you all"],["vosotros / vosotras","you all, in Spain (extra credit only)"]].map(c=>[c[0],c[1],c[0]])},
+  stl:{name:"Ser · Tener · Llamarse",front:"Verbo + sujeto",back:"Forma",cards:[].concat.apply([],["ser","tener","llamarse"].map(v=>ORDER.map(i=>[`${v} · ${PRONAME[i]}`,conj(v,i),conj(v,i)])))},
+  usos:{name:"¿Ser, tener o llamarse?",front:"Use",back:"Verb + example",cards:[["where you're from (origin)","SER · Soy de Luisiana.","Soy de Luisiana."],["who you are (student, teacher)","SER · Soy estudiante.","Soy estudiante."],["age","TENER · Tengo catorce años.","Tengo catorce años."],["something you have","TENER · Tengo un libro.","Tengo un libro."],["feelings: hungry, cold, sleepy…","TENER · Tengo hambre.","Tengo hambre."],["have to (obligation)","TENER QUE + infinitive · Tengo que estudiar.","Tengo que estudiar."],["your name","LLAMARSE · Me llamo Ana.","Me llamo Ana."]]},
+  term:{name:"Terminaciones",front:"Ending for…",back:"Ending",cards:[].concat.apply([],["ar","er","ir"].map(e=>ORDER.map(i=>{const v={ar:"hablar",er:"comer",ir:"vivir"}[e];return [`-${e} · ${PRONAME[i]}`,`-${ENDS[e][i]}  (${conj(v,i)})`,conj(v,i)];})))},
+  expr:{name:"Expresiones con tener",front:"Español",back:"English",cards:EXPR.map(x=>[`tener ${x[0]}`,`to be ${x[1]}`,`tener ${x[0]}`]).concat([["tener ___ años","to be ___ years old","tener catorce años"],["tener que + infinitivo","to have to (do something)","tener que estudiar"]])},
+  verbos:{name:"Verbos",front:"Español",back:"English",cards:VERBS.map(v=>[v[0],v[1],v[0]])},
+  num:{name:"Números 0–20",front:"Número",back:"Español",cards:NUMS.map((w,i)=>[String(i),w,w]).concat([["30","treinta","treinta"],["40","cuarenta","cuarenta"],["50","cincuenta","cincuenta"]])},
+  preg:{name:"Preguntas",front:"Pregunta",back:"Meaning + answer",cards:[["¿Cómo te llamas?","What's your name? → Me llamo…"],["¿De dónde eres?","Where are you from? → Soy de…"],["¿Cuántos años tienes?","How old are you? → Tengo … años."],["¿Dónde vives?","Where do you live? → Vivo en…"],["¿Qué lees en casa?","What do you read at home? → Leo…"],["¿Qué escribes en clase?","What do you write in class? → Escribo…"],["¿Qué tienes que hacer hoy?","What do you have to do today? → Tengo que…"],["¿Tienes hambre?","Are you hungry? → Sí, tengo hambre. / No, no tengo hambre."],["¿Cómo se llama ella?","What's her name? → Se llama…"],["¿De dónde es él?","Where is he from? → Es de…"]].map(c=>[c[0],c[1],c[0]])},
+  pal:{name:"Palabras útiles",front:"Español",back:"English",cards:[["el libro","book"],["el cuaderno","notebook"],["la mochila","backpack"],["el mensaje","message"],["la casa","house, home"],["en casa","at home"],["la clase","class"],["el / la estudiante","student"],["el profesor / la profesora","teacher"],["el hermano / la hermana","brother / sister"],["el primo / la prima","cousin"],["el amigo / la amiga","friend"],["el padre / la madre","father / mother"],["ahora","now"],["hoy","today"],["mañana","tomorrow"],["esta noche","tonight"],["también","also, too"],["después de clase","after class"],["los Estados Unidos","the United States"],["el agua","water"],["dice","says"]].map(c=>[c[0],c[1],c[0]])}
+};
+
+/* ================= UNIDAD 0 ================= */
+const NUM0=["cero","uno","dos","tres","cuatro","cinco","seis","siete","ocho","nueve","diez","once","doce","trece","catorce","quince","dieciséis","diecisiete","dieciocho","diecinueve","veinte","veintiuno","veintidós","veintitrés","veinticuatro","veinticinco","veintiséis","veintisiete","veintiocho","veintinueve"];
+const TENS0={3:"treinta",4:"cuarenta",5:"cincuenta",6:"sesenta",7:"setenta",8:"ochenta",9:"noventa"};
+function nw(n){if(n<30)return NUM0[n];if(n===100)return "cien";const t=Math.floor(n/10),u=n%10;return TENS0[t]+(u?" y "+NUM0[u]:"");}
+const DIAS0=["lunes","martes","miércoles","jueves","viernes","sábado","domingo"];
+const DIAS_EN=["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"];
+const MESES0=["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"];
+const MESES_EN=["January","February","March","April","May","June","July","August","September","October","November","December"];
+const MDAYS=[31,28,31,30,31,30,31,31,30,31,30,31];
+const EST0=[["la primavera","spring",[2,3,4],"Hace buen tiempo. Llueve."],["el verano","summer",[5,6,7],"Hace calor. Está húmedo."],["el otoño","fall",[8,9,10],"Hace fresco. Hace viento."],["el invierno","winter",[11,0,1],"Hace frío. Nieva."]];
+const HOLI=[["la Navidad","Christmas",25,11],["el Año Nuevo","New Year's Day",1,0],["el Día de San Valentín","Valentine's Day",14,1],["el Día de las Brujas (Halloween)","Halloween",31,9],["el Día de la Independencia (4th of July)","Independence Day",4,6],["Mardi Gras en 2027","Mardi Gras 2027",9,1]];
+const dayWord=d=>d===1?"primero":nw(d);
+const dateEs=(d,m)=>`el ${dayWord(d)} de ${MESES0[m]}`;
+const MONTH_RE=MESES0.map(stripAcc).join("|"),DAY_RE=DIAS0.map(stripAcc).join("|");
+function dateRe(d,m){
+  const dw=d===1?"(primero|uno|1)":`(${stripAcc(nw(d))}|${d})`;
+  return new RegExp(`^((hoy|manana) es |ayer fue |es |fue |mi cumpleanos es )?((${DAY_RE}) )?(el )?${dw} de ${stripAcc(MESES0[m])}( de \\d+)?$`);
+}
+const anyDateRe=new RegExp(`\\b([a-z]+( y [a-z]+)?|\\d{1,2}) de (${MONTH_RE})\\b`);
+const capsNote=v=>/(^|[\s¿¡,])(Lunes|Martes|Miércoles|Miercoles|Jueves|Viernes|Sábado|Sabado|Domingo|Enero|Febrero|Marzo|Abril|Mayo|Junio|Julio|Agosto|Septiembre|Octubre|Noviembre|Diciembre)\b/.test(v)&&!/^(Lunes|Martes|Miércoles|Miercoles|Jueves|Viernes|Sábado|Sabado|Domingo|Enero|Febrero|Marzo|Abril|Mayo|Junio|Julio|Agosto|Septiembre|Octubre|Noviembre|Diciembre)$/.test(v.trim().split(/[\s,]/)[0]||"")?"Remember: days and months are lowercase in Spanish.":"";
+const capsNote2=v=>/[A-ZÁÉÍÓÚ]/.test(v.replace(/^\s*(Es|Hoy|Mañana|Manana|Ayer|Fue|El|Mi)\b/,""))?"Remember: days and months are lowercase in Spanish.":"";
+
+const SAL0=[["Hola.","Hello."],["Buenos días.","Good morning."],["Buenas tardes.","Good afternoon."],["Buenas noches.","Good evening / Good night."],["¿Cómo estás?","How are you? (to a friend)"],["¿Cómo está usted?","How are you? (formal)"],["¿Qué tal?","How's it going?"],["Estoy bien.","I'm well."],["Estoy regular.","I'm okay / so-so."],["Estoy mal.","I'm not well."],["Muy bien, gracias.","Very well, thank you."],["¿Y tú?","And you?"],["Adiós.","Goodbye."],["Hasta luego.","See you later."],["Nos vemos.","See you later."],["Hasta mañana.","See you tomorrow."]];
+const CLASE0=[["Repita, por favor.","Repeat, please."],["¿Cómo se dice ___ en español?","How do you say ___ in Spanish?"],["¿Qué quiere decir ___?","What does ___ mean?"],["¿Qué significa ___?","What does ___ mean?"],["¿Puedo ir al baño?","May I go to the bathroom?"],["¿Cómo se escribe ___?","How do you spell ___?"],["Por favor.","Please."],["Gracias.","Thank you."],["De nada.","You're welcome."],["No comprendo.","I don't understand."],["No sé.","I don't know."]];
+const SITU0=[["You didn't hear what the teacher said.","Repita, por favor."],["You want to know how to say a word in Spanish.","¿Cómo se dice ___ en español?"],["You want to know what a word means.","¿Qué quiere decir ___?"],["You greet your teacher at 8:00 a.m.","Buenos días."],["You greet someone at 3:00 p.m.","Buenas tardes."],["You need to go to the restroom.","¿Puedo ir al baño?"],["You're leaving and will see your friend tomorrow.","Hasta mañana."],["You want to know how to spell a word.","¿Cómo se escribe ___?"],["Someone says “Gracias” to you.","De nada."],["You don't understand what the teacher said.","No comprendo."]];
+const RESP0=[["Buenos días. ¿Cómo estás?","Buenos días. Estoy bien, gracias. ¿Y tú?",["De nada.","Me llamo Ana.","Hasta luego."]],["Buenas tardes.","Buenas tardes. ¿Qué tal?",["Buenas noches. Adiós.","De nada.","¿Puedo ir al baño?"]],["¿Qué tal?","Muy bien, gracias.",["Me llamo Ana.","De nada.","Hasta mañana."]],["Adiós.","Hasta luego.",["Buenos días.","Me llamo Ana.","De nada."]],["¿Cómo está usted?","Estoy bien, gracias.",["Hola, me llamo Ana.","Hasta luego.","De nada."]],["Gracias.","De nada.",["Gracias.","Estoy mal.","Buenos días."]],["Hasta mañana.","Nos vemos.",["Buenos días.","Me llamo Ana.","¿Qué tal?"]]];
+const FAREWELL=["Adiós","Hasta luego","Nos vemos","Hasta mañana","Hasta pronto","Chao"];
+const ABC=[["a","a"],["b","be"],["c","ce"],["d","de"],["e","e"],["f","efe"],["g","ge"],["h","hache"],["i","i"],["j","jota"],["k","ka"],["l","ele"],["m","eme"],["n","ene"],["ñ","eñe"],["o","o"],["p","pe"],["q","cu"],["r","erre"],["s","ese"],["t","te"],["u","u"],["v","uve"],["w","uve doble"],["x","equis"],["y","ye"],["z","zeta"]];
+const ABCM=Object.fromEntries(ABC);
+const spellOut=name=>stripAcc(name.toLowerCase()).split("").filter(c=>ABCM[c]).map(c=>ABCM[c]).join(", ");
+const SPELLNAMES=["Lucas","Paula","Elena","Diego","Carmen","Hugo","Jimena","Gabriela","Rosa","Valeria","Teresa","Felipe","Olivia","Ximena","Beatriz","Mateo","Sara","Quique","Wilson","Yolanda","Zoe","Kevin","Begoña"];
+/* [noun, gender, plural, english, emoji] */
+const OBJ0=[["libro","m","libros","book","📕"],["cuaderno","m","cuadernos","notebook","📓"],["lápiz","m","lápices","pencil","✏️"],["bolígrafo","m","bolígrafos","pen","🖊️"],["borrador","m","borradores","eraser",""],["estuche","m","estuches","pencil pouch",""],["marcador","m","marcadores","marker",""],["reloj","m","relojes","clock","🕒"],["escritorio","m","escritorios","desk",""],["mochila","f","mochilas","backpack","🎒"],["carpeta","f","carpetas","folder","📁"],["computadora","f","computadoras","computer","💻"],["regla","f","reglas","ruler","📏"],["silla","f","sillas","chair","🪑"],["puerta","f","puertas","door","🚪"],["ventana","f","ventanas","window","🪟"],["papelera","f","papeleras","trash can","🗑️"],["goma","f","gomas","eraser",""]];
+const artOf=(g,pl)=>g==="m"?(pl?"unos":"un"):(pl?"unas":"una");
+const anEn=w=>(/^[aeiou]/i.test(w)?"an ":"a ")+w;
+const WX=[["Hace sol.","It's sunny.","☀️","sun"],["Está soleado.","It's sunny.","☀️","sun"],["Hace calor.","It's hot.","🥵","hot"],["Hace frío.","It's cold.","🥶","cold"],["Hace fresco.","It's cool / chilly.","🧥","cool"],["Hace viento.","It's windy.","💨","wind"],["Hace buen tiempo.","The weather is nice.","😎","nice"],["Hace mal tiempo.","The weather is bad.","🌧️","bad"],["Está nublado.","It's cloudy.","☁️","cloud"],["Hay nubes.","There are clouds.","☁️","cloud"],["Está húmedo.","It's humid.","💧","humid"],["Hay tormentas.","There are storms.","⛈️","storm"],["Llueve.","It's raining.","🌧️","rain"],["Está lloviendo.","It's raining.","🌧️","rain"],["Nieva.","It's snowing.","🌨️","snow"],["Truena.","It's thundering.","🌩️","thunder"],["Relampaguea.","There's lightning.","⚡","light"]];
+const WXV={hace:["buen tiempo","mal tiempo","frío","calor","fresco","viento","sol"],está:["soleado","nublado","húmedo","lloviendo","nevando"],hay:["nubes","tormentas"],none:["Llueve","Nieva","Truena","Relampaguea"]};
+const WX_RULE="<b>Hace</b> + frío, calor, fresco, viento, sol, buen / mal tiempo · <b>Está</b> + soleado, nublado, húmedo, lloviendo · <b>Hay</b> + nubes, tormentas · <b>Llueve, nieva, truena, relampaguea</b> stand alone.";
+const WXCORR=[["Es caliente.","Hace calor.","Weather uses hace + calor, not es caliente."],["Hace nublado.","Está nublado.","Nublado goes with está."],["Está tormentas.","Hay tormentas.","Tormentas (storms) goes with hay."],["Hace llueve.","Llueve.","Llueve is already a verb (it's raining). It doesn't need hace."],["Hoy es caliente.","Hoy hace calor.","Weather uses hace + calor."],["Es frío.","Hace frío.","Cold weather is hace frío."],["Hace nieva.","Nieva.","Nieva is already a verb (it's snowing)."],["Está viento.","Hace viento.","Viento goes with hace."],["Hay soleado.","Está soleado.","Soleado goes with está."],["Hace húmedo.","Está húmedo.","Húmedo goes with está."],["Es sol.","Hace sol.","Sol goes with hace."],["La temperatura es ochenta grados.","Hace ochenta grados.","For temperature, say hace + number + grados (or: la temperatura está a ochenta grados)."]];
+const SEASON_WX=[["¿Qué tiempo hace en julio en Luisiana?","Hace calor y está húmedo.",["Hace frío y nieva.","Hace fresco y hace viento."]],["¿Qué tiempo hace en enero en Chicago?","Hace frío y nieva.",["Hace calor y está húmedo.","Hace sol y hace calor."]],["¿Qué tiempo hace en la primavera?","Hace buen tiempo y llueve.",["Nieva mucho.","Hace mucho frío."]],["¿Qué tiempo hace en el otoño?","Hace fresco y hace viento.",["Hace mucho calor.","Nieva todos los días."]]];
+const REGIONS={"Norteamérica":["México"],"Centroamérica":["Guatemala","El Salvador","Honduras","Nicaragua","Costa Rica","Panamá"],"El Caribe":["Cuba","República Dominicana","Puerto Rico"],"Sudamérica":["Colombia","Venezuela","Ecuador","Perú","Bolivia","Chile","Argentina","Paraguay","Uruguay"]};
+const CAPS=[["Colombia","Bogotá"],["Venezuela","Caracas"],["Ecuador","Quito"],["Perú","Lima"],["Bolivia","Sucre"],["Chile","Santiago"],["Argentina","Buenos Aires"],["Paraguay","Asunción"],["Uruguay","Montevideo"]];
+const rep=(g,n)=>Array.from({length:n},()=>g());
+const L0={sal:"Saludos y la clase",obj:"Objetos y artículos",num:"Los números",cal:"El calendario",tie:"El tiempo",pro:"El pronóstico",pai:"Países y capitales",esc:"Escribir",oir:"Escuchar"};
+
+function genSal0(){
+  const k=pickW([[3,"situ"],[2,"resp"],[3,"type"],[1,"dial"],[2,"mean"]]),lab=L0.sal;
+  if(k==="situ"){const x=rnd(SITU0);const m=mcMake(x[1],shuffle(SITU0.filter(y=>y!==x&&y[1]!==x[1])).slice(0,3).map(y=>[y[1],""]));
+    return Object.assign({kind:"mc",label:lab+" · ¿Qué dices?",html:`<p>${esc(x[0])}</p><p class="small sub">What do you say in Spanish?</p>`,sec:"sal",audio:x[1].replace(/___/g,"").replace(/\s+/g," "),explain:""},m);}
+  if(k==="resp"){const x=rnd(RESP0);const m=mcMake(x[1],shuffle(x[2]).slice(0,3).map(y=>[y,""]));
+    return Object.assign({kind:"mc",label:lab+" · Contesta",html:`<p>Someone says: <span class="es">${esc(x[0])}</span> ${say(x[0])}</p><p class="small sub">What's the best response?</p>`,sec:"sal",audio:x[1]},m);}
+  if(k==="dial")return {kind:"text",label:lab+" · El diálogo",html:`<p class="small sub">Complete the dialogue.</p>A: Buenos días. ¿{_}?<br>B: Estoy {_}. ¿Y tú?<br>A: Muy bien, gracias. {_}.<br>B: Adiós.`,
+    blanks:[["Cómo estás","Cómo está usted","Qué tal"],["bien","regular","mal","muy bien"],FAREWELL],sec:"sal",explain:"How are you? → <b>¿Cómo estás?</b> · I'm… → <b>Estoy bien / regular / mal</b> · Farewells: adiós, hasta luego, nos vemos, hasta mañana.",audio:"A: Buenos días. ¿Cómo estás? B: Estoy bien. ¿Y tú? A: Muy bien, gracias. Hasta luego. B: Adiós."};
+  if(k==="mean"){const pool=SAL0.concat(CLASE0),x=rnd(pool);const m=mcMake(x[1],shuffle(pool.filter(y=>y[1]!==x[1])).slice(0,2).map(y=>[y[1],""]));
+    return Object.assign({kind:"mc",label:lab+" · ¿Qué significa?",html:`<span class="es">${esc(x[0])}</span> ${say(x[0].replace(/___/g,""))}`,sec:"sal",explain:"",audio:x[0].replace(/___ ?/g,"")},m);}
+  const t=rnd(["rep","dice","bano","bye","bye","respond"]);
+  if(t==="rep")return {kind:"text",label:lab+" · Escribe",html:`Write the Spanish expression for <b>“Repeat, please.”</b>{__}`,blanks:[["Repita, por favor.","Repite, por favor.","Repita, por favor","Por favor, repita."]],sec:"sal",explain:"",audio:"Repita, por favor."};
+  if(t==="dice"){const w=rnd(["window","pencil","backpack","notebook","chair","clock"]);return {kind:"text",label:lab+" · Escribe",html:`Write the question: <b>How do you say “${w}” in Spanish?</b>{__}`,blanks:[["¿Cómo se dice "+w+" en español?"]],match:[s=>new RegExp(`^como se dice ${w}( en espanol)?$`).test(s)],diag:()=>"Use: ¿Cómo se dice ___ en español?",sec:"sal",explain:"Pattern: <b>¿Cómo se dice ___ en español?</b>",audio:`¿Cómo se dice ${w} en español?`};}
+  if(t==="bano")return {kind:"text",label:lab+" · Completa",html:`¿Puedo ir al {_}? <span class="paren">(May I go to the bathroom?)</span>`,blanks:[["baño"]],sec:"sal",explain:"<b>¿Puedo ir al baño?</b> Don't forget the ñ!",audio:"¿Puedo ir al baño?"};
+  if(t==="bye")return {kind:"text",label:lab+" · Escribe",html:`Write one appropriate <b>farewell</b> (goodbye) in Spanish.{__}`,blanks:[FAREWELL],diag:()=>"A farewell is a way to say goodbye.",sec:"sal",explain:"Farewells: adiós, hasta luego, nos vemos, hasta mañana, hasta pronto, chao.",audio:"Adiós. Hasta luego. Nos vemos."};
+  return {kind:"open",label:lab+" · Contesta",html:`<p>Respond appropriately:</p><p><span class="es">Buenos días. ¿Cómo estás?</span> ${say("Buenos días. ¿Cómo estás?")}</p>`,test:v=>/\b(bien|regular|mal)\b/.test(v),model:"Buenos días. Estoy bien, gracias. ¿Y tú?",hint:"Use <b>Estoy bien / regular / mal</b>.",sec:"sal",explain:"Example answer:",audio:"Buenos días. Estoy bien, gracias. ¿Y tú?"};
+}
+function objDiag(o,pl){return (n,na)=>{
+  const arts=["un","una","unos","unas"];if(!arts.includes(na))return "Use un, una, unos or unas.";
+  const msgs=[];
+  if((na==="una"||na==="unas")!==(o[1]==="f"))msgs.push(`<i>${o[0]}</i> is ${o[1]==="m"?"masculine":"feminine"}${o[0]==="lápiz"?" (even though it doesn't end in -o)":""}.`);
+  if(na.endsWith("s")!==pl)msgs.push(pl?"It's plural (more than one), so use unos / unas.":"It's singular (just one), so use un / una.");
+  return msgs.join(" ");};}
+function genObj0(){
+  const k=pickW([[4,"art"],[3,"que"],[2,"mean"],[2,"type"],[1,"esto"]]),lab=L0.obj;
+  if(k==="art"){const o=rnd(OBJ0),pl=Math.random()<.4,noun=pl?o[2]:o[0],a=artOf(o[1],pl);
+    return {kind:"text",label:lab+" · un, una, unos, unas",html:`{_} ${noun} <span class="paren">(un, una, unos, unas)</span>`,blanks:[[a]],diag:objDiag(o,pl),sec:"obj",
+      explain:`<i>${o[0]}</i> is ${o[1]==="m"?"masculine":"feminine"}${pl?" and this is plural":""} → <b>${a} ${noun}</b>.${o[0]==="lápiz"&&pl?" (lápiz → lápices: z changes to c)":""}`,audio:`${a} ${noun}`};}
+  if(k==="que"){const o=rnd(OBJ0.filter(x=>x[4])),pl=Math.random()<.3;const a=artOf(o[1],pl),noun=pl?o[2]:o[0];
+    const right=`${pl?"Son":"Es"} ${a} ${noun}.`;const wa=artOf(o[1]==="m"?"f":"m",pl);const other=rnd(OBJ0.filter(x=>x!==o&&x[4]));
+    const m=mcMake(right,[[`${pl?"Son":"Es"} ${wa} ${noun}.`,`${o[0]} is ${o[1]==="m"?"masculine":"feminine"}.`],[`${pl?"Es":"Son"} ${artOf(o[1],!pl)} ${noun}.`,pl?"There's more than one: Son unos / unas…":"There's only one: Es un / una…"],[`${pl?"Son":"Es"} ${artOf(other[1],pl)} ${pl?other[2]:other[0]}.`,"Look at the picture again."]]);
+    return Object.assign({kind:"mc",label:lab+" · ¿Qué es esto?",html:`<p>${pl?"¿Qué son?":"¿Qué es esto?"} <span style="font-size:44px">${o[4]}${pl?o[4]:""}</span></p>`,sec:"obj",explain:"One → <b>Es un / una…</b> · More than one → <b>Son unos / unas…</b>",audio:right},m);}
+  if(k==="mean"){const o=rnd(OBJ0);const right=`${artOf(o[1],false)} ${o[0]}`;const m=mcMake(right,shuffle(OBJ0.filter(x=>x[3]!==o[3])).slice(0,2).map(x=>[`${artOf(x[1],false)} ${x[0]}`,""]).concat([[`${artOf(o[1]==="m"?"f":"m",false)} ${o[0]}`,`${o[0]} is ${o[1]==="m"?"masculine":"feminine"}.`]]));
+    return Object.assign({kind:"mc",label:lab+" · ¿Cómo se dice?",html:`How do you say <b>${anEn(o[3])}</b> in Spanish?`,sec:"obj",explain:"",audio:right},m);}
+  if(k==="type"){const o=rnd(OBJ0);const right=`${artOf(o[1],false)} ${o[0]}`;
+    return {kind:"text",label:lab+" · Escribe",html:`Write in Spanish with <b>un</b> or <b>una</b>: <b>${anEn(o[3])}</b> {_}`,blanks:[[right].concat(o[3]==="eraser"?["un borrador","una goma"]:[])],sec:"obj",
+      diag:(n,na)=>{if(!/^(un|una) /.test(na))return "Include un or una before the noun.";const p=na.split(" ");if(stripAcc(p.slice(1).join(" "))===stripAcc(o[0]))return objDiag(o,false)(p[0],p[0]);return "Check the word for "+o[3]+".";},
+      explain:`<b>${right}</b> (${o[1]==="m"?"masculine":"feminine"})`,audio:right};}
+  return {kind:"text",label:lab+" · Completa",html:`¿Qué {_} esto? {_} un lápiz.`,blanks:[["es"],["Es"]],sec:"obj",explain:"<b>¿Qué es esto?</b> What is this? → <b>Es un lápiz.</b> It's a pencil.",audio:"¿Qué es esto? Es un lápiz."};
+}
+function pickNum(){return pickW([[2,()=>Math.floor(Math.random()*16)],[3,()=>16+Math.floor(Math.random()*14)],[4,()=>30+Math.floor(Math.random()*71)],[3,()=>rnd([16,17,21,22,23,26,44,58,60,67,70,77,79,90,95,100])]])();}
+function numDiag(n){return (s,na)=>{
+  if(n>=16&&n<=19&&/^diez y/.test(na))return "16–19 are written as one word (dieci…).";
+  if(n>=21&&n<=29&&/^veinte y/.test(na))return "21–29 are written as one word: veinti + the number.";
+  if(n>30&&n%10&&!/ y /.test(na))return "From 31 on, put <b>y</b> between the tens and the ones (treinta y uno).";
+  if(n===100&&na==="ciento")return "100 by itself is <b>cien</b>.";
+  if(/sesenta/.test(na)&&n>=70&&n<80)return "Careful: sesenta = 60, setenta = 70.";
+  if(/setenta/.test(na)&&n>=60&&n<70)return "Careful: sesenta = 60, setenta = 70.";
+  if(/^\d+$/.test(na))return "Write the number in words.";
+  return "Check the spelling.";};}
+function numOpts(n){const c=[n+1,n-1,n+10,n-10];if(n>=60&&n<70)c.push(n+10);if(n>=70&&n<80)c.push(n-10);if(n>=12&&n<=17)c.push((n-10)*10);
+  const out=uniq(shuffle(c.filter(x=>x>=0&&x<=100&&x!==n))).slice(0,3);while(out.length<3){const x=Math.floor(Math.random()*101);if(x!==n&&!out.includes(x))out.push(x);}return out;}
+function genNum0(){
+  const k=pickW([[4,"word"],[2,"digit"],[2,"mc"],[1,"math"]]),n=pickNum(),lab=L0.num;
+  if(k==="word")return {kind:"text",label:lab+" · Escribe en español",html:`Write <b>${n}</b> in Spanish words. {__}`,blanks:[[nw(n)]],diag:numDiag(n),sec:"num",explain:numRule(n),audio:nw(n)};
+  if(k==="digit")return {kind:"text",label:lab+" · Escribe el número",html:`<span class="es">${nw(n)}</span> = {_}`,blanks:[[String(n)]],key:String(n),sec:"num",explain:`${nw(n)} = <b>${n}</b>`,audio:nw(n)};
+  if(k==="mc"){const m=mcMake(nw(n),numOpts(n).map(x=>[nw(x),`${nw(x)} = ${x}`]));return Object.assign({kind:"mc",label:lab+" · ¿Cuál es?",html:`Which is <b>${n}</b>?`,sec:"num",explain:numRule(n),audio:nw(n)},m);}
+  let a,b,plus=Math.random()<.6,r;if(plus){a=1+Math.floor(Math.random()*50);b=1+Math.floor(Math.random()*(100-a));r=a+b;}else{a=20+Math.floor(Math.random()*81);b=1+Math.floor(Math.random()*a);r=a-b;}
+  const m=mcMake(nw(r),numOpts(r).map(x=>[nw(x),""]));
+  return Object.assign({kind:"mc",label:lab+" · Matemáticas",html:`<span class="es">${nw(a)} ${plus?"más":"menos"} ${nw(b)}</span> = ?`,sec:"num",explain:`${a} ${plus?"+":"−"} ${b} = ${r}`,audio:`${nw(a)} ${plus?"más":"menos"} ${nw(b)} son ${nw(r)}`},m);
+}
+function numRule(n){
+  if(n>=16&&n<=19)return `16–19 are one word: <b>${nw(n)}</b>.`;
+  if(n>=21&&n<=29)return `21–29 are one word: <b>${nw(n)}</b>.`;
+  if(n>30&&n<100&&n%10)return `From 31 on: tens + <b>y</b> + ones → <b>${nw(n)}</b>.`;
+  if(n===100)return "100 = <b>cien</b>.";
+  return `<b>${nw(n)}</b>`;
+}
+function randDate(){const m=Math.floor(Math.random()*12);const d=1+Math.floor(Math.random()*MDAYS[m]);return [d,m];}
+function genCal0(){
+  const k=pickW([[2,"day"],[1,"hoy"],[2,"month"],[3,"date"],[1,"read"],[2,"season"],[1,"caps"],[1,"situ"]]),lab=L0.cal;
+  if(k==="day"){const i=Math.floor(Math.random()*7),after=Math.random()<.6,j=(i+(after?1:6))%7;
+    return {kind:"text",label:lab+" · Los días",html:`¿Qué día viene <b>${after?"después":"antes"}</b> del ${DIAS0[i]}? {_} <span class="paren">(${after?"después = after":"antes = before"})</span>`,blanks:[[DIAS0[j]]],okNote:capsNote2,sec:"cal",
+      diag:(n,na)=>na===stripAcc(DIAS0[(i+(after?6:1))%7])?`That's the day ${after?"before":"after"}. Read <b>${after?"después":"antes"}</b> again.`:(DIAS_EN.map(x=>x.toLowerCase()).includes(na)?"Write it in Spanish.":"Say the days in order: lunes, martes, miércoles, jueves, viernes, sábado, domingo."),
+      explain:"lunes, martes, miércoles, jueves, viernes, sábado, domingo",audio:`${DIAS0[j]}`};}
+  if(k==="hoy"){const i=Math.floor(Math.random()*7),tom=Math.random()<.5,j=(i+(tom?1:6))%7;
+    return {kind:"text",label:lab+" · Hoy, mañana, ayer",html:`Hoy es ${DIAS0[i]}. ¿Qué día ${tom?"es mañana":"fue ayer"}? {_}`,blanks:[[DIAS0[j]]],match:[s=>new RegExp(`^((manana es|ayer fue|es|fue) )?${stripAcc(DIAS0[j])}$`).test(s)],okNote:capsNote2,sec:"cal",
+      diag:()=>`<b>${tom?"Mañana = tomorrow":"Ayer = yesterday"}</b>. Count ${tom?"forward":"back"} one day.`,explain:`Hoy = today · mañana = tomorrow · ayer = yesterday`,audio:`Hoy es ${DIAS0[i]}. ${tom?"Mañana es":"Ayer fue"} ${DIAS0[j]}.`};}
+  if(k==="month"){const i=Math.floor(Math.random()*12),after=Math.random()<.5,j=(i+(after?1:11))%12;
+    return {kind:"text",label:lab+" · Los meses",html:`¿Qué mes viene <b>${after?"después":"antes"}</b> de ${MESES0[i]}? {_}`,blanks:[[MESES0[j]]],okNote:capsNote2,sec:"cal",
+      diag:(n,na)=>na===stripAcc(MESES0[(i+(after?11:1))%12])?`That's the month ${after?"before":"after"}.`:(MESES_EN.map(x=>x.toLowerCase()).includes(na)?"Write it in Spanish.":"Say the months in order, starting with enero."),explain:MESES0.join(", "),audio:MESES0[j]};}
+  if(k==="date"){
+    let d,m,q,eng;if(Math.random()<.35){const h=rnd(HOLI);d=h[2];m=h[3];q=`¿Cuándo es ${h[0]}?`;eng=`(${h[1]})`;}else{[d,m]=randDate();if(Math.random()<.4){const f=rnd([[15,8],[14,1],[31,9],[1,11],[8,9],[25,11]]);d=f[0];m=f[1];}q=`Write <b>${MESES_EN[m]} ${d}</b> in Spanish.`;eng="";}
+    return {kind:"text",label:lab+" · La fecha",html:`${q} <span class="paren">${eng}</span>{__}`,blanks:[["Es "+dateEs(d,m)+"."]],match:[s=>dateRe(d,m).test(s)],okNote:capsNote2,sec:"cal",
+      diag:(n,na)=>{if(new RegExp(`(${MONTH_RE}) \\w+`).test(na)&&!/ de /.test(na))return "Spanish order: <b>el + day + de + month</b>.";if(!/ de /.test(na))return "Use <b>de</b> between the day and the month.";if(d===1&&/\buno\b/.test(na)===false&&/\bprimero\b/.test(na)===false)return "The 1st is <b>el primero</b>.";return "Pattern: <b>Es el + number + de + month</b>. Check the number and the month.";},
+      explain:`Pattern: <b>Es el + number + de + month</b>${d===1?" (the 1st = el primero)":""}. Months are lowercase.`,audio:"Es "+dateEs(d,m)+"."};}
+  if(k==="read"){let d,m;do{[d,m]=randDate();}while(d>12||d===m+1);const right=`${MESES_EN[m]} ${d}`;
+    const m2=mcMake(right,[[`${MESES_EN[d-1]} ${m+1}`,"Spanish puts the day first: el + day + de + month."],[`${MESES_EN[(m+1)%12]} ${d}`,"Check the month."],[`${MESES_EN[m]} ${d+10<=MDAYS[m]?d+10:d+1}`,"Check the number."]]);
+    return Object.assign({kind:"mc",label:lab+" · ¿Qué fecha es?",html:`<span class="es">${dateEs(d,m)}</span> ${say(dateEs(d,m))}`,sec:"cal",explain:"Spanish order: <b>el + day + de + month</b>.",audio:dateEs(d,m)},m2);}
+  if(k==="season"){const s=rnd(EST0);
+    if(Math.random()<.5){const mo=rnd(s[2]);const m=mcMake(s[0],EST0.filter(x=>x!==s).map(x=>[x[0],""]));
+      return Object.assign({kind:"mc",label:lab+" · Las estaciones",html:`¿En qué estación está <span class="es">${MESES0[mo]}</span>?`,sec:"cal",explain:`${s[0]}: ${s[2].map(i=>MESES0[i]).join(", ")}`,audio:s[0]},m);}
+    return {kind:"text",label:lab+" · Las estaciones",html:`Write <b>${s[1]}</b> in Spanish. {_}`,blanks:[[s[0],s[0].split(" ")[1]]],sec:"cal",explain:"la primavera · el verano · el otoño · el invierno",audio:s[0]};}
+  if(k==="caps"){const w=rnd(DIAS0.concat(MESES0));const opts=uniq(stripAcc(w)!==w?[w,cap(w),stripAcc(w)]:[w,cap(w),w.toUpperCase()]);
+    return Object.assign({kind:"mc",label:lab+" · ¿Cuál es correcto?",html:"Which one is written correctly in Spanish?",sec:"cal",explain:"Days and months are lowercase in Spanish, and accents count.",audio:w},mixMC(opts,0));}
+  const base=new Date(2026,Math.floor(Math.random()*12),1+Math.floor(Math.random()*28)),tom=Math.random()<.5,o=new Date(base);o.setDate(o.getDate()+(tom?1:-1));
+  const wd=x=>DIAS0[(x.getDay()+6)%7];const today=`${wd(base)}, ${dayWord(base.getDate())} de ${MESES0[base.getMonth()]}`;const ans=`${wd(o)}, ${dateEs(o.getDate(),o.getMonth())}`;
+  return {kind:"text",label:lab+" · Situación",html:`<p class="small">Hoy es <b>${today}</b>.</p>Write the complete date for <b>${tom?"mañana (tomorrow)":"ayer (yesterday)"}</b>. {__}`,blanks:[[ans]],match:[s=>dateRe(o.getDate(),o.getMonth()).test(s)],okNote:capsNote2,sec:"cal",
+    diag:()=>`Count ${tom?"forward":"back"} one day. Watch out for the end or start of the month!`,explain:`${tom?"Mañana es":"Ayer fue"} <b>${ans}</b>.`,audio:`${tom?"Mañana es":"Ayer fue"} ${ans}.`};
+}
+function genTie0(){
+  const k=pickW([[3,"verb"],[2,"fix"],[2,"pic"],[2,"type"],[1,"mean"],[1,"season"]]),lab=L0.tie;
+  if(k==="verb"){const v=rnd(["hace","hace","está","hay","none"]);const w=rnd(WXV[v]);const opts=["Hace","Está","Hay","No extra word"];const c={hace:0,está:1,hay:2,none:3}[v];
+    return {kind:"mc",label:lab+" · Hace, está o hay",html:`___ <span class="es">${w}</span>.`,options:opts,correct:c,sec:"tie",explain:WX_RULE,audio:v==="none"?w+".":cap(v)+" "+w+"."};}
+  if(k==="fix"){const x=rnd(WXCORR);const alt=WXCORR.filter(y=>y!==x);const vs=["Es","Está","Hace","Hay"];const first=x[1].split(" ")[0];
+    let w2=x[0];for(const v of shuffle(vs)){const cand=x[1].replace(/^(Hoy )?(Hace|Está|Hay)/,(mm,h,vv)=>(h||"")+v);if(cand!==x[1]&&cand!==x[0]){w2=cand;break;}}
+    const m=mcMake(x[1],uniq([x[0],w2]).filter(y=>y!==x[1]).map(y=>[y,""]));
+    return Object.assign({kind:"mc",label:lab+" · Corrige",html:`<p>Correct this sentence: <span class="es" style="text-decoration:line-through">${esc(x[0])}</span></p><p class="small sub">Which is correct?</p>`,sec:"tie",explain:x[2],audio:x[1]},m);}
+  if(k==="pic"){const x=rnd(WX.filter(y=>y[2]));const m=mcMake(x[0],shuffle(WX.filter(y=>y[3]!==x[3]&&y[2]!==x[2])).slice(0,3).map(y=>[y[0],""]));
+    return Object.assign({kind:"mc",label:lab+" · ¿Qué tiempo hace?",html:`<p>¿Qué tiempo hace? <span style="font-size:44px">${x[2]}</span></p>`,sec:"tie",explain:WX.filter(y=>y[3]===x[3]).map(y=>y[0]).join(" / ")+` = ${x[1]}`,audio:x[0]},m);}
+  if(k==="type"){const x=rnd(WX);const group=WX.filter(y=>y[3]===x[3]).map(y=>y[0]);
+    return {kind:"text",label:lab+" · Escribe",html:`Write in Spanish: <b>${esc(x[1])}</b> {__}`,blanks:[group],sec:"tie",
+      diag:(n,na)=>{const comp=na.split(" ").slice(1).join(" ");for(const g of group){const gc=stripAcc(norm(g)).split(" ").slice(1).join(" ");if(gc&&comp===gc)return "Check the verb: "+WX_RULE;}if(/^es /.test(na))return "Don't use <b>es</b> for weather. "+WX_RULE;return "";},
+      explain:group.join(" / "),audio:group[0]};}
+  if(k==="mean"){const x=rnd(WX);const m=mcMake(x[1],shuffle(uniq(WX.filter(y=>y[3]!==x[3]).map(y=>y[1]))).slice(0,2).map(y=>[y,""]));
+    return Object.assign({kind:"mc",label:lab+" · ¿Qué significa?",html:`<span class="es">${esc(x[0])}</span> ${say(x[0])}`,sec:"tie",explain:"",audio:x[0]},m);}
+  const x=rnd(SEASON_WX);const m=mcMake(x[1],x[2].map(y=>[y,""]));
+  return Object.assign({kind:"mc",label:lab+" · Las estaciones",html:`<span class="es">${esc(x[0])}</span> ${say(x[0])}`,sec:"tie",explain:"",audio:x[1]},m);
+}
+function genPai0(){
+  const k=pickW([[3,"cap"],[2,"country"],[2,"type"],[2,"region"],[1,"brasil"]]),lab=L0.pai;
+  const x=rnd(CAPS);
+  if(k==="cap"){const m=mcMake(x[1],shuffle(CAPS.filter(y=>y!==x)).slice(0,3).map(y=>[y[1],""]));return Object.assign({kind:"mc",label:lab+" · La capital",html:`¿Cuál es la capital de <b>${x[0]}</b>?`,sec:"pai",explain:`La capital de ${x[0]} es <b>${x[1]}</b>.`,audio:`La capital de ${x[0]} es ${x[1]}.`},m);}
+  if(k==="country"){const m=mcMake(x[0],shuffle(CAPS.filter(y=>y!==x)).slice(0,3).map(y=>[y[0],""]));return Object.assign({kind:"mc",label:lab+" · El país",html:`<b>${x[1]}</b> is the capital of which country?`,sec:"pai",explain:`${x[1]} es la capital de <b>${x[0]}</b>.`,audio:`${x[1]} es la capital de ${x[0]}.`},m);}
+  if(k==="type")return {kind:"text",label:lab+" · Escribe la capital",html:`Write the capital of <b>${x[0]}</b>. {_}`,blanks:[x[0]==="Bolivia"?["Sucre","La Paz"]:[x[1]]],sec:"pai",diag:(n,na)=>{const o=CAPS.find(y=>stripAcc(norm(y[1]))===na);return o?`${o[1]} is the capital of ${o[0]}.`:"";},explain:`${x[0]} → <b>${x[1]}</b>`,audio:`La capital de ${x[0]} es ${x[1]}.`};
+  if(k==="region"){const regs=Object.keys(REGIONS),r=rnd(regs),c=rnd(REGIONS[r]);return {kind:"mc",label:lab+" · ¿Dónde está?",html:`Where is <b>${c}</b>?`,options:regs,correct:regs.indexOf(r),sec:"pai",explain:`${c} → <b>${r}</b>`,audio:c};}
+  const m=mcMake("Brasil",shuffle(REGIONS["Sudamérica"]).slice(0,3).map(y=>[y,`${y} is a Spanish-speaking country.`]));
+  return Object.assign({kind:"mc",label:lab+" · ¡Cuidado!",html:"Which large South American country speaks <b>Portuguese</b>, not Spanish?",sec:"pai",explain:"Brasil speaks Portuguese.",audio:"Brasil"},m);
+}
+/* forecast */
+const FWX=[["☀️","hace sol"],["☁️","está nublado"],["🌧️","llueve"],["⛈️","hay tormentas"],["💨","hace viento"],["🌤️","hace buen tiempo"]];
+function forecast(){
+  const m=Math.floor(Math.random()*12),d0=1+Math.floor(Math.random()*(MDAYS[m]-5));
+  const ws=shuffle(FWX).slice(0,5);const temps=shuffle(Array.from({length:30},(_,i)=>55+i)).slice(0,5);
+  const days=ws.map((w,i)=>({dia:DIAS0[i],d:d0+i,m,icon:w[0],es:w[1],t:temps[i]}));
+  const html=`<div class="fcast">${days.map(x=>`<div class="fday"><b>${x.dia}</b><span class="sub">${x.d}</span><span class="ic">${x.icon}</span><b>${x.t}° F</b><span class="sub">${x.es}</span></div>`).join("")}</div><p class="small sub" style="margin-top:6px">Mes: ${MESES0[m]}</p>`;
+  return {days,html};
+}
+function forecastQs(F){
+  const D=F.days,qs=[];const pick=()=>rnd(D);
+  {const x=pick();const m=mcMake(cap(x.es)+".",shuffle(D.filter(y=>y!==x)).slice(0,2).map(y=>[cap(y.es)+".",""]));qs.push(Object.assign({kind:"mc",html:`¿Qué tiempo hace el <b>${x.dia}</b>?`,explain:`El ${x.dia}: ${x.icon} ${x.es}.`,audio:`El ${x.dia} ${x.es}.`},m));}
+  {const x=pick();const m=mcMake(x.dia,shuffle(D.filter(y=>y!==x)).slice(0,3).map(y=>[y.dia,""]));qs.push(Object.assign({kind:"mc",html:`¿Qué día <b>${x.es}</b>?`,explain:`${x.icon} ${x.es} → el ${x.dia}.`,audio:`El ${x.dia} ${x.es}.`},m));}
+  {const x=pick();const m=mcMake(nw(x.t)+" grados",shuffle(D.filter(y=>y!==x)).slice(0,2).map(y=>[nw(y.t)+" grados",""]).concat([[nw(x.t>=60&&x.t<70?x.t+10:(x.t>=70&&x.t<80?x.t-10:x.t+1))+" grados","Check the tens: sesenta = 60, setenta = 70."]]));
+   qs.push(Object.assign({kind:"mc",html:`¿Cuál es la temperatura del <b>${x.dia}</b>?`,explain:`${x.t}° = ${nw(x.t)} grados.`,audio:`Hace ${nw(x.t)} grados.`},m));}
+  {const hot=Math.random()<.6,x=D.reduce((a,b)=>hot?(b.t>a.t?b:a):(b.t<a.t?b:a));const m=mcMake(x.dia,shuffle(D.filter(y=>y!==x)).slice(0,3).map(y=>[y.dia,""]));
+   qs.push(Object.assign({kind:"mc",html:`¿Qué día hace más <b>${hot?"calor":"frío"}</b>? <span class="paren">(más = more)</span>`,explain:`The ${hot?"highest":"lowest"} temperature is ${x.t}° on ${x.dia}.`,audio:`El ${x.dia} hace más ${hot?"calor":"frío"}.`},m));}
+  {const x=pick();qs.push({kind:"text",html:`Write the complete date for <b>${x.dia}</b> in Spanish.{__}`,blanks:[[`${x.dia}, ${dateEs(x.d,x.m)}`]],match:[s=>dateRe(x.d,x.m).test(s)],okNote:capsNote2,
+    diag:()=>"Pattern: <b>el + number + de + month</b>. Look at the number under the day and the month below the chart.",explain:`<b>${x.dia}, ${dateEs(x.d,x.m)}</b>`,audio:`${x.dia}, ${dateEs(x.d,x.m)}`});}
+  return qs;
+}
+function genPro0(){const F=forecast();const q=rnd(forecastQs(F));q.qtext=plain(q.html);q.html=F.html+`<p style="font-weight:700;margin-top:10px">${q.html}</p>`;q.label=L0.pro;q.sec="pro";return q;}
+function pPronostico(box){
+  function draw(){
+    hush();const F=forecast(),qs=forecastQs(F);let got=0,n=0;
+    box.innerHTML=`<div class="card"><div class="row" style="justify-content:space-between"><h3>Pronóstico de cinco días</h3><button class="btn ghost" type="button" id="newf">New forecast</button></div>${F.html}
+    <p class="sub">Study the five-day forecast. Answer from the information shown.</p></div>
+    <div class="card">${qs.map((q,k)=>`<div class="qcard" id="fq${k}"></div>`).join("")}<div id="fsum" class="note" hidden></div></div>`;
+    $("#newf",box).onclick=draw;
+    qs.forEach((q,k)=>{q.html=`${k+1}. ${q.html}`;renderItem($("#fq"+k,box),Object.assign(q,{autofocus:false}),2,sc=>{n++;if(sc===1)got++;
+      if(n===qs.length){const s=$("#fsum",box);s.hidden=false;s.innerHTML=`<b>${got} of ${qs.length}</b> correct on the first try. <button class="btn" type="button" id="newf2" style="margin-left:8px">Try a new forecast →</button>`;$("#newf2",box).onclick=()=>{draw();window.scrollTo(0,0);};}});});
+  }
+  draw();
+}
+const ESC0=[
+  ["¿Qué tiempo hace hoy?","What's the weather like today?",v=>/\b(hace|esta|hay|llueve|nieva|truena|relampaguea)\b/.test(v)&&!/\bes (caliente|frio|calor|sol|nublado)\b/.test(v),"Hoy hace sol y hace calor.","Use <b>hace, está</b> or <b>hay</b> (or llueve / nieva). Don't use es for weather."],
+  ["¿Qué estación prefieres y por qué?","Which season do you prefer and why?",v=>/\bprefiero (el |la )?(primavera|verano|otono|invierno)\b/.test(v)&&/\bporque\b/.test(v),"Prefiero el invierno porque hace fresco.","Use <b>Prefiero + season + porque + a reason</b>."],
+  ["¿Cuándo es tu cumpleaños?","When is your birthday?",v=>anyDateRe.test(v),"Mi cumpleaños es el ocho de mayo.","Use <b>Mi cumpleaños es el + number + de + month</b>."],
+  ["¿Qué día es hoy?","What day is today?",v=>new RegExp(`\\bhoy es (${DAY_RE})\\b`).test(v),"Hoy es jueves.","Start with <b>Hoy es</b> + the day."],
+  ["¿Cuál es la fecha de hoy?","What's today's date?",v=>anyDateRe.test(v),"Hoy es el doce de noviembre.","Use <b>Hoy es el + number + de + month</b>."],
+  ["Buenos días. ¿Cómo estás?","Respond appropriately.",v=>/\b(bien|regular|mal)\b/.test(v),"Buenos días. Estoy bien, gracias. ¿Y tú?","Use <b>Estoy bien / regular / mal</b>."],
+  ["Buenas tardes.","Respond appropriately.",v=>/\b(buenas tardes|hola|que tal|como estas)\b/.test(v),"Buenas tardes. ¿Qué tal?","Greet back: <b>Buenas tardes</b>, <b>Hola</b>…"],
+  ["Write a two-line exchange: a greeting or classroom expression, and a response.","",v=>v.split(" ").length>=4&&/(hola|buenos dias|buenas tardes|buenas noches|como estas|que tal|como esta usted|puedo ir al bano|repita|repite|como se dice|adios|hasta luego)/.test(v),"—Hola, ¿qué tal? —Muy bien, gracias.","Write a greeting and an answer, like: <b>Hola, ¿qué tal? Muy bien, gracias.</b>"]
+];
+function genEsc0(){
+  if(Math.random()<.2){const o=rnd(OBJ0.filter(x=>x[4]));const a=`Es ${artOf(o[1],false)} ${o[0]}.`;
+    return {kind:"open",label:L0.esc,html:`<p>Answer in a complete sentence:</p><p><span class="es">¿Qué es esto?</span> <span style="font-size:40px">${o[4]}</span></p>`,test:v=>new RegExp(`\\bes ${artOf(o[1],false)} ${stripAcc(o[0])}\\b`).test(v),model:a,hint:"Use <b>Es un / Es una</b> + the object.",sec:"esc",explain:"Example answer:",audio:a};}
+  const x=rnd(ESC0);
+  return {kind:"open",label:L0.esc,html:`<p>Answer in complete Spanish:</p><p><span class="es">${esc(x[0])}</span> ${/^Write/.test(x[0])?"":say(x[0])} <span class="sub">${x[1]}</span></p>`,test:x[2],model:x[3],hint:x[4],sec:"esc",explain:"Example answer:",audio:x[3]};
+}
+function genOir0(){
+  const k=pickW([[3,"num"],[3,"spell"],[1,"cal"],[1,"date"],[1,"wx"],[1,"obj"],[1,"func"]]),lab=L0.oir;
+  if(k==="num"){const n=pickNum();return {kind:"text",label:lab+" · Los números",html:`<p>${playBig(nw(n))}</p><p class="small">Listen and write the number with digits.</p>{_}`,blanks:[[String(n)]],key:String(n),sec:"oir",explain:`${nw(n)} = <b>${n}</b>`,audio:nw(n),onShow:()=>speak(nw(n))};}
+  if(k==="spell"){const nm=rnd(SPELLNAMES),sp=spellOut(nm);return {kind:"text",label:lab+" · Deletrea",html:`<p>${playBig(sp)}</p><p class="small">Your teacher spells a name with Spanish letter names. Write the complete name. Use <b>Audio: lento</b> at the top if it's too fast.</p>{_}`,blanks:[[nm]],key:nm,sec:"oir",explain:`<b>${nm}</b>: ${sp}`,audio:sp,onShow:()=>speak(sp)};}
+  if(k==="cal"){const isD=Math.random()<.5,L=isD?DIAS0:MESES0,E=isD?DIAS_EN:MESES_EN,i=Math.floor(Math.random()*L.length);const m=mcMake(E[i],shuffle(E.filter((_,j)=>j!==i)).slice(0,2).map(y=>[y,""]));
+    return Object.assign({kind:"mc",label:lab+(isD?" · El día":" · El mes"),html:`<p>${playBig(L[i])}</p><p class="small">What do you hear?</p>`,sec:"oir",explain:`${L[i]} = ${E[i]}`,audio:L[i],onShow:()=>speak(L[i])},m);}
+  if(k==="date"){let d,m;do{[d,m]=randDate();}while(d>12||d===m+1);const s=dateEs(d,m);const m2=mcMake(`${MESES_EN[m]} ${d}`,[[`${MESES_EN[d-1]} ${m+1}`,""],[`${MESES_EN[m]} ${d+1<=MDAYS[m]?d+1:d-1}`,""]]);
+    return Object.assign({kind:"mc",label:lab+" · La fecha",html:`<p>${playBig(s)}</p><p class="small">Which date do you hear?</p>`,sec:"oir",explain:s,audio:s,onShow:()=>speak(s)},m2);}
+  if(k==="wx"){const x=rnd(WX);const m=mcMake(x[1],shuffle(uniq(WX.filter(y=>y[3]!==x[3]).map(y=>y[1]))).slice(0,2).map(y=>[y,""]));
+    return Object.assign({kind:"mc",label:lab+" · El tiempo",html:`<p>${playBig(x[0])}</p><p class="small">What's the weather?</p>`,sec:"oir",explain:x[0],audio:x[0],onShow:()=>speak(x[0])},m);}
+  if(k==="obj"){const o=rnd(OBJ0),s=`${artOf(o[1],false)} ${o[0]}`;const m=mcMake(anEn(o[3]),shuffle(OBJ0.filter(y=>y[3]!==o[3])).slice(0,2).map(y=>[anEn(y[3]),""]));
+    return Object.assign({kind:"mc",label:lab+" · El objeto",html:`<p>${playBig(s)}</p><p class="small">Which classroom object do you hear?</p>`,sec:"oir",explain:s,audio:s,onShow:()=>speak(s)},m);}
+  const F=[["greeting someone",["Buenos días.","Buenas tardes, ¿qué tal?","Hola, ¿cómo estás?"]],["saying goodbye",["Adiós, hasta luego.","Nos vemos mañana.","Hasta mañana."]],["asking for an object",["¿Tienes un lápiz, por favor?","Una carpeta, por favor.","¿Tienes un cuaderno?"]]];
+  const c=Math.floor(Math.random()*3),s=rnd(F[c][1]);
+  return {kind:"mc",label:lab+" · ¿Qué hace?",html:`<p>${playBig(s)}</p><p class="small">The speaker is…</p>`,options:F.map(f=>f[0]),correct:c,sec:"oir",explain:s,audio:s,onShow:()=>speak(s)};
+}
+
+/* ---------- Unit 0 flashcards ---------- */
+const DECKS0={
+  sal:{name:"Saludos",front:"Español",back:"English",cards:SAL0.map(c=>[c[0],c[1],c[0]])},
+  cla:{name:"Expresiones de la clase",front:"Español",back:"English",cards:CLASE0.map(c=>[c[0],c[1],c[0].replace(/___ ?/g,"")])},
+  abc:{name:"El alfabeto",front:"Letra",back:"Nombre",cards:ABC.map(c=>[c[0].toUpperCase(),c[1],c[1]])},
+  obj:{name:"Objetos",front:"Español",back:"English",cards:OBJ0.map(o=>[`${artOf(o[1],false)} ${o[0]}`,anEn(o[3]),`${artOf(o[1],false)} ${o[0]}`])},
+  num:{name:"Números 0–100",front:"Número",back:"Español",cards:[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,26,30,31,40,44,50,58,60,67,70,79,80,90,95,100].map(n=>[String(n),nw(n),nw(n)])},
+  dias:{name:"Los días",front:"English",back:"Español",cards:DIAS0.map((d,i)=>[DIAS_EN[i],d,d])},
+  meses:{name:"Los meses",front:"English",back:"Español",cards:MESES0.map((d,i)=>[MESES_EN[i],d,d])},
+  est:{name:"Las estaciones",front:"English",back:"Español",cards:EST0.map(s=>[s[1],`${s[0]} (${s[2].map(i=>MESES0[i]).join(", ")})`,s[0]])},
+  tie:{name:"El tiempo",front:"Español",back:"English",cards:WX.map(x=>[x[0],x[1],x[0]])},
+  pai:{name:"Capitales",front:"País",back:"Capital",cards:CAPS.map(c=>[c[0],c[1],`${c[0]}: ${c[1]}`])}
+};
+
+/* ---------- Unit 0 guide ---------- */
+function pGuia0(box){
+  const toc=[["h-sal","Saludos"],["h-cla","La clase"],["h-abc","El alfabeto"],["h-obj","Objetos"],["h-num","Números"],["h-cal","Días y meses"],["h-fec","La fecha"],["h-est","Estaciones"],["h-tie","El tiempo"],["h-pai","Países"]];
+  const row=(es,en)=>`<tr><td><span class="cell"><b>${es}</b>${say(es.replace(/___ ?/g,""))}</span></td><td>${en}</td></tr>`;
+  box.innerHTML=`<nav class="toc" aria-label="Temas">${toc.map(t=>`<button class="chip" type="button" data-go="${t[0]}">${t[1]}</button>`).join("")}</nav>
+
+  <article class="card" id="h-sal"><h3>1 · Saludos y despedidas</h3>
+  <div class="tbl-wrap"><table><thead><tr><th>Español</th><th>English</th></tr></thead><tbody>${SAL0.map(r=>row(r[0],r[1])).join("")}</tbody></table></div>
+  <div class="rule"><strong>tú or usted?</strong><p><span class="es">¿Cómo estás?</span> → a friend or classmate · <span class="es">¿Cómo está usted?</span> → a teacher or adult</p></div></article>
+
+  <article class="card" id="h-cla"><h3>2 · Expresiones de la clase</h3>
+  <div class="tbl-wrap"><table><thead><tr><th>Situation</th><th>Useful Spanish</th></tr></thead><tbody>${SITU0.map(s=>`<tr><td>${esc(s[0])}</td><td><span class="cell"><b class="es">${esc(s[1])}</b>${say(s[1].replace(/___ ?/g,""))}</span></td></tr>`).join("")}</tbody></table></div></article>
+
+  <article class="card" id="h-abc"><h3>3 · El alfabeto</h3>
+  <div class="abc">${ABC.map(a=>`<button class="abcl" type="button" data-say="${a[1]}"><b>${a[0].toUpperCase()}</b><span>${a[1]}</span></button>`).join("")}</div>
+  <div class="card" style="background:var(--sunk)"><h3>Deletrea un nombre</h3><p class="sub">Type any name and hear it spelled with Spanish letter names.</p>
+  <div class="row"><input id="spin" class="blank" style="width:16ch" value="Sofía" aria-label="Nombre"><button class="btn" type="button" id="spbtn">Deletrear</button></div><p class="es" id="spout"></p></div></article>
+
+  <article class="card" id="h-obj"><h3>4 · Objetos y artículos</h3>
+  <div class="tbl-wrap"><table><thead><tr><th></th><th>Singular (one)</th><th>Plural (more than one)</th></tr></thead><tbody>
+  <tr><td class="subj">Masculine</td><td><b>un</b> libro</td><td><b>unos</b> libros</td></tr><tr><td class="subj">Feminine</td><td><b>una</b> mochila</td><td><b>unas</b> mochilas</td></tr></tbody></table></div>
+  <ul class="clean"><li>Words ending in <b>-o</b> are usually masculine. Words ending in <b>-a</b> are usually feminine.</li><li><b>el lápiz</b> is masculine. Plural: <b>lápices</b> (z → c).</li><li><span class="es">¿Qué es esto?</span> What is this? → <span class="es">Es un lápiz.</span> · <span class="es">¿Qué son?</span> → <span class="es">Son unas carpetas.</span></li></ul>
+  <div class="vocab">${OBJ0.map(o=>`<div class="voc"><div><div class="w">${o[4]?o[4]+" ":""}${artOf(o[1],false)} ${o[0]}</div><div class="en">${anEn(o[3])} · ${artOf(o[1],true)} ${o[2]}</div></div>${say(artOf(o[1],false)+" "+o[0])}</div>`).join("")}</div></article>
+
+  <article class="card" id="h-num"><h3>5 · Los números 0–100</h3>
+  <div class="vocab" style="grid-template-columns:repeat(auto-fill,minmax(150px,1fr))">${[...Array(31).keys()].concat([40,50,60,70,80,90,100]).map(n=>`<div class="voc"><div><div class="w">${n}</div><div class="en">${nw(n)}</div></div>${say(nw(n))}</div>`).join("")}</div>
+  <ul class="clean"><li><b>16–19</b> and <b>21–29</b> are one word: dieciséis, veintidós.</li><li>From <b>31</b> on: tens + <b>y</b> + ones → treinta y uno, cincuenta y ocho.</li><li>Careful: <b>sesenta</b> = 60, <b>setenta</b> = 70. <b>100</b> = cien.</li></ul>
+  <div class="card" style="background:var(--sunk)"><h3>La máquina de números</h3><div class="row"><input id="nmin" class="blank" type="number" min="0" max="100" value="58" style="width:8ch" aria-label="Número"><span id="nmout" class="es" style="font-size:22px;font-weight:700"></span></div></div></article>
+
+  <article class="card" id="h-cal"><h3>6 · Los días y los meses</h3>
+  <div class="two"><div class="vocab" style="grid-template-columns:1fr">${DIAS0.map((d,i)=>`<div class="voc"><div><div class="w">${d}</div><div class="en">${DIAS_EN[i]}</div></div>${say(d)}</div>`).join("")}</div>
+  <div class="vocab" style="grid-template-columns:1fr 1fr">${MESES0.map((d,i)=>`<div class="voc"><div><div class="w">${d}</div><div class="en">${MESES_EN[i]}</div></div>${say(d)}</div>`).join("")}</div></div>
+  <div class="note"><b>Lowercase!</b> Days and months are not capitalized in Spanish: <span class="es">lunes, septiembre</span>.</div>
+  <ul class="clean"><li><b>hoy</b> = today · <b>mañana</b> = tomorrow · <b>ayer</b> = yesterday</li><li><b>antes de</b> = before · <b>después de</b> = after (de + el = <b>del</b>: después del lunes)</li><li><span class="es">¿Qué día es hoy?</span> → <span class="es">Hoy es jueves.</span></li></ul></article>
+
+  <article class="card" id="h-fec"><h3>7 · La fecha</h3>
+  <div class="formula"><span class="blk b1">Es el</span><span class="plus">+</span><span class="blk b2">number<small>quince</small></span><span class="plus">+</span><span class="blk b3">de</span><span class="plus">+</span><span class="blk b4">month<small>septiembre</small></span></div>
+  <ul class="clean"><li>September 15 → <span class="es">Es el quince de septiembre.</span> ${say("Es el quince de septiembre.")}</li><li>The 1st → <b>el primero</b>: <span class="es">el primero de diciembre</span> ${say("el primero de diciembre")}</li><li>With the day: <span class="es">viernes, veinticinco de diciembre</span> ${say("viernes, veinticinco de diciembre")}</li></ul>
+  <div class="tbl-wrap"><table><thead><tr><th>Holiday</th><th>La fecha</th></tr></thead><tbody>${HOLI.map(h=>`<tr><td>${esc(h[0])}</td><td><span class="cell"><span class="es">${dateEs(h[2],h[3])}</span>${say(dateEs(h[2],h[3]))}</span></td></tr>`).join("")}</tbody></table></div></article>
+
+  <article class="card" id="h-est"><h3>8 · Las estaciones</h3>
+  <div class="usos">${EST0.map(s=>`<div class="rule"><strong>${s[0]} ${say(s[0])}</strong><span>${s[1]}</span><span class="sub">${s[2].map(i=>MESES0[i]).join(", ")}</span><span class="es">${s[3]}</span></div>`).join("")}</div>
+  <p><span class="es">¿Qué estación prefieres y por qué?</span> → <span class="es">Prefiero el invierno porque hace fresco.</span> ${say("Prefiero el invierno porque hace fresco.")}</p></article>
+
+  <article class="card" id="h-tie"><h3>9 · El tiempo</h3>
+  <p><span class="es">¿Qué tiempo hace?</span> = What's the weather like?</p>
+  <div class="tbl-wrap"><table><thead><tr><th>HACE</th><th>ESTÁ</th><th>HAY</th><th>Weather verbs</th></tr></thead><tbody>
+  ${[0,1,2,3,4,5,6].map(i=>`<tr>${[WXV.hace[i]&&"hace "+WXV.hace[i],WXV.está[i]&&"está "+WXV.está[i],WXV.hay[i]&&"hay "+WXV.hay[i],WXV.none[i]&&WXV.none[i].toLowerCase()].map(c=>`<td>${c?`<span class="cell"><span>${c}</span>${say(c)}</span>`:""}</td>`).join("")}</tr>`).join("")}</tbody></table></div>
+  <div class="warn"><strong>Common mistakes</strong>${WXCORR.slice(0,5).map(x=>`<p>✗ <span class="es">${x[0]}</span> → ✓ <span class="es">${x[1]}</span></p>`).join("")}<p>Temperature: <span class="es">Hace ochenta grados.</span></p></div></article>
+
+  <article class="card" id="h-pai"><h3>10 · Países de Latinoamérica</h3>
+  <div class="tbl-wrap"><table><thead><tr><th>Region</th><th>Spanish-speaking places</th></tr></thead><tbody>${Object.keys(REGIONS).map(r=>`<tr><td class="subj">${r}</td><td>${REGIONS[r].join(", ")}</td></tr>`).join("")}</tbody></table></div>
+  <h3>Capitales de Sudamérica</h3>
+  <div class="vocab">${CAPS.map(c=>`<div class="voc"><div><div class="w">${c[0]}</div><div class="en">${c[1]}</div></div>${say(`${c[0]}: ${c[1]}`)}</div>`).join("")}</div>
+  <div class="note"><b>Brasil</b> is in South America, but it speaks <b>Portuguese</b>, not Spanish.</div></article>`;
+  $$(".toc .chip",box).forEach(b=>b.onclick=()=>{const t=document.getElementById(b.dataset.go);if(t)t.scrollIntoView({behavior:"smooth",block:"start"});});
+  const sp=()=>{const v=$("#spin",box).value.trim();const s=spellOut(v);$("#spout",box).textContent=s;if(s)speak(s);};
+  $("#spbtn",box).onclick=sp;$("#spin",box).addEventListener("keydown",e=>{if(e.key==="Enter")sp();});
+  const ni=$("#nmin",box),no=$("#nmout",box);const nu=()=>{const n=Math.round(+ni.value);no.innerHTML=(n>=0&&n<=100)?`= ${nw(n)} ${say(nw(n))}`:"Type a number from 0 to 100.";};ni.addEventListener("input",nu);nu();
+}
+const SEC0=[
+  {id:"sal",name:L0.sal,desc:"Greetings, goodbyes and classroom expressions.",gen:genSal0,intro:`<div class="rule"><strong>Saludos y la clase</strong><p>¿Cómo estás? → Estoy bien / regular / mal. · Repita, por favor. · ¿Cómo se dice ___ en español? · ¿Puedo ir al baño?</p></div>`},
+  {id:"obj",name:L0.obj,desc:"Un, una, unos, unas and classroom objects.",gen:genObj0,intro:`<div class="rule"><strong>un · una · unos · unas</strong><p>Masculine: un libro, unos libros · Feminine: una mochila, unas mochilas · el lápiz → unos lápices</p></div>`},
+  {id:"num",name:L0.num,desc:"Write numbers 0–100 in words and numerals.",gen:genNum0,intro:`<div class="rule"><strong>Números</strong><p>16–19 and 21–29 are one word (dieciséis, veintidós). From 31 on: treinta <b>y</b> uno. 100 = cien.</p></div>`},
+  {id:"cal",name:L0.cal,desc:"Days, months, dates and seasons.",gen:genCal0,intro:`<div class="rule"><strong>La fecha</strong><p>Es el + number + de + month: <span class="es">Es el quince de septiembre.</span> The 1st = el primero. Days and months are lowercase.</p></div>`},
+  {id:"tie",name:L0.tie,desc:"Hace, está, hay and weather verbs.",gen:genTie0,intro:`<div class="rule"><strong>Hace · Está · Hay</strong><p>${WX_RULE}</p></div>`},
+  {id:"pro",name:L0.pro,desc:"Read a five-day weather forecast and answer questions.",page:pPronostico},
+  {id:"pai",name:L0.pai,desc:"Latin American countries and South American capitals.",gen:genPai0},
+  {id:"esc",name:L0.esc,desc:"Short answers in complete Spanish: weather, seasons, dates, greetings.",gen:genEsc0},
+  {id:"oir",name:L0.oir,desc:"Numbers, dates, weather and names spelled with Spanish letters.",gen:genOir0,intro:`<div class="note">Use headphones or low volume. Press <b>Audio: normal</b> at the top to slow it down.</div>`}
+];
+const examItems0=()=>shuffle([].concat(rep(genSal0,3),rep(genObj0,3),rep(genNum0,3),rep(genCal0,4),rep(genTie0,3),rep(genPai0,2))).concat(rep(genPro0,2));
+
+/* ================= router ================= */
+const main=$("#main");let cleanup=null;let UNIT="u0";
+function fixPath(p){p=p||"inicio";if(/^(repasar|practicar|examen)(\/|$)/.test(p))p=UNIT+"/"+p;return p;}
+function curHash(){let h="";try{h=location.hash.slice(1);}catch(e){}return fixPath(h);}
+function go(path){path=fixPath(path);try{if(location.hash.slice(1)!==path)history.pushState(null,"","#"+path);}catch(e){}route(path);}
+document.addEventListener("click",e=>{const a=e.target.closest('a[href^="#"]');if(!a)return;e.preventDefault();go(a.getAttribute("href").slice(1));});
+window.addEventListener("popstate",()=>route(curHash()));
+function route(path){
+  if(typeof path!=="string")path=curHash();
+  const P=path.split("/"),area=P[0]==="u0"?(P[1]||""):"";
+  hush();if(cleanup){cleanup();cleanup=null;}
+  const top=area||"inicio";
+  $$("#tabs a").forEach(a=>{const on=a.dataset.r===top;a.classList.toggle("on",on);if(on)a.setAttribute("aria-current","page");else a.removeAttribute("aria-current");});
+  pUnit(area,P[2]||"");
+  window.scrollTo(0,0);
+}
+const NOTES=`<div class="two">
+    <div class="note"><b>Typing accents:</b> press and hold the letter key, then choose the accent from the little menu (á, é, í, ó, ú, ñ). Accents matter in Spanish, so practice them here!</div>
+    <div class="note"><b>Audio:</b> press any speaker button ${say("¡Hola! ¿Cómo estás?")} to hear the Spanish. Use headphones or keep the volume low. Press <b>Audio: normal</b> at the top to make it slower.</div>
+  </div>`;
+function pHub(){
+  main.innerHTML=`<section class="page">
+  <div><div class="eyebrow">Español I · Midterm</div>
+  <h1>¡Vamos a repasar para el midterm!</h1>
+  <p class="lead" style="margin-top:8px">Everything we've learned this semester in one place. Review each unit, practice what you know, and then try the mixed midterm practice exam.</p></div>
+  <div class="secgrid">
+    <a class="big" href="#u0"><span class="k">${UNITS.u0.long}</span><h3>Unidad 0</h3><p>${UNITS.u0.lead}</p></a>
+    <a class="big" href="#u1"><span class="k">${UNITS.u1.long}</span><h3>Unidad 1</h3><p>${UNITS.u1.lead}</p></a>
+    <a class="big" href="#midterm"><span class="k">Todo junto</span><h3>Examen de práctica: midterm</h3><p>30 mixed questions from both units, one try each. See what you know!</p></a>
+  </div>
+  <div class="card"><h3>How to study</h3><ol class="clean">
+    <li><b>Repasar:</b> pick a unit and start with the grammar guide and flashcards.</li>
+    <li><b>Practicar:</b> practice each topic. Try to get a streak of 5 in a row.</li>
+    <li><b>Examen de práctica:</b> take the unit's practice exam, then practice what you missed.</li>
+    <li>Do the same for the other unit, then take the <b>midterm practice exam</b>.</li></ol></div>
+  ${NOTES}</section>`;
+}
+function pUnit(area,sub){
+  const U=UNITS[UNIT];
+  main.innerHTML=`<section class="page">
+  <div id="ubox" style="display:flex;flex-direction:column;gap:18px"></div></section>`;
+  const box=$("#ubox");
+  if(area==="repasar")pRepasar(box,sub);else if(area==="practicar")pPracticar(box,sub);else if(area==="examen")pExamen(box);else pUnitHome(box);
+}
+function pUnitHome(box){
+  const U=UNITS[UNIT];
+  box.innerHTML=`<div><h1>${U.name}: ${U.long}</h1><p class="lead" style="margin-top:8px">${U.lead}</p></div>
+  <div class="secgrid">
+    <a class="big" href="#${UNIT}/repasar/guia"><span class="k">Paso 1</span><h3>Repasar</h3><p>Grammar guide, flashcards, and a matching game.</p></a>
+    <a class="big" href="#${UNIT}/practicar"><span class="k">Paso 2</span><h3>Practicar</h3><p>Use what you know: fill in, build sentences, read, listen, and write.</p></a>
+    <a class="big" href="#${UNIT}/examen"><span class="k">Paso 3</span><h3>Examen de práctica</h3><p>20 mixed questions, one try each. See what you know!</p></a>
+  </div>
+  <div class="card"><h3>What we learned in ${U.name}</h3>
+  <div class="tbl-wrap"><table><thead><tr><th>Tema</th><th>What you can do</th><th></th></tr></thead><tbody>
+  ${U.sections.map(s=>`<tr><td><b>${s.name}</b></td><td>${s.desc}</td><td><a href="#${UNIT}/practicar/${s.id}">Practicar</a></td></tr>`).join("")}
+  </tbody></table></div></div>${NOTES}`;
+}
+function pRepasar(box,sub){
+  sub=["guia","tarjetas","emparejar"].includes(sub)?sub:"guia";
+  box.innerHTML=`<div><h2>Repasar</h2><p class="lead" style="margin-top:6px">Start with the guide, then test yourself with the flashcards and the matching game.</p></div>
+  <nav class="subtabs" aria-label="Repasar">${[["guia","Guía"],["tarjetas","Tarjetas (flashcards)"],["emparejar","Emparejar (matching)"]].map(t=>`<a href="#${UNIT}/repasar/${t[0]}" class="chip${t[0]===sub?" on":""}">${t[1]}</a>`).join("")}</nav>
+  <div id="rbox" style="display:flex;flex-direction:column;gap:18px"></div>`;
+  const rb=$("#rbox",box);
+  if(sub==="tarjetas")pTarjetas(rb);else if(sub==="emparejar")pEmparejar(rb);else UNITS[UNIT].guide(rb);
+}
+const CURD=()=>UNITS[UNIT].decks;
+
+function stlTable(){
+  return `<div class="tbl-wrap"><table><thead><tr><th>Sujeto</th><th>SER</th><th>TENER</th><th>LLAMARSE</th></tr></thead><tbody>
+  ${ORDER.concat([4]).map(i=>`<tr${i===4?' class="extra"':""}><td class="subj">${PRONAME[i]}${i===4?' <span class="sub">(extra)</span>':""}</td>${["ser","tener","llamarse"].map(v=>`<td><span class="cell"><span>${conj(v,i)}</span>${say(conj(v,i))}</span></td>`).join("")}</tr>`).join("")}
+  </tbody></table></div>`;
+}
+function endsTable(){
+  return `<div class="tbl-wrap"><table><thead><tr><th>Sujeto</th><th>-AR · hablar</th><th>-ER · comer</th><th>-IR · vivir</th></tr></thead><tbody>
+  ${ORDER.concat([4]).map(i=>`<tr${i===4?' class="extra"':""}><td class="subj">${PRONAME[i]}${i===4?' <span class="sub">(extra)</span>':""}</td>${["hablar","comer","vivir"].map(v=>`<td><span class="cell"><span>${v.slice(0,-2)}<span class="end">${ENDS[v.slice(-2)][i]}</span></span>${say(conj(v,i))}</span></td>`).join("")}</tr>`).join("")}
+  </tbody></table></div>`;
+}
+function pGuia1(box){
+  const toc=[["g-pron","Pronombres"],["g-stl","Ser · Tener · Llamarse"],["g-verb","Verbos -ar -er -ir"],["g-usos","Usos de tener"],["g-tq","Tener que"],["g-preg","Preguntas"],["g-neg","La negación"],["g-escr","Escribir"]];
+  box.innerHTML=`<nav class="toc" aria-label="Temas">${toc.map(t=>`<button class="chip" type="button" data-go="${t[0]}">${t[1]}</button>`).join("")}</nav>
+
+  <article class="card" id="g-pron"><h3>1 · Los pronombres</h3>
+  <div class="tbl-wrap"><table><thead><tr><th>Español</th><th>English</th><th>Notes</th></tr></thead><tbody>
+  ${[["yo","I",""],["tú","you","a friend, family member, classmate"],["él","he",""],["ella","she",""],["usted","you (formal)","a teacher or adult. Uses the <b>él/ella</b> verb form."],["nosotros / nosotras","we","<b>nosotras</b> = a group of all girls"],["ellos / ellas","they","<b>ellas</b> = a group of all girls"],["ustedes","you all","uses the <b>ellos/ellas</b> verb form"],["vosotros / vosotras","you all (Spain)","only for extra credit on the exam"]].map(r=>`<tr><td><span class="cell"><b>${r[0]}</b>${say(r[0])}</span></td><td>${r[1]}</td><td class="sub">${r[2]}</td></tr>`).join("")}
+  </tbody></table></div>
+  <div class="rule"><strong>Names and groups → pick the pronoun first</strong><p><span class="es">Mi amiga y yo</span> = nosotras · <span class="es">Sara y Julia</span> = ellas · <span class="es">Mi hermano</span> = él · <span class="es">Tú y Ana</span> = ustedes · <span class="es">La profesora</span> = ella</p></div></article>
+
+  <article class="card" id="g-stl"><h3>2 · Ser, tener y llamarse</h3>
+  ${stlTable()}
+  <div class="usos"><div class="rule"><strong>SER</strong><span>origin and identity</span><span class="es">Soy de Texas. Es profesora.</span></div>
+  <div class="rule"><strong>TENER</strong><span>age, possession, feelings, have to</span><span class="es">Tengo catorce años.</span></div>
+  <div class="rule"><strong>LLAMARSE</strong><span>name. Always two words!</span><span class="es">Me llamo Lucía. Se llama Paula.</span></div></div>
+  <div class="warn"><strong>Common mistake</strong><p>✗ <span class="es">Soy catorce años.</span> → ✓ <span class="es">Tengo catorce años.</span> In Spanish you <b>have</b> years.</p><p>✗ <span class="es">Mi amiga llama Paula.</span> → ✓ <span class="es">Mi amiga <b>se</b> llama Paula.</span> Don't forget the pronoun.</p></div></article>
+
+  <article class="card" id="g-verb"><h3>3 · Verbos regulares: -ar, -er, -ir</h3>
+  <p>The <b>infinitive</b> is the basic form of a verb (“to ___”). In Spanish it always ends in <b>-ar</b>, <b>-er</b> or <b>-ir</b>. To <b>conjugate</b> means to change the ending so it matches who is doing the action.</p>
+  <ol class="steps4"><li><b>Find the subject.</b> <span class="es">nosotros</span></li><li><b>Find the ending.</b> <span class="es">hablar → -ar</span></li><li><b>Drop it. Keep the stem.</b> <span class="es">habl-</span></li><li><b>Add the new ending.</b> <span class="es">habl + amos = hablamos</span></li></ol>
+  ${endsTable()}
+  <p class="sub">-er and -ir have the same endings except for <b>nosotros</b> (-emos / -imos) and vosotros.</p>
+  <div class="card" style="background:var(--sunk)"><h3>La máquina de verbos</h3><p class="sub">Pick a verb and a subject and watch the 4 steps.</p>
+  <div class="machine"><label for="mv">Verbo<select id="mv" class="in">${VERBS.map(v=>`<option value="${v[0]}">${v[0]} (${v[1]})</option>`).join("")}</select></label>
+  <label for="ms">Sujeto<select id="ms" class="in">${[0,1,2,3,5,4].map(i=>`<option value="${i}">${PRONAME[i]}</option>`).join("")}</select></label></div>
+  <div class="mout" id="mout"></div></div>
+  <div class="vocab">${VERBS.map(v=>`<div class="voc"><div><div class="w">${v[0]}</div><div class="en">${v[1]}</div></div>${say(v[0])}</div>`).join("")}</div></article>
+
+  <article class="card" id="g-usos"><h3>4 · Los 4 usos de tener</h3>
+  <div class="usos">
+   <div class="rule"><strong>1 · Edad (age)</strong><span>tener + number + años</span><span class="es">Él tiene catorce años. ${say("Él tiene catorce años.")}</span></div>
+   <div class="rule"><strong>2 · Posesión</strong><span>tener + a thing</span><span class="es">Nosotros tenemos un cuaderno. ${say("Nosotros tenemos un cuaderno.")}</span></div>
+   <div class="rule"><strong>3 · Expresiones</strong><span>tener + hambre, sed, frío…</span><span class="es">Yo tengo hambre. ${say("Yo tengo hambre.")}</span></div>
+   <div class="rule"><strong>4 · Obligación</strong><span>tener + que + infinitive</span><span class="es">Tengo que estudiar. ${say("Tengo que estudiar.")}</span></div></div>
+  <div class="vocab">${EXPR.map(x=>`<div class="voc"><div><div class="w">tener ${x[0]}</div><div class="en">to be ${x[1]}</div></div>${say("tener "+x[0])}</div>`).join("")}</div></article>
+
+  <article class="card" id="g-tq"><h3>5 · Tener que + infinitivo (to have to)</h3>
+  <div class="formula"><span class="blk b1">Pronombre<small>yo, tú, él…</small></span><span class="plus">+</span><span class="blk b2">TENER<small>conjugate it!</small></span><span class="plus">+</span><span class="blk b3">que<small>= “to”</small></span><span class="plus">+</span><span class="blk b4">infinitivo<small>ends in -r</small></span></div>
+  <ul class="clean" style="font-size:18px">
+   <li><span class="es">Yo <b>tengo</b> que estudiar.</span> ${say("Yo tengo que estudiar.")}</li>
+   <li><span class="es">Él <b>tiene</b> que practicar.</span> ${say("Él tiene que practicar.")}</li>
+   <li><span class="es">Nosotros <b>tenemos</b> que leer.</span> ${say("Nosotros tenemos que leer.")}</li></ul>
+  <div class="note"><b>Remember!</b><ul class="clean" style="margin-top:6px">
+   <li><b>Que</b> means “to” <b>only</b> in this sentence form (have <b>to</b>).</li>
+   <li><b>All infinitives end with an r:</b> estudia<b>r</b>, lee<b>r</b>, escribi<b>r</b>.</li>
+   <li><b>The only thing we conjugate is TENER</b>, depending on the pronoun. The second verb never changes.</li></ul></div>
+  <div class="warn"><strong>Common mistake</strong><p>✗ <span class="es">Ella tiene que escribe.</span> → ✓ <span class="es">Ella tiene que escribir.</span></p><p>Negative: put <b>no</b> before tener. <span class="es">Yo no tengo que comer ahora.</span> ${say("Yo no tengo que comer ahora.")}</p></div></article>
+
+  <article class="card" id="g-preg"><h3>6 · Preguntas y respuestas</h3>
+  <p>The verb changes with the person. A question to <b>tú</b> gets a <b>yo</b> answer. When you report about someone else, use <b>él / ella</b>.</p>
+  <div class="tbl-wrap"><table><thead><tr><th>You ask (tú)</th><th>She answers (yo)</th><th>You report (ella)</th></tr></thead><tbody>
+  ${[["¿Cómo te llamas?","Me llamo Ana.","Se llama Ana."],["¿De dónde eres?","Soy de Texas.","Es de Texas."],["¿Cuántos años tienes?","Tengo catorce años.","Tiene catorce años."],["¿Dónde vives?","Vivo en Houston.","Vive en Houston."],["¿Qué lees en casa?","Leo libros.","Lee libros."],["¿Qué escribes en clase?","Escribo mensajes.","Escribe mensajes."],["¿Qué tienes que hacer hoy?","Tengo que estudiar.","Tiene que estudiar."]].map(r=>`<tr>${r.map(c=>`<td><span class="cell"><span class="es">${c}</span>${say(c)}</span></td>`).join("")}</tr>`).join("")}
+  </tbody></table></div>
+  <p class="sub">Question words: <b>¿Cómo?</b> how · <b>¿De dónde?</b> from where · <b>¿Dónde?</b> where · <b>¿Cuántos?</b> how many · <b>¿Qué?</b> what</p></article>
+
+  <article class="card" id="g-neg"><h3>7 · La negación</h3>
+  <p>Put <b>no</b> right before the conjugated verb.</p>
+  <ul class="clean"><li><span class="es">No tengo hambre.</span> I'm not hungry.</li><li><span class="es">Ella no lee libros.</span> She doesn't read books.</li><li><span class="es">No tenemos que estudiar hoy.</span> We don't have to study today.</li><li>Answering a question: <span class="es">No, no leo libros.</span> (two no's!)</li></ul></article>
+
+  <article class="card" id="g-escr"><h3>8 · Escribir sobre otra persona</h3>
+  <p>Write <b>about</b> the person with third-person forms (él / ella). Don't write as if you are her. Include all six facts.</p>
+  <div class="tbl-wrap"><table><thead><tr><th>Fact</th><th>Use</th><th>Example</th></tr></thead><tbody>
+  <tr><td>Name</td><td>se llama</td><td class="es">Ella se llama Gabriela.</td></tr>
+  <tr><td>Origin</td><td>es de</td><td class="es">Es de Dallas.</td></tr>
+  <tr><td>Age</td><td>tiene + number + años</td><td class="es">Tiene quince años.</td></tr>
+  <tr><td>Possession</td><td>tiene + thing</td><td class="es">Tiene dos cuadernos.</td></tr>
+  <tr><td>Activity</td><td>regular verb, ella form</td><td class="es">Gabriela escribe mensajes.</td></tr>
+  <tr><td>Obligation</td><td>tiene que + infinitive</td><td class="es">Hoy tiene que leer un libro.</td></tr></tbody></table></div>
+  <p><a href="#practicar/f">Practice writing →</a></p></article>`;
+  $$(".toc .chip",box).forEach(b=>b.onclick=()=>{const t=document.getElementById(b.dataset.go);if(t)t.scrollIntoView({behavior:"smooth",block:"start"});});
+  const mv=$("#mv",box),ms=$("#ms",box),out=$("#mout",box);
+  function upd(){const v=mv.value,i=+ms.value,e=v.slice(-2),st=v.slice(0,-2);
+    out.innerHTML=`<div><div class="k">1 · Sujeto</div><div class="v">${PRONAME[i]}</div></div><div><div class="k">2 · Terminación</div><div class="v">-${e}</div></div><div><div class="k">3 · Raíz</div><div class="v">${st}-</div></div><div class="final"><div class="k">4 · Nueva forma</div><div class="v">${st}<span class="end">${ENDS[e][i]}</span> ${say(conj(v,i))}</div></div>`;}
+  mv.onchange=upd;ms.onchange=upd;upd();
+}
+
+function deckChips(cur){const DECKS=CURD();return `<div class="subtabs" role="group" aria-label="Elige un tema">${Object.keys(DECKS).map(k=>`<button type="button" class="chip${k===cur?" on":""}" data-deck="${k}">${DECKS[k].name}</button>`).join("")}</div>`;}
+function pTarjetas(box){
+  const DECKS=CURD();const st={deck:Object.keys(DECKS)[0],order:[],i:0,known:0,again:[],flip:false,en:false};
+  function start(list){st.order=shuffle(list);st.i=0;st.known=0;st.again=[];st.flip=false;draw();}
+  function cards(){return DECKS[st.deck].cards;}
+  function draw(){
+    const D=DECKS[st.deck],total=st.order.length;
+    let h=deckChips(st.deck)+`<div class="card">`;
+    if(st.i>=total){
+      h+=`<h3>¡Terminaste!</h3><p style="font-size:20px">You knew <b>${st.known}</b> of <b>${total}</b>.</p><div class="row">${st.again.length?`<button class="btn" type="button" id="again">Review the ${st.again.length} I missed</button>`:""}<button class="btn ghost" type="button" id="restart">Start over</button></div>`;
+    }else{
+      const c=st.order[st.i],f=st.en?c[1]:c[0],b=st.en?c[0]:c[1];
+      h+=`<div class="fc-bar"><span class="sub">Tarjeta ${st.i+1} de ${total} · Sé: ${st.known} · Repasar: ${st.again.length}</span><label class="tog"><input type="checkbox" id="enf"${st.en?" checked":""}> Show the back side first</label></div>
+      <div class="prog"><i style="width:${st.i/total*100}%"></i></div>
+      <div class="fc${st.flip?" flip":""}" tabindex="0" role="button" aria-label="Tarjeta. Press to flip."><div class="fc-in">
+        <div class="face front"><span class="tag">${st.en?D.back:D.front}</span><div class="txt${f.length>22?" long":""}">${esc(f)}</div></div>
+        <div class="face back"><span class="tag">${st.en?D.front:D.back}</span><div class="txt${b.length>22?" long":""}">${esc(b)}</div>${say(c[2])}</div></div></div>
+      <div class="fc-actions"><button class="btn no" type="button" id="no">↻ Otra vez</button><button class="btn ghost" type="button" id="flip">Voltear</button><button class="btn yes" type="button" id="yes">✓ Lo sé</button></div>
+      <p class="sub" style="text-align:center">Click the card or press <kbd>Space</kbd> to flip. <kbd>←</kbd> otra vez · <kbd>→</kbd> lo sé</p>`;
+    }
+    box.innerHTML=h+`</div>`;
+    $$("[data-deck]",box).forEach(b=>b.onclick=()=>{st.deck=b.dataset.deck;start(cards());});
+    if(st.i>=total){const a=$("#again",box);if(a)a.onclick=()=>start(st.again);$("#restart",box).onclick=()=>start(cards());return;}
+    const fc=$(".fc",box);
+    const flip=()=>{st.flip=!st.flip;fc.classList.toggle("flip",st.flip);if(st.flip&&!st.en)speak(st.order[st.i][2]);};
+    fc.onclick=e=>{if(e.target.closest(".say"))return;flip();};
+    $("#flip",box).onclick=flip;
+    $("#yes",box).onclick=()=>{st.known++;st.i++;st.flip=false;draw();};
+    $("#no",box).onclick=()=>{st.again.push(st.order[st.i]);st.i++;st.flip=false;draw();};
+    $("#enf",box).onchange=e=>{st.en=e.target.checked;st.flip=false;draw();};
+  }
+  function key(e){
+    if(e.target.matches("input,textarea,select")||st.i>=st.order.length)return;
+    if(e.key===" "||e.key==="Enter"){if(e.target.closest("button:not(.fc)"))return;e.preventDefault();const b=$("#flip",box);if(b)b.click();}
+    else if(e.key==="ArrowRight"){const b=$("#yes",box);if(b)b.click();}
+    else if(e.key==="ArrowLeft"){const b=$("#no",box);if(b)b.click();}
+  }
+  document.addEventListener("keydown",key);cleanup=()=>document.removeEventListener("keydown",key);
+  start(cards());
+}
+
+function pEmparejar(box){
+  const DECKS=CURD();let deck=Object.keys(DECKS)[Object.keys(DECKS).length>4?4:0];
+  function game(){
+    const pick=shuffle(DECKS[deck].cards).slice(0,6).map((c,i)=>({id:i,c}));
+    const L=shuffle(pick),R=shuffle(pick);let sel=null,found=0,miss=0;const t0=Date.now();
+    box.innerHTML=deckChips(deck)+`<div class="card"><div class="fc-bar"><h3>Match the pairs</h3><span class="sub" id="mstat">Errores: 0</span></div>
+      <p class="sub">Click a word on the left, then its match on the right.</p>
+      <div class="match"><div class="col">${L.map(p=>`<button class="mt" type="button" data-side="L" data-id="${p.id}">${esc(p.c[0])}</button>`).join("")}</div>
+      <div class="col">${R.map(p=>`<button class="mt" type="button" data-side="R" data-id="${p.id}">${esc(p.c[1])}</button>`).join("")}</div></div>
+      <div id="mdone"></div></div>`;
+    $$("[data-deck]",box).forEach(b=>b.onclick=()=>{deck=b.dataset.deck;game();});
+    $$(".mt",box).forEach(b=>b.onclick=()=>{
+      if(b.classList.contains("done"))return;
+      if(!sel||sel.dataset.side===b.dataset.side){if(sel)sel.classList.remove("sel");sel=b;b.classList.add("sel");return;}
+      if(sel.dataset.id===b.dataset.id){[sel,b].forEach(x=>{x.classList.remove("sel");x.classList.add("done");x.disabled=true;});
+        speak(pick.find(p=>String(p.id)===b.dataset.id).c[2]);found++;sel=null;
+        if(found===pick.length){const s=Math.round((Date.now()-t0)/1000);$("#mdone",box).innerHTML=`<div class="note" style="margin-top:10px"><b>¡Excelente!</b> All ${pick.length} pairs in ${s} seconds with ${miss} ${miss===1?"mistake":"mistakes"}. <button class="btn" type="button" id="mre" style="margin-left:8px">Play again</button></div>`;$("#mre",box).onclick=game;}}
+      else{miss++;$("#mstat",box).textContent="Errores: "+miss;const a=sel;[a,b].forEach(x=>x.classList.add("nope"));setTimeout(()=>[a,b].forEach(x=>x.classList.remove("nope","sel")),450);sel=null;}
+    });
+  }
+  game();
+}
+
+/* ---------- practice ---------- */
+function runner(box,gen,intro){
+  box.innerHTML=`${intro||""}<div class="card"><div class="rstats"><span>Correct on 1st try: <b class="s1">0</b></span><span>Questions: <b class="sn">0</b></span><span>Streak: <b class="sr">0</b></span></div><div class="ritem"></div><div><button class="btn" type="button" id="rnext" hidden>Next question →</button></div></div>`;
+  const s={n:0,first:0,streak:0},ib=$(".ritem",box),nb=$("#rnext",box);
+  const upd=()=>{$(".s1",box).textContent=s.first;$(".sn",box).textContent=s.n;$(".sr",box).textContent=s.streak;};
+  function next(){hush();nb.hidden=true;renderItem(ib,gen(),2,r=>{s.n++;if(r===1){s.first++;s.streak++;}else s.streak=0;upd();nb.hidden=false;setTimeout(()=>nb.focus({preventScroll:true}),30);});}
+  nb.onclick=next;next();
+}
+function vosToggle(){return `<label class="tog"><input type="checkbox" class="vos"${SET.vos?" checked":""}> Include <b>vosotros</b> (extra)</label>`;}
+function wireVos(box){$$(".vos",box).forEach(v=>v.onchange=()=>{SET.vos=v.checked;});}
+function pPracticar(box,sub){
+  const U=UNITS[UNIT],sec=U.sections.find(s=>s.id===sub);
+  if(!sec){
+    box.innerHTML=`<div><h2>Practicar</h2><p class="lead" style="margin-top:6px">Pick a topic. The questions change every time, so you can practice as much as you want. You get 2 tries, and the explanation shows you <b>why</b>.</p></div>
+    <div class="secgrid">${U.sections.map(s=>`<a class="big" href="#${UNIT}/practicar/${s.id}"><span class="k">Práctica</span><h3>${s.name}</h3><p>${s.desc}</p></a>`).join("")}</div>`;
+    return;
+  }
+  box.innerHTML=`<a class="btn ghost back" href="#${UNIT}/practicar">← All topics</a><div><div class="eyebrow">Practicar</div><h2>${sec.name}</h2></div><div id="pbox" style="display:flex;flex-direction:column;gap:16px"></div>`;
+  const pb=$("#pbox",box);
+  if(sec.page)return sec.page(pb);
+  runner(pb,sec.gen,(sec.intro||"")+(sec.vos?`<div>${vosToggle()}</div>`:""));wireVos(pb);
+}
+
+function pLectura(box){
+  let cur=0;
+  function draw(){
+    hush();const r=READ[cur];let got=0,n=0;
+    box.innerHTML=`<div class="subtabs">${READ.map((x,k)=>`<button class="chip${k===cur?" on":""}" type="button" data-r="${k}">Lectura ${k+1}: ${x.title}</button>`).join("")}</div>
+    <div class="card"><div class="row"><button class="playbig" type="button" id="all">${SPK}<span>Listen to the whole text</span></button><span class="sub">Click any sentence to hear it.</span></div>
+    <div class="passage" id="pass">${passageHTML(r)}</div><p class="sub">Vocabulario: ${r.vocab}</p>
+    <p class="sub">Read on your own first. After each answer, the sentence that proves it lights up in yellow (that's your evidence).</p></div>
+    <div class="card" id="qs">${r.q.map((x,k)=>`<div class="qcard" id="q${k}"></div>`).join("")}<div id="rsum" class="note" hidden></div></div>`;
+    $$("[data-r]",box).forEach(b=>b.onclick=()=>{cur=+b.dataset.r;draw();});
+    const pass=$("#pass",box);
+    $$(".s",pass).forEach(s=>s.onclick=()=>{$$(".s.now",pass).forEach(x=>x.classList.remove("now"));s.classList.add("now");speak(s.textContent,()=>s.classList.remove("now"));});
+    let playing=false;
+    $("#all",box).onclick=function(){
+      const btn=this;if(playing){playing=false;hush();$$(".s.now",pass).forEach(x=>x.classList.remove("now"));$("span",btn).textContent="Listen to the whole text";return;}
+      playing=true;$("span",btn).textContent="Stop";const ss=$$(".s",pass);let k=0;
+      (function step(){$$(".s.now",pass).forEach(x=>x.classList.remove("now"));if(!playing||k>=ss.length){playing=false;$("span",btn).textContent="Listen to the whole text";return;}ss[k].classList.add("now");speak(ss[k].textContent,()=>{k++;step();});})();
+    };
+    r.q.forEach((x,k)=>{
+      renderItem($("#q"+k,box),Object.assign({kind:"mc",html:`${k+1}. ${esc(x[0])}`,explain:x[4]},mixMC(x[1],x[2])),2,sc=>{
+        n++;if(sc===1)got++;x[3].forEach(e=>{const s=$(`.s[data-k="${e}"]`,pass);if(s)s.classList.add("ev");});
+        if(n===r.q.length){const s=$("#rsum",box);s.hidden=false;s.innerHTML=`<b>${got} of ${r.q.length}</b> correct on the first try. ${got===r.q.length?"¡Perfecto!":"Re-read the yellow sentences for the ones you missed."} ${cur<READ.length-1?`<button class="btn" type="button" id="nextr" style="margin-left:8px">Next reading →</button>`:""}`;const nr=$("#nextr",box);if(nr)nr.onclick=()=>{cur++;draw();window.scrollTo(0,0);};}
+      });
+    });
+  }
+  draw();
+}
+
+const PEOPLE=[
+  {name:"Camila",g:"f",origin:"Houston",age:15,ageW:"quince",pos:"tres cuadernos",posEn:"three notebooks",act:"escribir mensajes",actEn:"writes messages",actForm:"escribe",obl:"estudiar español",when:"hoy",whenEn:"today",oblEn:"study Spanish"},
+  {name:"Lucas",g:"m",origin:"Chicago",age:13,ageW:"trece",pos:"una mochila",posEn:"a backpack",act:"comer en la cafetería",actEn:"eats in the cafeteria",actForm:"come",obl:"leer un libro",when:"esta noche",whenEn:"tonight",oblEn:"read a book"},
+  {name:"Isabel",g:"f",origin:"Nueva Orleans",age:17,ageW:"diecisiete",pos:"dos libros",posEn:"two books",act:"hablar español en casa",actEn:"speaks Spanish at home",actForm:"habla",obl:"escribir un mensaje",when:"hoy",whenEn:"today",oblEn:"write a message"},
+  {name:"Mateo",g:"m",origin:"Miami",age:16,ageW:"dieciséis",pos:"un cuaderno",posEn:"one notebook",act:"leer libros en casa",actEn:"reads books at home",actForm:"lee",obl:"practicar español",when:"esta noche",whenEn:"tonight",oblEn:"practice Spanish"}
+];
+function pEscritura(box){
+  let cur=0;const drafts={};
+  function draw(){
+    const p=PEOPLE[cur],S=x=>stripAcc(norm(x)),rest=p.act.split(" ").slice(1).join(" ");
+    const checks=[
+      [`Se llama ${p.name}.`,new RegExp(`\\bse llama ${S(p.name)}\\b`)],
+      [`Es de ${p.origin}.`,new RegExp(`\\bes de ${S(p.origin)}\\b`)],
+      [`Tiene ${p.ageW} años.`,new RegExp(`\\btiene (${S(p.ageW)}|${p.age}) anos\\b`)],
+      [`Tiene ${p.pos}.`,new RegExp(`\\btiene ${S(p.pos)}\\b`)],
+      [`${cap(p.actForm)} ${rest}. (regular verb, ${p.g==="f"?"ella":"él"} form)`,new RegExp(`\\b${p.actForm}\\b`)],
+      [`Tiene que ${p.obl}.`,new RegExp(`\\btiene que ${S(p.obl).split(" ")[0]}\\b`)]
+    ];
+    const model=`${p.g==="f"?"Ella":"Él"} se llama ${p.name}. Es de ${p.origin}. Tiene ${p.ageW} años. Es estudiante. Tiene ${p.pos}. ${p.name} ${p.actForm} ${rest}. ${cap(p.when)} tiene que ${p.obl}.`;
+    box.innerHTML=`<div class="subtabs">${PEOPLE.map((x,k)=>`<button class="chip${k===cur?" on":""}" type="button" data-p="${k}">${x.name}</button>`).join("")}</div>
+    <div class="two"><div class="card"><h3>Write about ${p.name}</h3><dl class="facts"><dt>Nombre</dt><dd>${p.name}</dd><dt>Origen</dt><dd>${p.origin}</dd><dt>Edad</dt><dd>${p.age} años</dd><dt>Posesión</dt><dd>${p.pos} <span class="sub">(${p.posEn})</span></dd><dt>Actividad</dt><dd>${p.act} <span class="sub">(${p.actEn})</span></dd><dt>Obligación</dt><dd>${p.when}: ${p.obl} <span class="sub">(${p.whenEn}: ${p.oblEn})</span></dd></dl>
+      <p class="sub">Write 6–8 complete sentences ABOUT ${p.name} using ${p.g==="f"?"ella":"él"} forms. Don't write as if you are ${p.name}. You can add one or two invented details.</p></div>
+    <div class="card"><h3>Checklist</h3><ul class="checks" id="chk">${checks.map((c,k)=>`<li data-c="${k}"><span class="box"></span>${esc(c[0])}</li>`).join("")}</ul><p class="sub" id="cnt"></p><div id="third" class="warn" hidden><strong>Careful!</strong><span>You used a <b>yo</b> form (me llamo, soy, tengo…). Write about ${p.g==="f"?"her":"him"}: se llama, es, tiene.</span></div></div></div>
+    <div class="card"><label for="ta"><h3>Mi párrafo</h3></label><textarea id="ta" placeholder="${p.g==="f"?"Ella":"Él"} se llama ${p.name}…">${esc(drafts[cur]||"")}</textarea>
+    <div class="row"><button class="btn ghost" type="button" id="lis">${"Listen to my paragraph"}</button><button class="btn" type="button" id="mod" disabled>Show a model</button><span class="sub" id="modhint">The model unlocks after you write at least 4 sentences.</span></div>
+    <div id="modbox" hidden></div></div>`;
+    $$("[data-p]",box).forEach(b=>b.onclick=()=>{cur=+b.dataset.p;draw();});
+    const ta=$("#ta",box);
+    function upd(){
+      drafts[cur]=ta.value;const t=stripAcc(norm(ta.value));let ok=0;
+      checks.forEach((c,k)=>{const y=c[1].test(t);if(y)ok++;const li=$(`[data-c="${k}"]`,box);li.classList.toggle("yes",y);$(".box",li).textContent=y?"✓":"";});
+      const sents=ta.value.split(/[.!?]+/).filter(x=>x.trim().split(/\s+/).length>=2).length;
+      $("#cnt",box).innerHTML=`<b>${ok} of 6</b> facts · <b>${sents}</b> ${sents===1?"sentence":"sentences"} (goal: 6–8)${ok===6&&sents>=6?" · <b style='color:var(--ok)'>¡Excelente! All six facts.</b>":""}`;
+      $("#third",box).hidden=!/\b(me llamo|soy|tengo|vivo|escribo|como|hablo|leo)\b/.test(t);
+      const m=$("#mod",box);m.disabled=sents<4;$("#modhint",box).hidden=sents>=4;
+    }
+    ta.addEventListener("input",upd);upd();
+    $("#lis",box).onclick=()=>{if(ta.value.trim())speak(ta.value);};
+    $("#mod",box).onclick=()=>{const mb=$("#modbox",box);mb.hidden=false;mb.innerHTML=`<div class="model"><b>Model:</b> <span class="es">${esc(model)}</span> ${say(model)}<p class="sub" style="margin-top:6px">Compare with yours. Did you use se llama, es de, tiene + años, tiene + a thing, a regular verb, and tiene que + infinitive?</p></div>`;};
+  }
+  draw();
+}
+
+/* ---------- practice exams ---------- */
+function pExamen(box){
+  const U=UNITS[UNIT];
+  box.innerHTML=`<div><h2>Examen de práctica</h2><p class="lead" style="margin-top:6px">20 mixed questions from ${U.name}. You get <b>one try</b> for each question. At the end you'll see your score and what to study.</p></div>
+  <div class="card"><p>Mixed questions on: ${U.examTopics}.</p>${U.examNote?`<p class="sub">${U.examNote}</p>`:""}
+  ${UNIT==="u1"?`<div>${vosToggle()}</div>`:""}<div><button class="btn" type="button" id="go">Start the practice exam</button></div></div>`;
+  wireVos(box);
+  $("#go",box).onclick=()=>examRun(box,()=>U.exam().map(it=>(it.unit=it.unit||UNIT,it)),()=>pExamen(box));
+}
+function pMidterm(){
+  main.innerHTML=`<section class="page"><div><div class="eyebrow">Unidad 0 + Unidad 1</div><h2>Examen de práctica: midterm</h2><p class="lead" style="margin-top:6px">30 mixed questions from both units. You get <b>one try</b> for each question. At the end you'll see your score by topic and what to study.</p></div>
+  <div id="mbox" style="display:flex;flex-direction:column;gap:18px"><div class="card"><p>Mixed questions on: ${UNITS.u0.examTopics}; ${UNITS.u1.examTopics}.</p>
+  <p class="sub">Writing is practiced separately in each unit (Unidad 0 → Escribir, Unidad 1 → Expresión escrita).</p>
+  <div>${vosToggle()}</div><div><button class="btn" type="button" id="go">Start the midterm practice exam</button></div></div></div></section>`;
+  const box=$("#mbox");wireVos(box);
+  $("#go").onclick=()=>examRun(box,midtermItems,pMidterm);
+}
+function midtermItems(){
+  const a=[].concat(rep(genSal0,2),rep(genObj0,2),rep(genNum0,3),rep(genCal0,3),rep(genTie0,2),rep(genPai0,2)).map(t=>(t.unit="u0",t));
+  const b=[].concat(rep(genA,3),rep(genB,4),rep(genC,3),rep(genD,3)).map(t=>(t.unit="u1",t));
+  const r=rnd(READ),q=shuffle(r.q.map((x,k)=>k)).slice(0,2).map(k=>Object.assign(genE(r,k),{unit:"u1"}));
+  return shuffle(a.concat(b)).concat(q,[Object.assign(genPro0(),{unit:"u0"})]);
+}
+function examRun(box,make,again){
+  const items=make(),res=[];let k=0;
+  box.innerHTML=`<div class="ebar"><span class="sub" id="eno"></span><div class="prog"><i id="ep"></i></div></div><div class="card"><div class="ritem" id="eit"></div><div><button class="btn" type="button" id="enext" hidden>Next →</button></div></div>`;
+  const nb=$("#enext",box);
+  function show(){
+    hush();nb.hidden=true;$("#eno",box).textContent=`Question ${k+1} of ${items.length}`;$("#ep",box).style.width=(k/items.length*100)+"%";
+    renderItem($("#eit",box),items[k],1,sc=>{res.push({it:items[k],sc});nb.hidden=false;nb.textContent=k===items.length-1?"See my results →":"Next →";setTimeout(()=>nb.focus({preventScroll:true}),30);});
+    window.scrollTo(0,0);
+  }
+  nb.onclick=()=>{k++;if(k<items.length)show();else results(box,res,again);};
+  show();
+}
+function itemKey(it){
+  if(it.kind==="text")return it.key||it.audio||it.blanks.map(b=>b[0]).join(" … ");
+  if(it.kind==="mc")return it.options[it.correct];
+  if(it.kind==="tiles")return it.answers[0].join(" ");
+  return it.model;
+}
+function secInfo(u,sec){const s=UNITS[u].sections.find(x=>x.id===String(sec).toLowerCase());return s?{id:s.id,name:s.name}:{id:"",name:sec};}
+function results(box,res,again){
+  const got=res.filter(x=>x.sc===1).length,pct=Math.round(got/res.length*100);
+  const multi=uniq(res.map(x=>x.it.unit)).length>1;
+  const by={},order=[];res.forEach(x=>{const key=x.it.unit+"|"+x.it.sec;if(!by[key]){by[key]=[0,0];order.push(key);}by[key][1]++;if(x.sc===1)by[key][0]++;});
+  order.sort();
+  const lab=key=>{const [u,s]=key.split("|");const i=secInfo(u,s);return (multi?UNITS[u].name+" · ":"")+i.name;};
+  const link=key=>{const [u,s]=key.split("|");return `#${u}/practicar/${secInfo(u,s).id}`;};
+  const weak=order.filter(k=>by[k][0]<by[k][1]).sort((a,b)=>by[a][0]/by[a][1]-by[b][0]/by[b][1]);
+  const miss=res.filter(x=>x.sc!==1);
+  const strip=it=>it.qtext||plain(it.html.replace(/<div class="(passage|fcast)[\s\S]*?<\/div>(<\/div>)?/g,"").replace(/<p class="small sub"[^>]*>(Vocabulario|Mes)[^<]*<\/p>/g,""));
+  box.innerHTML=`<h2>Resultados</h2>
+  <div class="card"><div class="row" style="gap:24px"><div class="score">${pct}%</div><div><p style="font-size:20px"><b>${got} of ${res.length}</b> correct</p><p class="sub">${pct>=90?"¡Excelente! You're ready.":pct>=75?"¡Muy bien! Review the ones you missed.":"Keep practicing. Focus on the topics below."}</p></div></div>
+  <div class="tbl-wrap"><table><thead><tr><th>Tema</th><th>Correct</th><th></th></tr></thead><tbody>${order.map(k=>`<tr><td><b>${lab(k)}</b></td><td>${by[k][0]} / ${by[k][1]}</td><td>${by[k][0]<by[k][1]?`<a href="${link(k)}">Practice</a>`:"✓"}</td></tr>`).join("")}</tbody></table></div>
+  ${weak.length?`<div class="note">Study next: <b>${weak.slice(0,4).map(lab).join(", ")}</b>. Don't forget to practice writing too.</div>`:`<div class="note">Perfect score! Now practice writing.</div>`}
+  <div class="row"><button class="btn" type="button" id="again">Take another practice exam</button></div></div>
+  ${miss.length?`<div class="card"><h3>Review what you missed</h3><ul class="miss">${miss.map(x=>`<li>${esc(strip(x.it))}<br>Correct answer: <span class="ans es">${esc(itemKey(x.it))}</span></li>`).join("")}</ul></div>`:""}`;
+  $("#again",box).onclick=again;window.scrollTo(0,0);
+}
+
+/* ================= units ================= */
+const SEC1=[
+  {id:"a",name:"Información personal",desc:"Ser, tener and llamarse in complete sentences.",gen:genA,vos:1,intro:`<div class="rule"><strong>Ser · Tener · Llamarse</strong><p>Ser → origin and identity. Tener → age and possession. Llamarse → name (include me / te / se / nos / se).</p><p class="sub">Ser: soy, eres, es, somos, son · Tener: tengo, tienes, tiene, tenemos, tienen · Llamarse: me llamo, te llamas, se llama, nos llamamos, se llaman</p></div>`},
+  {id:"b",name:"Verbos regulares",desc:"Conjugate -ar, -er and -ir verbs in the present.",gen:genB,vos:1,intro:`<div class="rule"><strong>Drop -ar / -er / -ir, keep the stem, add the ending.</strong><p class="sub">-ar: o, as, a, amos, an · -er: o, es, e, emos, en · -ir: o, es, e, imos, en</p></div>`},
+  {id:"c",name:"Los usos de tener",desc:"Age, possession, feelings and tener que + infinitive.",gen:genC,intro:`<div class="rule"><strong>4 uses of tener</strong><p>Age (tiene 14 años) · Possession (tiene un libro) · Feelings (tiene hambre) · Obligation (tiene que + infinitive)</p><p class="sub">${TQ_RULE}</p></div>`},
+  {id:"d",name:"Preguntas y respuestas",desc:"Answer questions, report what someone says, ask questions.",gen:genD,intro:`<div class="rule"><strong>tú → yo → ella</strong><p>Question to a friend uses <b>tú</b> (¿Lees?). Your answer uses <b>yo</b> (Leo). Reporting about someone uses <b>él/ella</b> (Ana lee).</p></div>`},
+  {id:"e",name:"Comprensión de lectura",desc:"Read a short profile and answer questions.",page:pLectura},
+  {id:"f",name:"Expresión escrita",desc:"Write 6–8 sentences about another person.",page:pEscritura},
+  {id:"g",name:"Escuchar",desc:"Listening practice: hear it, understand it, type it.",gen:genG,intro:`<div class="note">Use headphones or low volume. Press <b>Audio: normal</b> at the top to slow it down.</div>`}
+];
+const examItems1=()=>{const r=rnd(READ),qi=shuffle(r.q.map((x,k)=>k)).slice(0,3);return shuffle([].concat(rep(genA,4),rep(genB,5),rep(genC,4),rep(genD,4))).concat(qi.map(k=>genE(r,k)));};
+const UNITS={
+  u0:{name:"Unidad 0",long:"Unidad preliminar",decks:DECKS0,guide:pGuia0,sections:SEC0,exam:examItems0,
+      lead:"Greetings and classroom language, the alphabet, classroom objects, numbers 0–100, days, months, dates, seasons, weather, and Latin American countries.",
+      examTopics:"greetings and classroom language, objects and articles, numbers, the calendar, weather, countries and capitals, and a weather forecast",examNote:"Writing and listening are practiced separately in Practicar."},
+  u1:{name:"Unidad 1",long:"Soy de los Estados Unidos",decks:DECKS1,guide:pGuia1,sections:SEC1,exam:examItems1,
+      lead:"Subject pronouns, ser, tener and llamarse, regular -ar, -er and -ir verbs, the uses of tener, questions and answers, reading and writing.",
+      examTopics:"ser, tener and llamarse, regular verbs, the uses of tener, questions and answers, and reading",examNote:"Writing is practiced separately in Practicar → Expresión escrita."}
+};
+route();
+})();
+</script>
+</body>
+</html>
